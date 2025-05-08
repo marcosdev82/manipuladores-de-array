@@ -1,4 +1,7 @@
-const estaAbaixoDoLimite = (currentValue) => currentValue < 40;
+// O método every() testa se todos os elementos do array passam pelo teste implementado pela função fornecida. 
+// Este método retorna um valor booleano.
+
+const estaAbaixoDoLimite = (currentValue) => currentValue === false;
 
 const array1 = [1, 30, 39, 29, 10, 13];
 
