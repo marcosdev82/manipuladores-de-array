@@ -1,7 +1,7 @@
 
 // O método de ordenação pode convenientemente ser usada com funções anônimas (e closures):
 
-// Ordenar números
+// ORDENA NÚMEROS
 
 var numbers = [4, 2, 5, 1, 3];
 numbers.sort(function (a, b) {
@@ -18,6 +18,7 @@ var list = ["Delta", "alpha", "CHARLIE", "bravo"];
 var mapped = list.map(function (el, i) {
   return { index: i, value: el.toLowerCase() };
 });
+// console.log(mapped); // [ { index: 0, value: 'delta' }, { index: 1, value: 'alpha' }, { index: 2, value: 'charlie' }, { index: 3, value: 'bravo' } ]
 
 // ordenando o array mapeado contendo os dados resumidos
 mapped.sort(function (a, b) {
