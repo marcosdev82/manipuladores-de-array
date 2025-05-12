@@ -1,0 +1,1 @@
+// O método fill() preenche todos os valores do array a partir do índice inicial a um índice final com um valor estático.
