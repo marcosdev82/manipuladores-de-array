@@ -1,23 +1,28 @@
-const arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['a', 'b', 'c', 'd', 'e'];
-const arr3 = ['f', 'g', 'h', 'i', 'j'];
+let alunosTurmaA = ["Ana", "Bruno", "Carlos"];
+let alunosTurmaB = ["Diana", "Eduardo", "Fernanda"];
 
-// console.log(arr.at(0))
-// console.log(arr2.at(-1))
-// ----------------------------------------------------
+// uni os arras alunosTurmaA e alunosTurmaB
+let allAlunos = alunosTurmaA.concat(alunosTurmaB)
+console.log(allAlunos); // ["Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda"]
 
-// crua um novo array com os valores de arr, arr2 e arr3
-// console.log(arr.concat(arr2, arr3))
+// adiciona um aluno ao final do array allAlunos
+allAlunos2 = allAlunos.push('Marcos') // outra forma de inserir - allAlunos.concat('Marcos') // 
+console.log(allAlunos); // ["Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda", "Marcos"]
 
-//-----------------------------------------------------
+// exibrir o primeiro e o último aluno do array allAlunos
+let primeiroALuno = allAlunos[0] // outra forma de pegar - allAlunos.at(0)
+console.log(primeiroALuno); // Ana
 
-console.log(arr.entries()) // Object [Array Iterator] {}
+let ultimoAluno = allAlunos[allAlunos.length - 1] // outra forma de pegar - allAlunos.at(-1)
 
-arrIterator = arr.entries()
-let novoArray = []
-for (let e of arrIterator) {
-  novoArray.push(e)
-}   
-console.log(novoArray)
-// novoArray.concat(arr2)
-// console.log(novoArray.concat(arr2).entries())
+console.log(ultimoAluno); // Marcos
+allAlunos.at(0)
+
+for (let index in allAlunos) {
+  console.log(`Índice ${index}: ${allAlunos[index]}`);
+}
+console.log('------------------');
+
+for (let [aluno, index] of allAlunos.entries()){
+  console.log(`Índice ${index}: ${aluno}`);
+}
