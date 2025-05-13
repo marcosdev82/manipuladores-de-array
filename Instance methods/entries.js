@@ -7,7 +7,7 @@
 
 var arr = ["a", "b", "c"];
 console.log(arr);
-var eArr = arr.entries();
+var eArr = arr.entries(); // retorna um novo objeto Array Iterator que contém os pares chave/valor para cada índice no array
 
 for (let e of eArr) {
   console.log(e);
