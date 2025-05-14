@@ -1,28 +1,26 @@
+// 1. Concatenar as duas listas em uma única lista.
+// 2. Adicionar um novo aluno ao final da lista.
+// 3. Exibir o primeiro e o último aluno da nova lista utilizando `at()`.
+// 4. Iterar sobre a lista usando `for..in`, exibindo o índice e o nome do aluno.
+// 5. Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par.
+
+// 1. Arrays iniciais de alunos
 let alunosTurmaA = ["Ana", "Bruno", "Carlos"];
 let alunosTurmaB = ["Diana", "Eduardo", "Fernanda"];
 
-// uni os arras alunosTurmaA e alunosTurmaB
-let allAlunos = alunosTurmaA.concat(alunosTurmaB)
-console.log(allAlunos); // ["Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda"]
+let todosAlunos = alunosTurmaA.concat(alunosTurmaB)
+console.log(todosAlunos) 
 
-// adiciona um aluno ao final do array allAlunos
-allAlunos2 = allAlunos.push('Marcos') // outra forma de inserir - allAlunos.concat('Marcos') // 
-console.log(allAlunos); // ["Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda", "Marcos"]
+let novoAluno = todosAlunos.push('marcos')
+console.log(todosAlunos) 
+console.log(todosAlunos.at(0))
+console.log(todosAlunos[0])
+console.log(todosAlunos.at(-1))
+console.log(todosAlunos[todosAlunos.length - 1])
 
-// exibrir o primeiro e o último aluno do array allAlunos
-let primeiroALuno = allAlunos[0] // outra forma de pegar - allAlunos.at(0)
-console.log(primeiroALuno); // Ana
-
-let ultimoAluno = allAlunos[allAlunos.length - 1] // outra forma de pegar - allAlunos.at(-1)
-
-console.log(ultimoAluno); // Marcos
-allAlunos.at(0)
-
-for (let index in allAlunos) {
-  console.log(`Índice ${index}: ${allAlunos[index]}`);
+for(let indice in todosAlunos) {
+   console.log(`indice: ${indice}, nome: ${todosAlunos[indice]}`)
 }
-console.log('------------------');
-
-for (let [aluno, index] of allAlunos.entries()){
-  console.log(`Índice ${index}: ${aluno}`);
+for(let [index, nome] of Object.entries(todosAlunos)) {
+  console.log(`indice: ${index}, nome: ${nome}`)
 }
