@@ -1,7 +1,6 @@
 // - Combinar dois arrays usando `concat`
 // - Filtrar elementos com `filter`
 // - Verificar uma condição com `every`
-// - Iterar com `entries`
 // - Adicionar novos elementos com `push`
 
 // Arrays de usuários
@@ -16,3 +15,18 @@ const grupo2 = [
   { nome: 'Marcos', idade: null },
 ];
 
+// - Combinar dois arrays usando `concat`
+let allgrupo = grupo1.concat(grupo2)
+console.log(allgrupo)
+
+// - Filtrar elementos com `filter`
+const idade = allgrupo.filter((pessoa) => pessoa.idade !== null)
+console.log(idade)
+
+// - Verificar uma condição com `every`
+const isNull = idade.every((idade) => idade.idade !== null )
+console.log(isNull)
+
+let novoGrupo = allgrupo.push({nome: 'Fabio', idade: 60})
+console.log(novoGrupo)
+console.log(allgrupo)
