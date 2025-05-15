@@ -16,9 +16,11 @@ const produtos = {
     p03: { nome: "Tênis", preco: 199.9, disponivel: true },
     p04: { nome: "Boné", preco: 49.9, disponivel: true },
 };
+console.log(produtos)
 
 // 1. Obter as **chaves** dos produtos usando `Object.keys()`
 const codigos = Object.keys(produtos);
+console.log(codigos)
 
 // 2. **Filtrar** os produtos disponíveis (`disponivel: true`) usando `filter()`
 const disponivel = codigos.map((codigo) => produtos[codigo])
@@ -33,5 +35,5 @@ console.log(nomes)
 console.log(nomes.sort())
 
 // 5. Usar um **iterator** e `next()` para exibir os nomes um a um
-console.log(produtos.next())
+// console.log(produtos.next())
 
