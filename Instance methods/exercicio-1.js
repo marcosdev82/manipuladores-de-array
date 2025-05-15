@@ -19,7 +19,7 @@ console.log(todosAlunos.at(-1))
 console.log(todosAlunos[todosAlunos.length - 1])
 
 for(let indice in todosAlunos) {
-   console.log(`indice: ${indice}, nome: ${todosAlunos[indice]}`)
+  console.log(`indice: ${indice}, nome: ${todosAlunos[indice]}`)
 }
 for(let [index, nome] of Object.entries(todosAlunos)) {
   console.log(`indice: ${index}, nome: ${nome}`)
