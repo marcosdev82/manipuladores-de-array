@@ -18,3 +18,17 @@ console.log(array1);
 array1.copyWithin(0, 3, 4)
 console.log(array1); // ['a', 'b', 'c', 'a', 'b']
 
+let arr = [1, 2, 3, 4, 5];
+arr.copyWithin(0, 3);
+// Copia os elementos a partir do índice 3 (valor 4) até o fim e cola no início
+
+console.log(arr); // [4, 5, 3, 4, 5]
+
+
+let arr2 = [10, 20, 30, 40, 50];
+arr2.copyWithin(1, 3, 5); 
+// Copia os elementos de índice 3 (40) até 5 (exclusivo), e cola a partir do índice 1
+
+console.log(arr2); // [10, 40, 50, 40, 50]
+
+
