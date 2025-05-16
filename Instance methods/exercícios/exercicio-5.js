@@ -13,7 +13,7 @@ console.log(iterator.next())
 
 
 for (const key of iterator) {
-  console.log(`${key}: ${colors[key]}`);
+    console.log(`${key}: ${colors[key]}`);
 }
 // Output
 // 0: red
