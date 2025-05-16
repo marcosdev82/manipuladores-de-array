@@ -15,3 +15,10 @@ for (let e of eArr) {
 // [0, 'a']
 // [1, 'b']
 // [2, 'c']
+
+
+const dog  = ['🐕', '🐕', '🐕']
+
+const dogChaveValor = Object.entries(dog)
+console.log(dogChaveValor)
+// console.log(Object.keys(dogChaveValor))
