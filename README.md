@@ -178,7 +178,112 @@ Produtos disponíveis:
 
 ---
 
-Se quiser uma versão com prompt para o usuário escolher se deseja ver o próximo item, isso também pode ser implementado.
+# 🛒 Exercício JavaScript: Lista de Compras
 
-posso colocar o readme dentro de diretório separados na mesma aplicação?
+Este exercício propõe o uso de várias funções JavaScript em um contexto prático de **gerenciamento de uma lista de compras**. Ele ajuda a fixar conceitos como manipulação de arrays e strings.
 
+---
+
+## 🎯 Objetivo
+
+Criar um programa simples que manipule uma lista de compras usando:
+
+- `some()`
+- `pop()`
+- `map()`
+- `indexOf()`
+- `lastIndexOf()`
+- `split()`
+- `copyWithin()`
+- `join()`
+
+---
+
+## 📌 Instruções
+
+1. Crie uma string com os seguintes itens separados por vírgula:
+   ```
+   "arroz,feijão,carne,leite,carne,pão"
+   ```
+
+2. Converta essa string para um array usando `split()`.
+
+3. Use `map()` para colocar todos os itens em letras maiúsculas.
+
+4. Use `indexOf()` e `lastIndexOf()` para descobrir a posição do primeiro e do último item "CARNE".
+
+5. Use `some()` para verificar se existe algum item chamado "ARROZ".
+
+6. Use `pop()` para remover o último item da lista.
+
+7. Use `copyWithin()` para copiar os dois primeiros itens para as últimas duas posições do array.
+
+8. Por fim, use `join()` para transformar o array novamente em uma string, separando os itens com `" | "`.
+
+---
+
+## 💻 Código de Exemplo
+
+```javascript
+// Passo 1
+let itens = "arroz,feijão,carne,leite,carne,pão";
+
+// Passo 2
+let lista = itens.split(",");
+
+// Passo 3
+lista = lista.map(item => item.toUpperCase());
+
+// Passo 4
+console.log("indexOf(CARNE):", lista.indexOf("CARNE"));
+console.log("lastIndexOf(CARNE):", lista.lastIndexOf("CARNE"));
+
+// Passo 5
+const temArroz = lista.some(item => item === "ARROZ");
+console.log("Tem ARROZ?", temArroz);
+
+// Passo 6
+lista.pop(); // remove "PÃO"
+
+// Passo 7
+lista.copyWithin(lista.length - 2, 0, 2);
+
+// Passo 8
+const resultadoFinal = lista.join(" | ");
+console.log("Resultado final:", resultadoFinal);
+```
+
+---
+
+## ✅ Saída Esperada
+
+```
+indexOf(CARNE): 2
+lastIndexOf(CARNE): 4
+Tem ARROZ? true
+Resultado final: ARROZ | FEIJÃO | CARNE | LEITE | ARROZ | FEIJÃO
+```
+
+---
+
+## 🧠 Dica
+
+Use o console do navegador ou o Node.js para testar o código. O importante é compreender o que cada função faz no contexto.
+
+---
+
+## 🧩 Desafio Extra
+
+Implemente uma função que adicione um novo item à lista **somente se ele ainda não existir**. Dica: use `includes()` para verificar se o item já está presente.
+
+```js
+function adicionarItem(lista, novoItem) {
+  if (!lista.includes(novoItem.toUpperCase())) {
+    lista.push(novoItem.toUpperCase());
+  }
+}
+```
+
+---
+
+Divirta-se praticando JavaScript! 🚀

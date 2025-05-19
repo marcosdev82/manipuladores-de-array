@@ -14,7 +14,7 @@ Array(3).fill(4); // [4, 4, 4]
 [].fill.call({ length: 3 }, 4); // {0: 4, 1: 4, 2: 4, length: 3}
 
 console.log([1, 2, 3].fill('🍕'))
-console.log(['🐕', '🐕', '🐕'].fill('🐶', 1))
+console.log(['🐕', '🐕', '🐕'].fill('🐶', 1, 2))
 console.log(Array(3).fill(4))
 console.log(Array(3))
 

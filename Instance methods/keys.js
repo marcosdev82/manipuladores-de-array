@@ -11,7 +11,7 @@ var iterator = arr.keys();
 // keys iterator não ignora lacunas
 
 var arr = ["a", , "c"];
-var sparseKeys = Object.keys(arr);
+var sparseKeys = Object.keys(arr); 
 var denseKeys = [...arr.keys()];
 
 console.log(sparseKeys); // [0, 2]

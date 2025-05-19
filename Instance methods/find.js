@@ -1,4 +1,5 @@
-// O método find() retorna o valor do primeiro elemento do array que satisfizer a função de teste provida. Caso contrario, undefined é retornado.
+// O método find() retorna o (valor) do primeiro elemento do array que satisfizer 
+// a função de teste provida. Caso contrario, undefined é retornado.
 
 const array1 = [5, 12, 8, 130, 44];
 
@@ -37,4 +38,4 @@ function isPrime(element, index, array) {
 }
 
 console.log([4, 6, 8, 12].find(isPrime)); // undefined, not found
-console.log([4, 5, 8, 12].find(isPrime)); // 5
+console.log([4, 5, 8, 12].find(isPrime)); // 5 

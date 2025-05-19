@@ -1,5 +1,6 @@
 // substr()
-// O método substr() retorna uma parte da string, começando no índice especificado e estendendo-se por um determinado número de caracteres posteriormente.
+// O método substr() retorna uma parte da string, começando no índice especificado e estendendo-se por 
+// um determinado número de caracteres posteriormente.
 
 const str = "Mozilla";
 
