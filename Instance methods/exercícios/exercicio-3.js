@@ -1,6 +1,6 @@
 // Você tem uma lista de nomes. O objetivo é:
 
-// 1. Exibir cada nome com seu índice.
+// 1. Exibir cada nome com seu índice usando forEach.
 // 2. Verificar se todos os nomes possuem mais de 3 letras usando `every()` . 
 // 3. Ordenar os nomes em ordem alfabética.
 // 4. Exibir o primeiro e o último nome da lista usando `.at()`.
@@ -16,10 +16,6 @@ nomes.forEach((nome, indice) => console.log(`Nome: ${nome}, Indice: ${indice}`))
 // 2. Verificar se todos os nomes possuem mais de 3 letras.
 // let maiorTres = nomes.filter((nome) => nome.length > 3 )
 let maiorTres = nomes.every((nome) => nome.length > 3 )
-
-console.log(maiorTres);
-
-
 
 // 4. Exibir o primeiro e o último nome da lista usando `.at()`.
 console.log(nomes.at(0))

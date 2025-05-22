@@ -18,22 +18,41 @@ const produtos = {
 };
 console.log(produtos)
 
+// // 1. Obter as **chaves** dos produtos usando `Object.keys()`
+// const codigos = Object.keys(produtos);
+// console.log(codigos)
+
+// // 2. **Filtrar** os produtos disponíveis (`disponivel: true`) usando `filter()`
+// const disponivel = codigos.map((codigo) => produtos[codigo])
+// console.log(disponivel)
+// console.log(disponivel.filter((produto) => produto.disponivel == true))
+
+// // 3. Obter apenas os **nomes** dos produtos disponíveis
+// const nomes = disponivel.map((produto) => produto.nome)
+// console.log(nomes)
+
+// // 4. **Ordenar** os nomes em ordem alfabética usando `sort()`
+// console.log(nomes.sort())
+
+// // 5. Usar um **iterator** e `next()` para exibir os nomes um a um
+// // console.log(produtos.next())
+
 // 1. Obter as **chaves** dos produtos usando `Object.keys()`
-const codigos = Object.keys(produtos);
-console.log(codigos)
-
+console.log(Object.keys(produtos))
 // 2. **Filtrar** os produtos disponíveis (`disponivel: true`) usando `filter()`
-const disponivel = codigos.map((codigo) => produtos[codigo])
-console.log(disponivel)
-console.log(disponivel.filter((produto) => produto.disponivel == true))
-
+let disponivel = []
+for(let key in produtos) {
+    disponivel.push(produtos[key])
+}
+console.log(disponivel.filter((produto) => produto.disponivel === true))
 // 3. Obter apenas os **nomes** dos produtos disponíveis
-const nomes = disponivel.map((produto) => produto.nome)
-console.log(nomes)
-
+const produtosNome = disponivel.map((produto) => produto.nome)
+console.log(produtosNome)
 // 4. **Ordenar** os nomes em ordem alfabética usando `sort()`
-console.log(nomes.sort())
-
+console.log(produtosNome.sort())
 // 5. Usar um **iterator** e `next()` para exibir os nomes um a um
-// console.log(produtos.next())
-
+const produtosInterator = produtosNome.entries()
+console.log('---')
+console.log(produtosInterator.next())
+console.log(produtosInterator.next())
+console.log(produtosInterator.next())

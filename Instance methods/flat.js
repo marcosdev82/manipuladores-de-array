@@ -1,5 +1,4 @@
 // O método flat() cria um novo array com todos elementos sub-arrays concatenados nele de forma recursiva até a profundidade especificada.
-
 const arr1 = [0, 1, 2, [3, 4]];
 
 console.log(arr1.flat());

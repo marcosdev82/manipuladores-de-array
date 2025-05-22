@@ -16,16 +16,13 @@ const usuarios = [
 ];
 
 // Encontre o primeiro usuário ativo usando find().
-let usuarioAtivo = usuarios.find((usuario) => usuario.ativo === true )
-console.log(usuarioAtivo)
+console.log(usuarios.find((usuario) => usuario.ativo === true))
 
 // Encontre o índice do primeiro usuário inativo usando findIndex().
-let usuarioInativo = usuarios.findIndex((usuario) => usuario.ativo === false)
-console.log(usuarioInativo)
+console.log(usuarios.findIndex((usuario) => usuario.ativo === false))
 
 // Encontre o último usuário ativo usando findLast().
-let ultimoAtivo = usuarios.findLast((usuario) => usuario.ativo === true)
+console.log(usuarios.findLast((usuario) => usuario.ativo === true))
 
 // Encontre o índice do último usuário inativo usando findLastIndex().
-let ultimoInativo = usuarios.findLastIndex((usuario) => usuario.ativo === false)
-console.log(ultimoInativo)
+console.log(usuarios.findLastIndex((usuario) => usuario.ativo === true ))
