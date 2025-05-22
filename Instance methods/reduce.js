@@ -13,3 +13,13 @@ const sumWithInitial = array1.reduce(
 console.log(sumWithInitial);
 // Expected output: 10
 
+// Soma de valores de um Objeto de array
+var valorInicial = 0;
+var soma = [{ x: 1 }, { x: 2 }, { x: 3 }].reduce(function (
+  acumulador,
+  valorAtual,
+) {
+  return acumulador + valorAtual.x;
+}, valorInicial);
+
+console.log(soma); // retorna 6
