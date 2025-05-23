@@ -86,16 +86,20 @@ const data = [
     },
 ];
 
-// FORMA FEITA POR MIM
-function ocorrencia(categoria) {
-    return categoria.split(' ').some((palavra) => palavra === 'TITULAR')
-}
- 
-console.log(data.filter((categoria) => ocorrencia(categoria.categoria)))
+// // FORMA FEITA POR MIM
+// const ocorrencia = ((categoria) => categoria.split(' ').some((palavra) => palavra === 'COESAS'))
 
-// FORMA SIMPLIFICADA
-const resultado = data.filter(pessoa => 
-  pessoa.categoria.toUpperCase().includes('COESAS')
-)
+// const result = data.filter((categoria) =>  ocorrencia(categoria.categoria) )
+// console.log(result)
 
-console.log(resultado)
+// // FORMA SIMPLIFICADA
+// const resultado = data.filter(pessoa => 
+//   pessoa.categoria.toUpperCase().includes('COESAS')
+// )
+
+// console.log(resultado)
+
+ const resultado = data.filter(pessoa => 
+    pessoa.categoria.includes('COESAS')
+ )
+ console.log(resultado)
