@@ -100,6 +100,6 @@ const data = [
 // console.log(resultado)
 
  const resultado = data.filter(pessoa => 
-    pessoa.categoria.includes('COESAS')
+    pessoa.capitulo.includes('2025')
  )
  console.log(resultado)
