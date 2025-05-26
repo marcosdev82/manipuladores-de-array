@@ -40,3 +40,4 @@ console.log(usuarios.findLast((usuario) => usuario.ativo === true))
 // Encontre o índice do último usuário inativo usando findLastIndex().
 console.log(usuarios.findLastIndex((usuario) => usuario.ativo === false))
 console.log(usuarios.findLastIndex((usuario) => usuario.ativo === false))
+

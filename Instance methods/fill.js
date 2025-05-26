@@ -21,3 +21,5 @@ console.log(Array(3))
 console.log(Array(3))
 console.log(new Array(3))
 console.log([])
+
+console.log(['🐕', '🐕', '🐕','🐶'].fill('🍕', 2 ,3));
