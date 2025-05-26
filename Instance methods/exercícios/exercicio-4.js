@@ -1,4 +1,4 @@
-// ## 💡 Exercício 3: Filtrar produtos disponíveis e listar nomes ordenados
+// ##  Exercício 3: Filtrar produtos disponíveis e listar nomes ordenados
 
 // Você tem um **objeto de produtos**, onde cada chave é um código do produto e o valor é um objeto com `nome`, `preco` e `disponivel`.
 
@@ -37,22 +37,23 @@ console.log(produtos)
 // // 5. Usar um **iterator** e `next()` para exibir os nomes um a um
 // // console.log(produtos.next())
 
-// 1. Obter as **chaves** dos produtos usando `Object.keys()`
-console.log(Object.keys(produtos))
-// 2. **Filtrar** os produtos disponíveis (`disponivel: true`) usando `filter()`
-let disponivel = []
-for(let key in produtos) {
-    disponivel.push(produtos[key])
-}
-console.log(disponivel.filter((produto) => produto.disponivel === true))
-// 3. Obter apenas os **nomes** dos produtos disponíveis
-const produtosNome = disponivel.map((produto) => produto.nome)
-console.log(produtosNome)
-// 4. **Ordenar** os nomes em ordem alfabética usando `sort()`
-console.log(produtosNome.sort())
-// 5. Usar um **iterator** e `next()` para exibir os nomes um a um
-const produtosInterator = produtosNome.entries()
-console.log('---')
-console.log(produtosInterator.next())
-console.log(produtosInterator.next())
-console.log(produtosInterator.next())
+
+// // 1. Obter as **chaves** dos produtos usando `Object.keys()`
+const codigos = Object.keys(produtos)
+console.log(codigos)
+// // 2. **Filtrar** os produtos disponíveis (`disponivel: true`) usando `filter()`
+const disponivel = codigos.map((codigo) => produtos[codigo])
+console.log(disponivel)
+const produtoDisponivel = disponivel.filter((produto) => produto.disponivel === true)
+console.log(produtoDisponivel)
+
+// // 3. Obter apenas os **nomes** dos produtos disponíveis
+ const nomes = produtoDisponivel.map((nome) => nome.nome)
+ console.log(nomes)
+// // 4. **Ordenar** os nomes em ordem alfabética usando `sort()`
+console.log(nomes.sort())
+// // 5. Usar um **iterator** e `next()` para exibir os nomes um a um
+const iterator = nomes.values();
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
