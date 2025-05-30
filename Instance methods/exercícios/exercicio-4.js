@@ -38,22 +38,27 @@ console.log(produtos)
 // // console.log(produtos.next())
 
 
-// // 1. Obter as **chaves** dos produtos usando `Object.keys()`
-const codigos = Object.keys(produtos)
-console.log(codigos)
+// 1. Obter as **chaves** dos produtos usando `Object.keys()`
+const produtosKeys = Object.keys(produtos)
+console.log(produtosKeys)
 
-// // 2. **Filtrar** os produtos disponíveis (`disponivel: true`) usando `filter()`
-const produtosFiltrados = codigos.map((codigo) => produtos[codigo])
-console.log(produtosFiltrados)
-const disponivel = produtosFiltrados.filter((produto) => produto.disponivel === true)
+// 2. **Filtrar** os produtos disponíveis (`disponivel: true`) 
+const produtosMapeados = produtosKeys.map((key) => produtos[key] )
+console.log(produtosMapeados)
+const disponivel = produtosMapeados.filter((produto) => produto.disponivel === true)
 console.log(disponivel)
-// // 3. Obter apenas os **nomes** dos produtos disponíveis
-const nomesProdutos = produtosFiltrados.map((produto) => produto.nome )
+
+// 3. Obter apenas os **nomes** dos produtos disponíveis
+const nomesProdutos = produtosMapeados.map((produto) => produto.nome)
 console.log(nomesProdutos)
-// // 4. **Ordenar** os nomes em ordem alfabética usando `sort()`
-console.log(nomesProdutos.sort())
-// // 5. Usar um **iterator** e `next()` para exibir os nomes um a um
+
+// 4. **Ordenar** os nomes em ordem alfabética usando `sort()`
+nomesProdutos.sort()
+
+// 5. Usar um **iterator** e `next()` para exibir os nomes um a um
 const iterator = nomesProdutos.values()
+console.log(iterator)
+console.log(iterator.next())
 console.log(iterator.next())
 console.log(iterator.next())
 console.log(iterator.next())

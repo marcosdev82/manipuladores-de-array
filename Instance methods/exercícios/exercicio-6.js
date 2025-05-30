@@ -1,4 +1,4 @@
-// ## 📌 Instruções
+// ## Instruções
 
 // 1. Crie uma string com os seguintes itens separados por vírgula:
 //    ```
@@ -57,26 +57,28 @@ const alimentos = "arroz,feijão,carne,leite,carne,pão";
 console.log(alimentos)
 
 // 2. Converta essa string para um array usando `split()`.
-const arrAlimentos = alimentos.split(',');
+const arrAlimentos = alimentos.split(',')
 console.log(arrAlimentos)
+
 // 3. Use `map()` para colocar todos os itens em letras maiúsculas.
-const alimentosUppercase = arrAlimentos.map((alimento) => alimento.toUpperCase())
-console.log(alimentosUppercase)
+const uppercase = arrAlimentos.map((letras) => letras.toUpperCase())
+console.log(uppercase)
 
 // 4. Use `indexOf()` e `lastIndexOf()` para descobrir a posição do primeiro e do último item "CARNE".
-console.log(alimentosUppercase.indexOf('CARNE'))
-console.log(alimentosUppercase.lastIndexOf('CARNE'))
+const ultimoIndex = uppercase.lastIndexOf('PÃO');
+console.log(ultimoIndex)
+const primeiroIndex = uppercase.indexOf('ARROZ');
+console.log(primeiroIndex)
 
 // 5. Use `some()` para verificar se existe algum item chamado "ARROZ".
-console.log(alimentosUppercase.some((alimento) => alimento === 'ARROZ'))
+const algum = arrAlimentos.some((alimento) => alimento === "arroz");
+console.log(algum)
 
 // 6. Use `pop()` para remover o último item da lista.
-console.log(alimentosUppercase.pop())
+const alimentoRemovido = arrAlimentos.pop()
+console.log(alimentoRemovido)
+console.log(arrAlimentos)
 
 // 7. Use `copyWithin()` para copiar os dois primeiros itens para as últimas duas posições do array.
-console.log(alimentosUppercase.copyWithin(2, 1, 3))
-
-// 8. Por fim, use `join()` para transformar o array novamente em uma string, separando os itens com `" | "`.
-console.log(alimentosUppercase.join('|'))
-
-// ---
+const mudaPosicao = arrAlimentos.copyWithin(1, 0, 2)
+console.log(mudaPosicao)

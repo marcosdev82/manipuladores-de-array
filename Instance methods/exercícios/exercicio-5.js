@@ -3,20 +3,21 @@
 const colors = ["red", "yellow", "blue"];
 colors[5] = "purple";
 
-// obter chaves
-const iterator = colors.keys();
-console.log(iterator)
-
-// cria um iterator
-const obtemChave = Object.keys(colors);
-console.log(obtemChave)
-
-// obtem procido 
-// console.log(iterator.next())
-
-for (const key of iterator) {
-    console.log(`${key}: ${colors[key]}`);
+// // obter chaves]
+const keys = colors.keys();
+console.log(colors.keys())
+// // cria um iterator
+for(key of keys) {
+    console.log(colors[key])
 }
+
+// // obtem proximo 
+const iterator = colors.values();
+console.log(iterator.next())
+console.log(iterator.next())
+console.log(iterator.next())
+console.log(iterator.next())
+ 
 // Output
 // 0: red
 // 1: yellow
