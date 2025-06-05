@@ -1,4 +1,4 @@
-// 🎯 Objetivo:
+// Objetivo:
 // Encontre o primeiro usuário ativo usando find().
 
 // Encontre o índice do primeiro usuário inativo usando findIndex().
@@ -27,17 +27,18 @@ const usuarios = [
 // // Encontre o índice do último usuário inativo usando findLastIndex().
 // console.log(usuarios.findLastIndex((usuario) => usuario.ativo === true ))
 
-
 // Encontre o primeiro usuário ativo usando find().
-console.log(usuarios.find((usuario) => usuario.ativo === true))
+const userActive = usuarios.find((user) => user.ativo === true)
+console.log(userActive)
 
 // Encontre o índice do primeiro usuário inativo usando findIndex().
-console.log(usuarios.findIndex((usuario) => usuario.ativo === false))
+const userIndex = usuarios.findIndex((user) => user.ativo === false)
+console.log(userIndex)
 
 // Encontre o último usuário ativo usando findLast().
-console.log(usuarios.findLast((usuario) => usuario.ativo === true))
+const lastUserActive = usuarios.findLast((user) => user.ativo === true)
+console.log(lastUserActive)
 
 // Encontre o índice do último usuário inativo usando findLastIndex().
-console.log(usuarios.findLastIndex((usuario) => usuario.ativo === false))
-console.log(usuarios.findLastIndex((usuario) => usuario.ativo === false))
-
+const lastUserInactive = usuarios.findLastIndex((user) => user.ativo === false)
+console.log(lastUserInactive)
