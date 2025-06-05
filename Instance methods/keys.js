@@ -16,3 +16,14 @@ var denseKeys = [...arr.keys()];
 
 console.log(sparseKeys); // [0, 2]
 console.log(denseKeys); // [0, 1, 2]
+
+var minhaLista = ["anjo", "casa", "mandarim", "medico"];
+
+console.log("minhaLista antes: " + minhaLista);
+// minhaList antes: ['anjo', 'casa', 'mandarim', 'medico']
+var shifted = minhaLista.shift();
+
+console.log("minhaLista depois: " + minhaLista);
+// minhaList depois: ['casa', 'mandarim', 'medico']
+console.log("Elemento removido: " + shifted);
+// Elemento removido: anjo
