@@ -26,20 +26,21 @@ let alunosTurmaB = ["Diana", "Eduardo", "Fernanda"];
 // }
 
 // 1. Concatenar as duas listas em uma única lista.
-const allAlunos = alunosTurmaA.concat(alunosTurmaB)
-console.log(allAlunos)
+const arrAlunos = alunosTurmaA.concat(alunosTurmaB)
+console.log(arrAlunos)
 
 // 2. Adicionar um novo aluno ao final da lista.
-allAlunos.push('Marcos')
-console.log(allAlunos)
+const arrAlunosModificados = arrAlunos.push('Marcos')
+console.log(arrAlunos)
+
 // 3. Exibir o primeiro e o último aluno da nova lista utilizando `at()`.
-console.log(allAlunos.at(0) + ' - ' + allAlunos.at(-1))
+console.log(arrAlunos.at(0))
+console.log(arrAlunos.at(-1))
 
 // 4. Iterar sobre a lista usando `for..in`, exibindo o índice e o nome do aluno.
-for (let key in allAlunos) {
-  console.log(`O indice do(a) ${allAlunos[key]} é ${key}`)
+for(let index in arrAlunos) {
+  console.log(arrAlunos[index])
 }
+
 // 5. Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par.
-for(let [index, nome] of Object.entries(allAlunos)) {
-  console.log([index, nome])
-}
+console.log(Object.entries(arrAlunos))
