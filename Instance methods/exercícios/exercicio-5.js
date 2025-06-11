@@ -2,12 +2,13 @@
 
 const colors = ["red", "yellow", "blue"];
 colors[5] = "purple";
+console.log(colors)
 
 // // obter chaves]
 const keys = colors.keys();
 console.log(colors.keys())
 // // cria um iterator
-for(key of keys) {
+for(let key of keys) {
     console.log(colors[key])
 }
 
