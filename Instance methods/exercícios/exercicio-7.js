@@ -15,30 +15,14 @@ const usuarios = [
   { id: 5, nome: "Eduarda", ativo: false }
 ];
 
-// // Encontre o primeiro usuário ativo usando find().
-// console.log(usuarios.find((usuario) => usuario.ativo === true))
-
-// // Encontre o índice do primeiro usuário inativo usando findIndex().
-// console.log(usuarios.findIndex((usuario) => usuario.ativo === false))
-
-// // Encontre o último usuário ativo usando findLast().
-// console.log(usuarios.findLast((usuario) => usuario.ativo === true))
-
-// // Encontre o índice do último usuário inativo usando findLastIndex().
-// console.log(usuarios.findLastIndex((usuario) => usuario.ativo === true ))
-
 // Encontre o primeiro usuário ativo usando find().
-const userActive = usuarios.find((user) => user.ativo === true)
-console.log(userActive)
+console.log(usuarios.find((usuario) => usuario.ativo === true))
 
 // Encontre o índice do primeiro usuário inativo usando findIndex().
-const userIndex = usuarios.findIndex((user) => user.ativo === false)
-console.log(userIndex)
+console.log(usuarios.findIndex((usuario) => usuario.ativo === false))
 
 // Encontre o último usuário ativo usando findLast().
-const lastUserActive = usuarios.findLast((user) => user.ativo === true)
-console.log(lastUserActive)
+console.log(usuarios.findLast((usuario) => usuario.ativo === true))
 
 // Encontre o índice do último usuário inativo usando findLastIndex().
-const lastUserInactive = usuarios.findLastIndex((user) => user.ativo === false)
-console.log(lastUserInactive)
+console.log(usuarios.findLastIndex((usuario) => usuario.ativo === false))
