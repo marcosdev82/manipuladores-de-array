@@ -99,7 +99,7 @@ const data = [
 
 // console.log(resultado)
 
-const resultado = data.filter(pessoa => 
-    pessoa.categoria.includes('MEMBRO TITULAR')    
-)
-console.log(resultado)
+const result = data.filter(pessoa => {
+    return pessoa.categoria.includes('TITULAR')
+})
+console.log(result)
