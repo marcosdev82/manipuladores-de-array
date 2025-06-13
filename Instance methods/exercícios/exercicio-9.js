@@ -61,3 +61,10 @@ const obj = quadrado.reduce((obj, num) => {
 }, {})
 
 console.log(obj)
+
+// Exercício 4 – Flatten de array
+// Objetivo: Transforme um array de arrays em um único array.
+const arrays = [[1, 2], [3, 4], [5]];
+
+const unicArr = arrays.reduce((acc, curr) => acc.concat(curr), [])
+console.log(unicArr)
