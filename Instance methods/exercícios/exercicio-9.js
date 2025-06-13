@@ -68,3 +68,12 @@ const arrays = [[1, 2], [3, 4], [5]];
 
 const unicArr = arrays.reduce((acc, curr) => acc.concat(curr), [])
 console.log(unicArr)
+
+// Exercício 5 – Contar caracteres em uma string
+// Objetivo: Conte a quantidade de vezes que cada letra aparece.
+const palavra = 'banana';
+const totalCaracteres = [...palavra].reduce((acc, curr) => {
+   acc[curr] = (acc[curr] || 0) + 1 
+   return acc
+} , {})
+console.log(totalCaracteres)
