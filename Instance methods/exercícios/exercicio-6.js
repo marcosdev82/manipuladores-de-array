@@ -24,55 +24,30 @@
 
 
 // 1. Crie uma string com os seguintes itens separados por vírgula:
-// const str = "arroz,feijão,carne,leite,carne,pão"
+const str = "arroz,feijão,carne,leite,carne,pão"
 
 // 2. Converta essa string para um array usando `split()`.
-// const arr = str.split(',');
-// console.log(arr)
+const food = str.split(',')
+console.log(food)
 
 // 3. Use `map()` para colocar todos os itens em letras maiúsculas.
-// const maiusculas = arr.map((palavra) => palavra.toUpperCase())
-// console.log(maiusculas)
+const foodUppercase = food.map((item) => {
+    return item.toUpperCase()
+})
+console.log(foodUppercase)
 
 // 4. Use `indexOf()` e `lastIndexOf()` para descobrir a posição do primeiro e do último item "CARNE".
-// console.log(arr.indexOf('carne')) // retorna o indice da primeira aparição
-// console.log(arr.lastIndexOf('carne')) // retorna o indice da ultima aparição
+console.log(foodUppercase.indexOf('ARROZ'))
+console.log(foodUppercase.lastIndexOf('CARNE'))
 
-// // 5. Use `some()` para verificar se existe algum item chamado "ARROZ".
-// const ocorrencia = arr.some((elemento) => elemento === "arroz")
-// console.log(ocorrencia)
+// 5. Use `some()` para verificar se existe algum item chamado "ARROZ".
+const foodExist = foodUppercase.some((item) => item === "ARROZ")
+console.log(foodExist)
 
-// // 6. Use `pop()` para remover o último item da lista.
-// console.log(arr.pop())
+// 6. Use `pop()` para remover o último item da lista.
+const lastItem = foodUppercase.pop()
+console.log(lastItem, foodUppercase)
 
-// // 7. Use `copyWithin()` para copiar os dois primeiros itens para as últimas duas posições do array.
-// // console.log(arr.copyWithin(1, 3, 4))
-// console.log(arr.join('|'))
-
-
-// 1. Crie uma string com os seguintes itens separados por vírgula:
- const str = "arroz,feijão,carne,leite,carne,pão"
- console.log('String: ' + str)  
-
-// 2. Converta essa string para um array usando `split()`.
- const arrAlimentos = str.split(',')
- console.log(arrAlimentos)
-
- // 3. Use `map()` para colocar todos os itens em letras maiúsculas.
-
- const arrAlimentosUpercase = arrAlimentos.map((alimento) => alimento.toUpperCase())
- console.log(arrAlimentosUpercase)
-
- // 4. Use `indexOf()` e `lastIndexOf()` para descobrir a posição do primeiro e do último item "CARNE".
- console.log(arrAlimentosUpercase.indexOf('CARNE'))
- console.log(arrAlimentosUpercase.lastIndexOf('CARNE'))
-
- // 5. Use `some()` para verificar se existe algum item chamado "ARROZ".
- console.log(arrAlimentosUpercase.some((nome) => nome === "ARROZ"))
-
- // 6. Use `pop()` para remover o último item da lista.
- arrAlimentosUpercase.pop()
- console.log(arrAlimentosUpercase)
-
- // 7. Use `copyWithin()` para copiar os dois primeiros itens para as últimas duas posições do array.
- console.log(arrAlimentosUpercase.copyWithin(3,0,2))
+// 7. Use `copyWithin()` para copiar os dois primeiros itens para as últimas duas posições do array.
+const positionChange = foodUppercase.copyWithin(1, 3, 4)
+console.log(positionChange)
