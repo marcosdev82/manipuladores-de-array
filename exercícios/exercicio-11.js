@@ -35,27 +35,27 @@ const tarefas = [
 // console.log("Tarefas finais:", tarefas);
 
 // 1. Verifique se todas as tarefas foram concluídas (use every)
-const tarefasConluidas = tarefas.every((tarefa) => tarefa.concluida === true)
-console.log(tarefasConluidas)
+const taskCompleted = tarefas.every((task) => task.concluida === true )
+console.log(taskCompleted)
 
 // 2. Encontre o índice da última tarefa não concluída (use findLastIndex)
-console.log(tarefas.findLastIndex((tarefa) => tarefa.concluida === true ))
+const LasTaskCompleted = tarefas.findLastIndex((task) => task.concluida === false )
+console.log(LasTaskCompleted)
 
 // 3. Use reduceRight para criar uma string com os títulos das tarefas em ordem reversa
-const ordemReversa = tarefas.reduceRight((acc, curr) =>  acc + '|' + curr.titulo , '')
-console.log(ordemReversa)
+const taskReverse = tarefas.reduceRight((acc, curr) => acc + " | " + curr.titulo, "")
+console.log(taskReverse)
 
 // 4. Verifique se 'tarefas' é um array (use isArray)
-const verificaArrays = Array.isArray(tarefas)
-console.log(verificaArrays)
+console.log(Array.isArray(tarefas))
 
 // 5. Crie uma nova lista de tamanho 5 e preencha com "Pendente" (use fill e from)
-const list = Array.from({length: 5})
-console.log(list.fill('teste'))
+const list = Array.from({ length: 5 })
+console.log(list)
+console.log(list.fill('🚀'))
 
 // 6. Remova a primeira tarefa usando shift e imprima
-const tarefaRemovida = tarefas.shift()
-console.log(tarefaRemovida, tarefas)
+console.log(tarefas.shift(), tarefas)
 
 // 7. Use while para remover tarefas até que só sobrem 2
 while(tarefas.length > 2) {
