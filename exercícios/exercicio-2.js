@@ -15,19 +15,35 @@ const grupo2 = [
   { nome: 'Marcos', idade: null  },
 ];
 
+// // - Combinar dois arrays usando `concat`
+// const allGupo = grupo1.concat(grupo2)
+// console.log(allGupo)
+
+// // - Filtrar elementos com `filter`
+// const obterIdade = allGupo.filter((pessoa) => pessoa.idade)
+// console.log(obterIdade)
+
+// // - Verificar uma condição com `every`
+// const maioIdade = allGupo.every((pessoa) => pessoa.idade !== null)
+// console.log(maioIdade)
+
+
+// // - Adicionar novos elementos com `push`
+// const newGrupo = allGupo.push({ nome: 'Marcos', idade: 42 })
+// console.log(allGupo)
+
 // - Combinar dois arrays usando `concat`
-const allGupo = grupo1.concat(grupo2)
-console.log(allGupo)
+const allGupos = grupo1.concat(grupo2)
+console.log(allGupos)
 
 // - Filtrar elementos com `filter`
-const obterIdade = allGupo.filter((pessoa) => pessoa.idade)
-console.log(obterIdade)
+const obterIdadeNull = allGupos.filter((pessoa) => pessoa.idade === null)
+console.log(obterIdadeNull)
 
 // - Verificar uma condição com `every`
-const maioIdade = allGupo.every((pessoa) => pessoa.idade !== null)
-console.log(maioIdade)
-
+const isNumber = allGupos.every((pessoa) => typeof pessoa.idade === 'number' )
+console.log(isNumber)
 
 // - Adicionar novos elementos com `push`
-const newGrupo = allGupo.push({ nome: 'Marcos', idade: 42 })
-console.log(allGupo)
+allGupos.push({ nome: 'Marcos', idade: 42 })
+console.log(allGupos)
