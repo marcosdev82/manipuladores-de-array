@@ -43,26 +43,24 @@ const produtos = {
 // console.log(iterator.next())
 // console.log(iterator.next())
 
-
-
 // 1. Obter as **chaves** dos produtos usando `Object.keys()`
-const productKeys = Object.keys(produtos)
-console.log(productKeys)
+const keys = Object.keys(produtos)
+console.log(keys)
 
 // 2. **Filtrar** os produtos disponíveis (`disponivel: true`) usando `filter()`
-const produtosNew = productKeys.map((key) => produtos[key])
-const produtosDisponiveis = produtosNew.filter((produto) => produto.disponivel === true)
-console.log(produtosDisponiveis)
+const produtoDisponivel = keys.map((key) => produtos[key])
+console.log(produtoDisponivel.filter((produto) => produto.disponivel === true))
 
 // 3. Obter apenas os **nomes** dos produtos disponíveis
-const nomes = produtosDisponiveis.map((produto) => produto.nome)
-console.log(nomes)
+const nomesProd = produtoDisponivel.map((produto) => produto.nome)
+console.log(nomesProd)
 
 // 4. **Ordenar** os nomes em ordem alfabética usando `sort()`
-console.log(nomes.sort())
+console.log(nomesProd.sort())
 
 // 5. Usar um **iterator** e `next()` para exibir os nomes um a um
-const iterator = produtosDisponiveis.values()
+const iterator = produtoDisponivel.values()
+console.log(iterator.next())
 console.log(iterator.next())
 console.log(iterator.next())
 console.log(iterator.next())
