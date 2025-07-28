@@ -86,6 +86,12 @@ const data = [
     },
 ];
 
+// Obtenha apenas quem é da categoria titular
+
+const titular = data.filter((associado) => associado.categoria.includes('TITULAR'))
+console.log(titular)
+
+
 // // FORMA FEITA POR MIM
 // const ocorrencia = ((categoria) => categoria.split(' ').some((palavra) => palavra === 'COESAS'))
 
@@ -99,5 +105,5 @@ const data = [
 
 // console.log(resultado)
 
-const result = data.filter((usuario) => usuario.categoria.includes('TITULAR'))
-console.log(result)
+// const result = data.filter((usuario) => usuario.categoria.includes('TITULAR'))
+// console.log(result)
