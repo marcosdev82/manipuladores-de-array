@@ -1,5 +1,6 @@
 // new Array()
-// new Array(element1)
+
+// console.log(new Array(2))
 // new Array(element1, element2)
 // new Array(element1, element2, /* …, */ elementN)
 // new Array(arrayLength)
@@ -13,7 +14,8 @@
 // Construtor de array com um único parâmetro
 // console.log('-------- Construtor de array com um único parâmetro ---------')
 
-const arrayEmpty = new Array(2);
+const arrayEmpty = new Array(5);
+console.log(arrayEmpty)
 
 console.log(arrayEmpty.length); // 2
 console.log(arrayEmpty[0]); // undefined; actually, it is an empty slot
