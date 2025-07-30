@@ -62,70 +62,75 @@
 // }, []);
 // Resultado: [1, 2, 3]
 
+// // 8. Esse script JavaScript tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
 
+// // Cada caractere da string é convertido para letra minúscula.
+
+// // Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
+
+// // Se um caractere aparece mais de uma vez, ele é substituído por ")".
+
+// const string = 'Success';
+
+// const strCode = [...string.toLowerCase()].reduce((acc, char, i, arr) => { // acc = ')())())', char = 'suc', i = 2, arr =  [s,u,c,c,e,s,s]
+//    const symbol = arr.indexOf(char) === arr.lastIndexOf(char) ? '(' : ')' // 2 === 3
+//    return acc + symbol
+// }, '') 
+// console.log(strCode)
 
 // Objetivo: Some todos os números do array.
 const soma = [1, 2, 3, 4, 5];
 
-const somaArray = soma.reduce((acc, curr) => acc + curr, 0)
-console.log(somaArray)
+const somaNum = soma.reduce((plus, num) => plus + num, 0)
+console.log(somaNum)
 
 // // Exercício 2 – Contar ocorrências de uma palavra
 // // Objetivo: Conte quantas vezes a palavra "sim" aparece no array.
 const respostas = ['sim', 'não', 'sim', 'sim', 'não', 'sim'];
 
-const countWords = respostas.reduce((acc, curr) => (curr === 'sim')? acc + 1 : acc, 0)
-console.log(countWords)
+const countOccurence = respostas.reduce((occ, char) => char === 'sim'? occ + 1 : occ, 0)  
+console.log(countOccurence)
 
 // // Exercício 3 – Transformar array em objeto
 // // Objetivo: Transforme o array em um objeto onde a chave é o número e o valor é seu quadrado.
 const numeros2 = [1, 2, 3, 4];
-
-const arrInObj = numeros2.reduce((obj, num) => {
+const obj = numeros2.reduce((obj, num) => {
    obj[num] = num * num
-   return obj;
-}, {})
-console.log(arrInObj)
+   return obj
+} , {})
+console.log(obj)
+
 
 // // Exercício 4 – Flatten de array
 // // Objetivo: Transforme um array de arrays em um único array.
 const arrays = [[1, 2], [3, 4], [5]];
 
-const flatten = arrays.reduce((arr, num) => {
-   return arr.concat(num) 
-}, [])
-console.log(flatten)
+const unicArray = arrays.reduce((arr, value) => arr.concat(value))
+console.log(unicArray)
 
 // // Exercício 5 – Contar caracteres em uma string
 // // Objetivo: Conte a quantidade de vezes que cada letra aparece.
 const palavra = 'banana';
 
-const countLetter = [...palavra].reduce((total, letter) => {
-   total[letter] = (total[letter] || 0) + 1
-   return total;
+const strCountChar = Array.from(palavra).reduce((obj, str) => {
+   obj[str] = (obj[str] || 0) + 1
+   return obj
 }, {})
-console.log(countLetter)
+console.log(strCountChar)
 
 //  6. Agrupar objetos por uma propriedade
 
-const pessoas = [
-   { nome: 'Ana', idade: 20 },
-   { nome: 'João', idade: 20 },
-   { nome: 'Maria', idade: 30 }
-];
-const agrupado = pessoas.reduce((acc, pessoa) => {
-   const chave = pessoa.idade;
-   acc[chave] = acc[chave] || [];
-   acc[chave].push(pessoa);
-   return acc;
-}, {});
+// const pessoas = [
+//    { nome: 'Ana', idade: 20 },
+//    { nome: 'João', idade: 20 },
+//    { nome: 'Maria', idade: 30 }
+// ];
+// const agrupado = pessoas.reduce((acc, pessoa) => {
+//    const chave = pessoa.idade;
+//    acc[chave] = acc[chave] || [];
+//    acc[chave].push(pessoa);
+//    return acc;
+// }, {});
 
-console.log(agrupado)
+// console.log(agrupado)
 
-const string = 'Success';
-
-const strCode = [...string.toLowerCase()].reduce((acc, char, i, arr) => {
-   const symbol = arr.indexOf(char) === arr.lastIndexOf(char) ? '(' : ')';
-   return acc + symbol;
-}, '');
-console.log(strCode)

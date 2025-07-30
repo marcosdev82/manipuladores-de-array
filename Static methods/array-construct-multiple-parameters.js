@@ -6,4 +6,4 @@ console.log(fruits[0]); // "Apple"
 console.log(fruits[2]); // "Laranja"
 console.log(fruits[3]); // undefined
 console.log(fruits); // [ 'Apple', 'Banana', 'Laranja' ]
-console.log(fruits instanceof Array); // true
+console.log(fruits instanceof Object); // true
