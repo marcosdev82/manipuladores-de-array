@@ -56,14 +56,12 @@ const dados = [
   [3, 'Carlos']
 ];
 
-const isNotTwo = dados.filter((pesso) => pesso[0] !== 2)
-console.log(isNotTwo)
-const isNotTwo2 = dados.filter(([id, nome]) => id !== 2)
-console.log(isNotTwo2)
+const diferenteDeDois = dados.filter(([id, pessoa]) => id !== 2) 
+console.log(diferenteDeDois)
 
 // 2. Encontre a Maria usando o Array bidimencional
-const isMaria = dados.find(([id, pessoa]) => pessoa === 'Maria')
-console.log(isMaria)
+const encontreMaria = dados.filter(([id, nome]) => nome === 'Maria')
+console.log(encontreMaria)
 
 // 3. Conectando arrays - produtos a seus usuários
 const usuarios = [
@@ -77,25 +75,9 @@ const produtos = [
   { nome: 'Fone', userId: 1 }
 ];
 
-const productWithUser = produtos.map((produto) => {
-  const user = usuarios.find((user) => user.id === produto.userId)
-  return {...produto, 'usuario': user.nome}
+const userProducts = produtos.map((produto) => {
+  const usuario = usuarios.find((user) => produto.userId === user.id)
+  return {...produto, usuario: usuario?.nome };
 })
-console.log(productWithUser)
 
-// 4. Converter objeto em array
-const obj = { a: 1, b: 2, c: 3 };
-const arr = Object.entries(obj)
-console.log(typeof arr)
-
-// 5. Array de objetos com chave e valor separados
-
-const obj2 = { a: 1, b: 2, c: 3 };
-const arr2 = Object.entries(obj2).map(([key, value]) => ({ key, value }));
-console.log(typeof arr2, arr2);
-// [ { key: 'a', value: 1 }, { key: 'b', value: 2 }, { key: 'c', value: 3 } ]
-
-// 5. Converter array em objeto
-// const array = [['a', 1], ['b', 2], ['c', 3]];
-// const emObjeto = Object.fromEntries(array);
-// console.log('Array em objeto:', emObjeto); // { a: 1, b: 2, c: 3 }
+console.log(userProducts)

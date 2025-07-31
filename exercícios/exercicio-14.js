@@ -41,12 +41,9 @@
 // // </table>
 
 
-// ### ✅ **4. `Object.keys` – Validar preenchimento de formulário**
+// 4. Object.keys` – Validar preenchimento de formulário** - Dado um objeto `formulario`, verifique se 
+// **todos os campos foram preenchidos** (ou seja, não estão vazios). Use `Object.keys()` para iterar dinamicamente.
 
-// **Enunciado:**
-// Dado um objeto `formulario`, verifique se **todos os campos foram preenchidos** (ou seja, não estão vazios). Use `Object.keys()` para iterar dinamicamente.
-
-// ```javascript
 // const formulario = {
 //   nome: "Maria",
 //   email: "",
@@ -113,3 +110,24 @@ tabela.forEach(([key, value]) => {
 });
 html += '</table>';
 console.log(html)
+
+//4. Dado um objeto `formulario`, verifique se **todos os campos foram preenchidos** (ou seja, não estão vazios). Use `Object.keys()` para iterar dinamicamente.
+const formulario = {
+    nome: "Maria",
+    email: "",
+    telefone: "85999999999"
+};
+
+// Escreva uma função que retorna:
+// - true se todos os campos forem preenchidos
+// - false se algum campo estiver vazio
+// 
+
+function formularioPreenchido(formulario) {
+    return Object.keys(formulario).every((campo) => {
+        const valor = formulario[campo];
+        return valor !== ""; // ou mais estrito: valor != null && valor !== ""
+    });
+}
+
+console.log(formularioPreenchido(formulario)); // false
