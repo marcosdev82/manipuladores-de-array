@@ -138,3 +138,15 @@ const agrupar = pessoas.reduce((obj, pessoa) => { // { nome: 'Ana', idade: 20 },
    return obj;
 }, {})
 console.log(agrupar)
+
+// 7. Remover duplicatas
+const comDuplicatas = [1, 2, 2, 3];
+
+
+const newArr = comDuplicatas.reduce((arr, num)=> {
+ 
+   if (!arr.includes(num)) arr.push(num)
+   return arr
+   
+}, [])
+console.log(newArr)
