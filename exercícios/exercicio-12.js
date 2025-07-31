@@ -81,3 +81,11 @@ const userProducts = produtos.map((produto) => {
 })
 
 console.log(userProducts)
+
+// 4. Converter objeto em array
+const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.entries(obj))
+
+// 5. Converter array em objeto
+const array = [['a', 1], ['b', 2], ['c', 3]];
+console.log(Object.fromEntries(array))
