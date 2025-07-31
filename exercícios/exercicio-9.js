@@ -81,56 +81,60 @@
 // Objetivo: Some todos os números do array.
 const soma = [1, 2, 3, 4, 5];
 
-const somaNum = soma.reduce((plus, num) => plus + num, 0)
-console.log(somaNum)
+const sum = soma.reduce((sum, num) => sum + num, 0)
+console.log(sum)
 
-// // Exercício 2 – Contar ocorrências de uma palavra
-// // Objetivo: Conte quantas vezes a palavra "sim" aparece no array.
+// Exercício 2 – Contar ocorrências de uma palavra
+// Objetivo: Conte quantas vezes a palavra "sim" aparece no array.
 const respostas = ['sim', 'não', 'sim', 'sim', 'não', 'sim'];
 
-const countOccurence = respostas.reduce((occ, char) => char === 'sim'? occ + 1 : occ, 0)  
-console.log(countOccurence)
+const totalSim = respostas.reduce((total, word) => word === 'sim' ? total + 1 : total, 0)
+console.log(totalSim)
 
-// // Exercício 3 – Transformar array em objeto
-// // Objetivo: Transforme o array em um objeto onde a chave é o número e o valor é seu quadrado.
+// Exercício 3 – Transformar array em objeto
+// Objetivo: Transforme o array em um objeto onde a chave é o número e o valor é seu quadrado.
 const numeros2 = [1, 2, 3, 4];
+
 const obj = numeros2.reduce((obj, num) => {
    obj[num] = num * num
    return obj
-} , {})
+}, {})
 console.log(obj)
 
-
-// // Exercício 4 – Flatten de array
-// // Objetivo: Transforme um array de arrays em um único array.
+// Exercício 4 – Flatten de array
+// Objetivo: Transforme um array de arrays em um único array.
 const arrays = [[1, 2], [3, 4], [5]];
 
-const unicArray = arrays.reduce((arr, value) => arr.concat(value))
-console.log(unicArray)
+const flatten = arrays.reduce((arr, item) => arr.concat(item), [])
+console.log(flatten)
 
-// // Exercício 5 – Contar caracteres em uma string
-// // Objetivo: Conte a quantidade de vezes que cada letra aparece.
+// Exercício 5 – Contar caracteres em uma string
+// Objetivo: Conte a quantidade de vezes que cada letra aparece.
 const palavra = 'banana';
 
-const strCountChar = Array.from(palavra).reduce((obj, str) => {
-   obj[str] = (obj[str] || 0) + 1
-   return obj
+const countStr = Array.from(palavra).reduce((obj, letter)=> {
+   obj[letter] = (obj[letter] || 0) + 1
+   return obj  
 }, {})
-console.log(strCountChar)
+console.log(countStr)
 
-//  6. Agrupar objetos por uma propriedade
+// 6. Agrupar objetos por uma propriedade 
+//Resultado:
+// {
+//   20: [{nome: 'Ana'...}, {nome: 'João'...}],
+//   30: [{nome: 'Maria'...}]
+// }
 
-// const pessoas = [
-//    { nome: 'Ana', idade: 20 },
-//    { nome: 'João', idade: 20 },
-//    { nome: 'Maria', idade: 30 }
-// ];
-// const agrupado = pessoas.reduce((acc, pessoa) => {
-//    const chave = pessoa.idade;
-//    acc[chave] = acc[chave] || [];
-//    acc[chave].push(pessoa);
-//    return acc;
-// }, {});
+const pessoas = [
+   { nome: 'Ana', idade: 20 },
+   { nome: 'João', idade: 20 },
+   { nome: 'Maria', idade: 30 }
+];
 
-// console.log(agrupado)
-
+const agrupar = pessoas.reduce((obj, pessoa) => { // { nome: 'Ana', idade: 20 },  { nome: 'João', idade: 20 }, { nome: 'Maria', idade: 30 }
+   const idade = pessoa.idade // idade: 20, idade: 20, idade: 30
+   obj[idade] = obj[idade] || [] // []
+   obj[idade].push(pessoa.nome) // { 20: [nome: 'Ana',nome: 'João'], 30: [nome: 'Maria']}
+   return obj;
+}, {})
+console.log(agrupar)
