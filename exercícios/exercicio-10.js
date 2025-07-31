@@ -58,3 +58,14 @@ console.log(abaixoDeCinco)
 // every – Verifique se todos os alunos tiveram nota maior que 4 (ninguém zerou a prova).
 const notaMaior = notas.every( nota => nota > 4)
 console.log(notaMaior)
+
+// includes – Verifique se existe algum aluno tirou nota 10.
+console.log(notas.includes('10'))
+
+// reduce – Calcule a média da turma.
+const media = notas.reduce((soma, nota) => soma + nota, 0)
+console.log(media / notas.length)
+
+// fill – Suponha que a nota do 4º aluno foi perdida. Substitua a nota da posição 3 por 0 usando .fill().
+const novaNota = notas.fill(0,3,4)
+console.log(novaNota)
