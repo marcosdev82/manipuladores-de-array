@@ -45,29 +45,16 @@
 // let novasNotas = notas.fill(0, 3, 4)
 // console.log(novasNotas)
 
-
-
 // filter – Crie um novo array apenas com as notas maiores ou iguais a 7 (alunos aprovados).
 const notas = [8, 7.5, 9, 6, 5.5, 10, 4, 8.5, 6.5, 9.5];
 
-const alunosAprovados = notas.filter((nota) => nota >= 7)
-console.log(alunosAprovados) 
+const maiorIgual = notas.filter(nota => nota >= 7)
+console.log(maiorIgual)
 
 // some – Verifique se algum aluno tirou nota abaixo de 5 (recuperação crítica).
-const recuperacao = notas.some((nota) => nota < 5)
-console.log(recuperacao)
+const abaixoDeCinco = notas.some(nota => nota < 5)
+console.log(abaixoDeCinco)
 
 // every – Verifique se todos os alunos tiveram nota maior que 4 (ninguém zerou a prova).
-const zerouProva = notas.every((nota) => nota > 4)
-console.log(zerouProva)
-
-// includes – Verifique se algum aluno tirou nota 10.
-console.log(notas.includes(10))
-
-// reduce – Calcule a média da turma.
-const media = notas.reduce((media, nota) => media + nota, 0)
-console.log(media / notas.length)
-
-// fill – Suponha que a nota do 4º aluno foi perdida. Substitua a nota da posição 3 por 0 usando .fill().
-const substitua = notas.fill(0, 3, 4)
-console.log(substitua)
+const notaMaior = notas.every( nota => nota > 4)
+console.log(notaMaior)
