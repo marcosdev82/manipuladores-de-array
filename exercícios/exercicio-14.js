@@ -72,3 +72,53 @@ const data = identificador.substr(9,4)
 console.log(data)
 const codigo = identificador.substr(14,7)
 console.log(codigo)
+
+// 2. `flatMap` – Normalizar lista de pedidos com produtos**
+
+// Você tem uma lista de pedidos, e cada pedido tem múltiplos produtos. 
+// Crie um único array com todos os produtos de todos os pedidos, contendo também o ID do pedido.
+
+const pedidos = [
+    { id: 1, produtos: ["Mouse", "Teclado"] },
+    { id: 2, produtos: ["Monitor"] },
+    { id: 3, produtos: ["HD", "SSD"] }
+];
+
+const novaLista = pedidos.flatMap((pedido) => {
+    return pedido.produtos.map((produto) => ({
+        pedidoId: pedido.id, 
+        produto 
+    }))
+})
+console.log(novaLista)
+
+// Use flatMap para gerar:
+// [
+//   { pedidoId: 1, produto: "Mouse" },
+//   { pedidoId: 1, produto: "Teclado" },
+//   ...
+// ]
+
+// 3. Dado o objeto `usuario`, gere uma tabela HTML com as chaves como rótulos e os valores como células. 
+// Use `Object.entries()`.
+
+const usuario = {
+    nome: "João",
+    email: "joao@email.com",
+    idade: 30
+};
+
+const arrUser = Object.entries(usuario);
+console.log(arrUser)
+
+let html = "<table>";
+arrUser.forEach(([value, index]) => {
+    return html += `
+        <tr>
+            <td>${index}</td>
+            <td>${value}</td>
+        </tr>
+    `;
+})
+html += "</table>"
+console.log(html)
