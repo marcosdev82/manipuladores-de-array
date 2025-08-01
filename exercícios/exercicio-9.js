@@ -142,11 +142,18 @@ console.log(agrupar)
 // 7. Remover duplicatas
 const comDuplicatas = [1, 2, 2, 3];
 
+// 8. Esse script tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
 
-const newArr = comDuplicatas.reduce((arr, num)=> {
- 
-   if (!arr.includes(num)) arr.push(num)
-   return arr
-   
-}, [])
-console.log(newArr)
+// Cada caractere da string é convertido para letra minúscula.
+
+// Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
+
+// Se um caractere aparece mais de uma vez, ele é substituído por ")".
+
+const string = 'Success';
+
+const codigoCaractere = [...string.toLowerCase()].reduce((str, char, i, arr) => {
+   let simbol = (arr.indexOf(char) === arr.lastIndexOf(char))? '(' : ')';
+   return str + simbol
+}, '')
+console.log(codigoCaractere)
