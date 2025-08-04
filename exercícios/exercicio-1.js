@@ -28,25 +28,32 @@
 // // 5. Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par.
 // console.log(Object.entries(alunosAll))
 
+
 // 1. Arrays iniciais de alunos
 let alunosTurmaA = ["Ana", "Bruno", "Carlos"];
 let alunosTurmaB = ["Diana", "Eduardo", "Fernanda"];
 
-const todasAsTurmas = alunosTurmaA.concat(alunosTurmaB)
-console.log(todasAsTurmas)
+const turmasAB = alunosTurmaA.concat(alunosTurmaB)
+console.log(turmasAB)
 
 // 2. Adicionar um novo aluno ao final da lista.
-let novaListaAlunos = todasAsTurmas.push("Marcos")
-console.log(todasAsTurmas)
+const turmasABatualizada = turmasAB.push('Marcos')
+console.log(turmasAB)
 
 // 3. Exibir o primeiro e o último aluno da nova lista utilizando `at()`.
-console.log(todasAsTurmas.at(0) + ', ' + todasAsTurmas.at(-1))
+console.log('Último aluno: ' + turmasAB.at(-1))
+console.log('Primeiro aluno: ' + turmasAB.at(0))
+// outra forma
+console.log('--------- outra forma --------')
+
+console.log('Último aluno: ' + turmasAB[turmasAB.length - 1])
+console.log('Primeiro aluno: ' + turmasAB[0])
 
 // 4. Iterar sobre a lista usando `for..in`, exibindo o índice e o nome do aluno.
-for (let key in todasAsTurmas) {
-  console.log(todasAsTurmas[key])
+
+for (let key in turmasAB) {
+    console.log(`Indice: ${key}, Nome: ${turmasAB[key]}`)
 }
 
 // 5. Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par.
-const entries = Object.entries(todasAsTurmas);
-console.log(entries)
+console.log(Object.entries(turmasAB))
