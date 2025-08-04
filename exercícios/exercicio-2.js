@@ -33,17 +33,17 @@ const grupo2 = [
 // console.log(allGupo)
 
 // - Combinar dois arrays usando `concat`
-const allGupos = grupo1.concat(grupo2)
-console.log(allGupos)
+const grupo3 = grupo1.concat(grupo2)
+console.log(grupo3)
 
 // - Filtrar elementos com `filter`
-const obterIdadeNull = allGupos.filter((pessoa) => pessoa.idade === null)
-console.log(obterIdadeNull)
+const notNull = grupo3.filter((pessoa) => pessoa.idade !== null)
+console.log(notNull)
 
 // - Verificar uma condição com `every`
-const isNumber = allGupos.every((pessoa) => typeof pessoa.idade === 'number' )
-console.log(isNumber)
+const menorTrinta = notNull.every((pessoa) => pessoa.idade < 30)
+console.log(menorTrinta)
 
 // - Adicionar novos elementos com `push`
-allGupos.push({ nome: 'Marcos', idade: 42 })
-console.log(allGupos)
+notNull.push({ nome: 'Thiago', idade: 39})
+console.log(notNull)
