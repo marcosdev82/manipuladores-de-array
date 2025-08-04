@@ -182,11 +182,11 @@ const pessoas = [
     { nome: 'Maria', idade: 30 }
 ];
 
-const agrupados = pessoas.reduce((obj, pessoa) =>{
-    const key = pessoa.idade
-    obj[key] = obj[key] || []
-    obj[key].push(pessoa)
+const agrupados = pessoas.reduce((obj, pessoa) =>{ // { nome: 'Ana', idade: 20 },  { nome: 'João', idade: 20 }, { nome: 'Maria', idade: 30 }
+    const key = pessoa.idade // 20/20/30
+    obj[key] = obj[key] || [] // verifcar se a chave existe caso contrário array vazil
+    obj[key].push(pessoa) // push no array
     return obj;
-}, {})
+}, {}) // obj = [ 20: [{ nome: 'Ana', idade: 20 }, { nome: 'João', idade: 20 }],[30: { nome: 'Maria', idade: 30 }]]
 console.log(agrupados)
 
