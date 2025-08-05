@@ -92,6 +92,19 @@
 //   30: [{nome: 'Maria'...}]
 // }
 
+// 3. Ordenar os nomes em ordem alfabética.
+
+// const pessoas2 = [
+//     { nome: "João", idade: 25 },
+//     { nome: "Ana", idade: 19 },
+//     { nome: "Carlos", idade: 32 },
+//     { nome: "Beatriz", idade: 28 }
+// ];
+
+// console.log(pessoas2.sort((a,b) => a.idade - b.idade)) // crescente
+// console.log(pessoas2.sort((a,b) => b.idade - a.idade)) // crescente
+
+
 // -------------------------------------------------
 
 

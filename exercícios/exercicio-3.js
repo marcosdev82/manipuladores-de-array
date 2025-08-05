@@ -26,6 +26,18 @@ const nomes = ["Carlos", "Ana", "Beatriz", "Daniel", "Eduardo"];
 // // 3. Ordenar os nomes em ordem alfabética.
 // console.log(nomes.sort())
 
+
+// const pessoas2 = [
+//     { nome: "João", idade: 25 },
+//     { nome: "Ana", idade: 19 },
+//     { nome: "Carlos", idade: 32 },
+//     { nome: "Beatriz", idade: 28 }
+// ];
+
+// console.log(pessoas2.sort((a,b) => a.idade - b.idade)) // crescente
+// console.log(pessoas2.sort((a,b) => b.idade - a.idade)) // crescente
+
+
 // // 4. Exibir o primeiro e o último nome da lista usando `.at()`.
 // console.log(nomes.at(0), nomes.at(-1))
 
@@ -43,27 +55,42 @@ const nomes = ["Carlos", "Ana", "Beatriz", "Daniel", "Eduardo"];
 // }
 
 // 1. Exibir cada nome com seu índice usando forEach.
-nomes.forEach((value, index) => {
-    console.log(`Value: ${value}, Index: ${index}`)
-});
+nomes.forEach((pessoa, index) => {
+    console.log(`nome: ${pessoa}, index: ${index}`)
+})
 
 // 2. Verificar se todos os nomes possuem mais de 3 letras usando `every()` . 
-console.log(nomes.every((nome) => nome.length > 3))
+console.log(nomes.every((pessoa) => pessoa.length > 3))
+
 
 // 3. Ordenar os nomes em ordem alfabética.
 console.log(nomes.sort())
 
+const pessoas2 = [
+    { nome: "João", idade: 25 },
+    { nome: "Ana", idade: 19 },
+    { nome: "Carlos", idade: 32 },
+    { nome: "Beatriz", idade: 28 }
+];
+
+console.log(pessoas2.sort((a,b) => a.idade - b.idade)) // crescente
+console.log(pessoas2.sort((a,b) => b.idade - a.idade)) // crescente
+
+
 // 4. Exibir o primeiro e o último nome da lista usando `.at()`.
-console.log(nomes.at(0) + ',' + nomes.at(-1))
-console.log(nomes[0] + ',' + nomes[nomes.length - 1])
+console.log(nomes.at(0))
+console.log(nomes.at(-1))
+console.log(nomes[0])
+console.log(nomes[nomes.length - 1])
 
 // 5. Mostrar uma substring com os 3 primeiros caracteres de cada nome.
-console.log(nomes.map((nomes) => nomes.substring(0,3)))
+console.log(nomes.map((nome) => nome.substr(0,3)))
 
 // 6. Reverter a lista e exibi-la.
 console.log(nomes.reverse())
 
 // 7. Exibir cada nome usando `for...of`.
-for(let value of nomes) {
-    console.log(value)
+
+for (let nome of nomes) {
+    console.log(nome)
 }
