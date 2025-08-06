@@ -93,26 +93,16 @@
 // }, {})
 // console.log(agrupados)
 
+
 // 7. Remover duplicatas
 const comDuplicatas = [1, 2, 2, 3];
-const notDuplicate = comDuplicatas.reduce((acc, val,) => {
-   if (!acc.includes(val)) acc.push(val)
-      return acc
-}, [])
-console.log(notDuplicate) 
 
-// 8. Esse script JavaScript tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
+const semDuplicatas = comDuplicatas.reduce((arr, num) => {
+   if(!arr.includes(num)) arr.push(num)
+   return arr
+},[])
+console.log(semDuplicatas) 
 
-// Cada caractere da string é convertido para letra minúscula.
+// diferença de concat e push
 
-// Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
-
-// Se um caractere aparece mais de uma vez, ele é substituído por ")".
-
-const string = 'Success';
-
-const strCode = [...string.toLowerCase()].reduce((str, char, index, arr) => {
-   const symbol = (arr.indexOf(char) === arr.lastIndexOf(char))? '(' : ')'
-   return str + symbol
-}, '')
-console.log(strCode)
+// não modifica o array original, ele retorna um novo array com o valor adicionado
