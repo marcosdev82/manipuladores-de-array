@@ -62,13 +62,13 @@
 // }, []);
 // Resultado: [1, 2, 3]
 
-// // 8. Esse script JavaScript tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
+// 8. Esse script JavaScript tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
 
-// // Cada caractere da string é convertido para letra minúscula.
+// Cada caractere da string é convertido para letra minúscula.
 
-// // Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
+// Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
 
-// // Se um caractere aparece mais de uma vez, ele é substituído por ")".
+// Se um caractere aparece mais de uma vez, ele é substituído por ")".
 
 // const string = 'Success';
 
@@ -78,53 +78,41 @@
 // }, '') 
 // console.log(strCode)
 
-// Objetivo: Some todos os números do array.
-const soma = [1, 2, 3, 4, 5];
-console.log(soma.reduce((acc, curr) => acc + curr))
+//  6. Agrupar objetos por uma propriedade
+// const pessoas = [
+//    { nome: 'Ana', idade: 20 },
+//    { nome: 'João', idade: 20 },
+//    { nome: 'Maria', idade: 30 }
+// ];
 
-// Exercício 2 – Contar ocorrências de uma palavra
-// Objetivo: Conte quantas vezes a palavra "sim" aparece no array.
-const respostas = ['sim', 'não', 'sim', 'sim', 'não', 'sim'];
-console.log(respostas.reduce((count, num) => num === 'sim' ? count + 1 : count , 0))
+// const agrupados = pessoas.reduce((obj, pessoa) => {
+//    const idade = pessoa.idade 
+//    obj[idade] = obj[idade] || [] 
+//    obj[idade].push(pessoa) 
+//    return obj;
+// }, {})
+// console.log(agrupados)
 
-// Exercício 3 – Transformar array em objeto
-// Objetivo: Transforme o array em um objeto onde a chave é o número e o valor é seu quadrado.
-const numeros2 = [1, 2, 3, 4];
+// 7. Remover duplicatas
+const comDuplicatas = [1, 2, 2, 3];
+const notDuplicate = comDuplicatas.reduce((acc, val,) => {
+   if (!acc.includes(val)) acc.push(val)
+      return acc
+}, [])
+console.log(notDuplicate) 
 
-const obj = numeros2.reduce((obj, num) => {
-   obj[num] = num * 2
-   return obj
-}, {})
-console.log(obj)
+// 8. Esse script JavaScript tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
 
-// Exercício 4 – Flatten de array
-// Objetivo: Transforme um array de arrays em um único array.
-const arrays = [[1, 2], [3, 4], [5]];
-console.log(arrays.flat())
-console.log(arrays.reduce((arr, item) => arr.concat(item) ,[]))
+// Cada caractere da string é convertido para letra minúscula.
 
-// Exercício 5 – Contar caracteres em uma string
-// Objetivo: Conte a quantidade de vezes que cada letra aparece.
-const palavra = 'banana';
+// Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
 
-const totalChar = Array.from(palavra).reduce((obj, char) => {
-   obj[char] = (obj[char] || 0) + 1
-   return obj;
-}, {})
-console.log(totalChar)
+// Se um caractere aparece mais de uma vez, ele é substituído por ")".
 
-//  6. Agrupar objetos pela propriedade idade
+const string = 'Success';
 
-const pessoas = [
-   { nome: 'Ana', idade: 20 },
-   { nome: 'João', idade: 20 },
-   { nome: 'Maria', idade: 30 }
-];
-
-const agrupados = pessoas.reduce((obj, pessoa) => {
-   const idade = pessoa.idade
-   obj[idade] = obj[idade] || []
-   obj[idade].push(pessoa)
-   return obj;
-},{})
-console.log(agrupados)
+const strCode = [...string.toLowerCase()].reduce((str, char, index, arr) => {
+   const symbol = (arr.indexOf(char) === arr.lastIndexOf(char))? '(' : ')'
+   return str + symbol
+}, '')
+console.log(strCode)

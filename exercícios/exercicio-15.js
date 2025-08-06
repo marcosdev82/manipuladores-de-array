@@ -203,3 +203,12 @@ const agrupados = pessoas.reduce((obj, pessoa) =>{ // { nome: 'Ana', idade: 20 }
 }, {}) // obj = [ 20: [{ nome: 'Ana', idade: 20 }, { nome: 'João', idade: 20 }],[30: { nome: 'Maria', idade: 30 }]]
 console.log(agrupados)
 
+// 9. Remover duplicatas
+const comDuplicatas = [1, 2, 2, 3];
+const notDuplicate = comDuplicatas.reduce((acc, val,) => {
+    if (!acc.includes(val)) acc.push(val)
+    return acc
+}, [])
+console.log(notDuplicate) 
+
+
