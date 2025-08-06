@@ -88,22 +88,5 @@ const data = [
 
 // Obtenha apenas quem é da categoria titular
 
-const titular = data.filter((associado) => associado.categoria.includes('TITULAR'))
-console.log(titular)
-
-
-// // FORMA FEITA POR MIM
-// const ocorrencia = ((categoria) => categoria.split(' ').some((palavra) => palavra === 'COESAS'))
-
-// const result = data.filter((categoria) =>  ocorrencia(categoria.categoria) )
-// console.log(result)
-
-// // FORMA SIMPLIFICADA
-// const resultado = data.filter(pessoa => 
-//   pessoa.categoria.toUpperCase().includes('COESAS')
-// )
-
-// console.log(resultado)
-
-// const result = data.filter((usuario) => usuario.categoria.includes('TITULAR'))
-// console.log(result)
+const titulares = data.filter((pessoa) => pessoa.categoria.includes('TITULAR'))
+console.log(titulares)
