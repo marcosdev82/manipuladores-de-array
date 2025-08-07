@@ -112,8 +112,65 @@
 // transforme em [[1, 2], [2, 4], [3, 6]] e depois em [1, 2, 2, 4, 3, 6]
 const numeros2 = [1, 2, 3];
 
-const transforme = numeros2.flatMap((num) => {
-    return [[num, num * 2]]
-})
+const transforme = numeros2.flatMap((arr) => [[arr, arr * 2]])
 console.log(transforme)
 console.log(transforme.flat())
+
+// 2. Liste as entradas (chave e valor) do objeto abaixo.
+const produto = { nome: "Notebook", preco: 2500 };
+
+for(let key in produto){
+    console.log(`${key}: ${produto[key]}`)
+}
+
+// 3. `flatMap` – Normalizar lista de pedidos com produtos**
+
+// Você tem uma lista de pedidos, e cada pedido tem múltiplos produtos. Crie um único array com todos os produtos de todos os pedidos, contendo também o ID do pedido.
+
+const pedidos = [
+    { id: 1, produtos: ["Mouse", "Teclado"] },
+    { id: 2, produtos: ["Monitor"] },
+    { id: 3, produtos: ["HD", "SSD"] }
+];
+
+const produtos = pedidos.flatMap((pedido) => {
+    return pedido.produtos.map((produto) => ({
+        pedidoId: pedido.id,
+        produto
+    }))
+})
+console.log(produtos)
+
+// 4. filtrar um array bidimensional onde o id for diferente de 2
+const dados = [
+    [1, 'João'],
+    [2, 'Maria'],
+    [3, 'Carlos']
+];
+
+console.log(dados.filter(([index, value]) => index !== 2))
+
+// 5. Encontre a Maria usando o Array bidimencional
+console.log(dados[1])
+
+console.log(dados.find(([index, value]) => value === 'Maria'))
+console.log(dados.find((pessoa) => pessoa[1] === 'Maria'))
+
+
+// 6. Conectando arrays - produtos a seus usuários
+const usuarios = [
+    { id: 1, nome: 'Ana' },
+    { id: 2, nome: 'Bruno' }
+];
+
+const produtos2 = [
+    { nome: 'Notebook', userId: 1 },
+    { nome: 'Celular', userId: 2 },
+    { nome: 'Fone', userId: 1 }
+];
+
+const listPedidos = produtos2.map((produto) => {
+    const usuario = usuarios.find((usuario) => produto.userId === usuario.id)
+    return {...produto, 'usuario': usuario.nome}
+})
+console.log(listPedidos)
