@@ -92,7 +92,7 @@
 //   30: [{nome: 'Maria'...}]
 // }
 
-// 3. Ordenar os nomes em ordem alfabética.
+// 9. Ordenar os nomes em ordem alfabética.
 
 // const pessoas2 = [
 //     { nome: "João", idade: 25 },
@@ -174,3 +174,44 @@ const listPedidos = produtos2.map((produto) => {
     return {...produto, 'usuario': usuario.nome}
 })
 console.log(listPedidos)
+
+// 7. Converter array em objeto
+const array = [['a', 1], ['b', 2], ['c', 3]];
+
+console.log(Object.fromEntries(array))
+
+const arrayToObject = array.reduce((obj, [index, value]) => {
+    obj[index] = value
+    return obj
+}, {})
+console.log(arrayToObject)
+
+//  8. Agrupar objetos por uma propriedade
+
+const pessoas = [
+    { nome: 'Ana', idade: 20 },
+    { nome: 'João', idade: 20 },
+    { nome: 'Maria', idade: 30 }
+];
+
+const agrupado = pessoas.reduce((obj, pessoa) => {
+    const idade = pessoa.idade
+    obj[idade] = obj[idade] || []
+    obj[idade].push(pessoa)
+    return obj
+}, {})
+console.log(agrupado)
+
+
+// 9. Ordenar os nomes em ordem alfabética e idade.
+
+const pessoas2 = [
+    { nome: "João", idade: 25 },
+    { nome: "Ana", idade: 19 },
+    { nome: "Carlos", idade: 32 },
+    { nome: "Beatriz", idade: 28 }
+];
+
+console.log(pessoas2.sort((a, b) => b.idade - a.idade ))
+const ordenadoPorNomeDesc = pessoas2.sort((a, b) => a.nome.localeCompare(b.nome));
+console.log(ordenadoPorNomeDesc)
