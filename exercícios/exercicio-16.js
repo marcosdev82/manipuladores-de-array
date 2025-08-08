@@ -115,23 +115,25 @@ const estoque = [
 
 // 1. **Remova o primeiro item do array** usando `shift`.
 console.log(estoque.shift())
-console.log(estoque)
-
 // 2. Pegar os 4 primeiros itens restantes
 console.log(estoque.slice(0,4))
 // 3. Ordenar por quantidade (crescente)
-console.log(estoque.sort((a,b) => a.quantidade - b.quantidade))
+console.log(estoque.sort((a, b) => a.quantidade - b.quantidade))
 // 4. Remover o item com menor quantidade
 console.log(estoque.splice(0,1))
 console.log(estoque)
-
 // 5. Verificar se todos têm quantidade > 0
 console.log(estoque.every((produto) => produto.quantidade > 0))
-
 // 6. Mostrar os produtos
-for(let produto of estoque) {
-    console.log(`${produto.nome}`)
-}
+estoque.forEach((produto) => {
+    console.log(`Produto: ${produto.nome}`)
+})
 // 7. Somar as quantidades com reduceRight
-const total = estoque.reduceRight((total, produto) => total + produto.quantidade, 0)
+const total = estoque.reduceRight((total, produto) => total + produto.quantidade, 0);
 console.log(total)
+// 8. Contagem regressiva com while
+let contador = total
+while(contador > 0) {
+    console.log(contador)
+    contador -= total
+}
