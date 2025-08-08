@@ -71,6 +71,18 @@
 //     return obj
 // }, {}))
 
+// const obj2 = {}
+// for(let key in array) {
+//     obj2[array[key][0]] = array[key][1]
+// }
+// console.log(obj2)
+
+// const obj3 = {}
+// for(let v of array) {
+//     obj3[v[0]] = v[1]
+// }
+// console.log(obj3)
+
 // //  8. Agrupar objetos por uma propriedade
 
 // const pessoas = [
@@ -92,7 +104,7 @@
 //   30: [{nome: 'Maria'...}]
 // }
 
-// 9. Ordenar os nomes em ordem alfabética.
+// 9. Ordenar os nomes em ordem alfabética e idade.
 
 // const pessoas2 = [
 //     { nome: "João", idade: 25 },
@@ -102,7 +114,7 @@
 // ];
 
 // console.log(pessoas2.sort((a,b) => a.idade - b.idade)) // crescente
-// console.log(pessoas2.sort((a,b) => b.idade - a.idade)) // crescente
+// console.log(pessoas2.sort((a,b) => a.nome.localeCompare(b.nome)))
 
 
 // -------------------------------------------------
@@ -112,20 +124,23 @@
 // transforme em [[1, 2], [2, 4], [3, 6]] e depois em [1, 2, 2, 4, 3, 6]
 const numeros2 = [1, 2, 3];
 
-const transforme = numeros2.flatMap((arr) => [[arr, arr * 2]])
-console.log(transforme)
-console.log(transforme.flat())
+const arrQuadrado = numeros2.flatMap((arr) => {
+    return [[arr, arr * 2]]
+})
+console.log(arrQuadrado)
+console.log(arrQuadrado.flat())
+
 
 // 2. Liste as entradas (chave e valor) do objeto abaixo.
 const produto = { nome: "Notebook", preco: 2500 };
 
-for(let key in produto){
-    console.log(`${key}: ${produto[key]}`)
+for (let [key, value] of Object.entries(produto)) {
+    console.log(`${key}: ${value}`)
 }
 
 // 3. `flatMap` – Normalizar lista de pedidos com produtos**
-
-// Você tem uma lista de pedidos, e cada pedido tem múltiplos produtos. Crie um único array com todos os produtos de todos os pedidos, contendo também o ID do pedido.
+// Você tem uma lista de pedidos, e cada pedido tem múltiplos produtos. Crie um único array com todos os produtos de todos os pedidos, 
+// contendo também o ID do pedido.
 
 const pedidos = [
     { id: 1, produtos: ["Mouse", "Teclado"] },
@@ -135,11 +150,12 @@ const pedidos = [
 
 const produtos = pedidos.flatMap((pedido) => {
     return pedido.produtos.map((produto) => ({
-        pedidoId: pedido.id,
-        produto
+        id: pedido.id,
+        produto,
     }))
 })
 console.log(produtos)
+
 
 // 4. filtrar um array bidimensional onde o id for diferente de 2
 const dados = [
@@ -148,14 +164,10 @@ const dados = [
     [3, 'Carlos']
 ];
 
-console.log(dados.filter(([index, value]) => index !== 2))
+console.log(dados.filter(([k,v]) => k !== 2 ))
 
 // 5. Encontre a Maria usando o Array bidimencional
-console.log(dados[1])
-
-console.log(dados.find(([index, value]) => value === 'Maria'))
-console.log(dados.find((pessoa) => pessoa[1] === 'Maria'))
-
+console.log(dados.find(([k,v]) => v === "Maria"))
 
 // 6. Conectando arrays - produtos a seus usuários
 const usuarios = [
@@ -169,22 +181,32 @@ const produtos2 = [
     { nome: 'Fone', userId: 1 }
 ];
 
-const listPedidos = produtos2.map((produto) => {
-    const usuario = usuarios.find((usuario) => produto.userId === usuario.id)
-    return {...produto, 'usuario': usuario.nome}
-})
-console.log(listPedidos)
+const prodPedidos = produtos2.map((produto) => {
+    const prodUser = usuarios.find((user) => user.id === produto.userId)
+    return {...produto, 'usuario': prodUser} 
+}) 
+console.log(prodPedidos)
 
 // 7. Converter array em objeto
 const array = [['a', 1], ['b', 2], ['c', 3]];
-
 console.log(Object.fromEntries(array))
-
-const arrayToObject = array.reduce((obj, [index, value]) => {
-    obj[index] = value
+const obj = array.reduce((obj, arr) => {
+    obj[arr[0]] = arr[1]
     return obj
 }, {})
-console.log(arrayToObject)
+console.log(obj)
+
+const obj2 = {}
+for(let key in array) {
+    obj2[array[key][0]] = array[key][1]
+}
+console.log(obj2)
+
+const obj3 = {}
+for(let v of array) {
+    obj3[v[0]] = v[1]
+}
+console.log(obj3)
 
 //  8. Agrupar objetos por uma propriedade
 
@@ -198,12 +220,12 @@ const agrupado = pessoas.reduce((obj, pessoa) => {
     const idade = pessoa.idade
     obj[idade] = obj[idade] || []
     obj[idade].push(pessoa)
-    return obj
+    return obj;
 }, {})
 console.log(agrupado)
 
 
-// 9. Ordenar os nomes em ordem alfabética e idade.
+// 9. Ordenar os nomes em ordem alfabética.
 
 const pessoas2 = [
     { nome: "João", idade: 25 },
@@ -212,6 +234,4 @@ const pessoas2 = [
     { nome: "Beatriz", idade: 28 }
 ];
 
-console.log(pessoas2.sort((a, b) => b.idade - a.idade ))
-const ordenadoPorNomeDesc = pessoas2.sort((a, b) => a.nome.localeCompare(b.nome));
-console.log(ordenadoPorNomeDesc)
+console.log(pessoas2.sort((a,b) => a.nome.localeCompare(b.nome)))
