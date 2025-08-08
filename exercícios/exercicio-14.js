@@ -64,29 +64,34 @@
 // * `0712` é a data (mês + dia),
 // * `NM12345` é o código do usuário.
 
-const identificador = 'USR-2025-0712-NM12345'
+const identificador = "USR-2025-0712-NM12345"
+const ano = identificador.substring(4, 8)
+const data = identificador.substring(9, 13)
+const cod = identificador.substring(15, 21)
 
-console.log(`ano:  ${identificador.substr(4,4)}`)
-console.log(`data:  ${identificador.substr(9,4)}`)
-console.log(`código:  ${identificador.substr(14,7)}`)
+console.log(`
+    Ano: ${ano},
+    Data: ${data},
+    Código: ${cod}
+`)
 
 // 2. `flatMap` – Normalizar lista de pedidos com produtos**
 
-// Você tem uma lista de pedidos, e cada pedido tem múltiplos produtos. Crie um único array com todos os produtos de todos os pedidos, contendo também o ID do pedido.
-
+// Você tem uma lista de pedidos, e cada pedido tem múltiplos produtos. 
+// Crie um único array com todos os produtos de todos os pedidos, contendo também o ID do pedido.
 const pedidos = [
     { id: 1, produtos: ["Mouse", "Teclado"] },
     { id: 2, produtos: ["Monitor"] },
     { id: 3, produtos: ["HD", "SSD"] }
 ];
 
-const arrPedidos = pedidos.flatMap((pedido) => {
-    return pedido.produtos.map(produto => ({
-        pedidoId: pedido.id,
-        produto: produto
+const produtos = pedidos.flatMap((pedido)=> {
+    return pedido.produtos.map((produto) => ({
+        'pedido': pedido.id,
+        produto
     }))
 })
-console.log(arrPedidos)
+console.log(produtos)
 
 // 3. Dado o objeto `usuario`, gere uma tabela HTML com as chaves como rótulos e os valores como células. Use `Object.entries()`.
 
@@ -96,16 +101,14 @@ const usuario = {
     idade: 30
 };
 
-let html = `<table>`
-    Object.entries(usuario).forEach(([key, value]) => {
-        html += `
+let htmlTable = `<table>`;
+    for(let key in usuario) {
+        htmlTable += `
             <tr>
                 <td>${key}</td>
-                <td>${value}</td>
+                <td>${usuario[key]}</td>
             </tr>
         `
-    })
-html += `</table>`
-console.log(html)
-
-
+    }
+htmlTable += `</table>`;
+console.log(htmlTable)
