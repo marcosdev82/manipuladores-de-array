@@ -102,6 +102,12 @@
 // }
 // ```
 
+// const pares = [['nome', 'Ana'], ['idade', 25]];
+// const obj = pares.reduce((acc, [chave, valor]) => {
+//   acc[chave] = valor;
+//   return acc;
+// }, {});
+
 // ---------------------------------------
 
 const estoque = [
