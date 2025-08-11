@@ -87,6 +87,5 @@ const data = [
 ];
 
 // Obtenha apenas quem é da categoria titular
-
-const titulares = data.filter((pessoa) => pessoa.categoria.includes('TITULAR'))
-console.log(titulares)
+const categoria = data.filter((pessoa) => pessoa.categoria.includes('TITULAR'))
+console.log(categoria)
