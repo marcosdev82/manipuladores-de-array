@@ -1,9 +1,9 @@
-const tarefas = [
-    { titulo: "Estudar JavaScript", concluida: true },
-    { titulo: "Ler documentação", concluida: false },
-    { titulo: "Fazer exercícios", concluida: true },
-    { titulo: "Revisar código", concluida: true }
-];
+// const tarefas = [
+//     { titulo: "Estudar JavaScript", concluida: true },
+//     { titulo: "Ler documentação", concluida: false },
+//     { titulo: "Fazer exercícios", concluida: true },
+//     { titulo: "Revisar código", concluida: true }
+// ];
 
 // // 1. Verifique se todas as tarefas foram concluídas
 // const todasConcluidas = tarefas.every(tarefa => tarefa.concluida);
@@ -14,7 +14,6 @@ const tarefas = [
 // console.log("Última não concluída no índice:", ultimaNaoConcluida);
 
 // // 3. Use reduceRight para criar uma string com os títulos das tarefas em ordem reversa
-// const titulosReversos = tarefas.reduceRight((acc, tarefa) => acc + " | " + tarefa.titulo, "");
 // const orderTitle = tarefas.reduceRight((string, titulo) => {
 //     return  string + (string ? ' , ' : '') + titulo.titulo
 // },  '')
@@ -37,13 +36,20 @@ const tarefas = [
 // }
 // console.log("Tarefas finais:", tarefas);
 
+
+
+const tarefas = [
+    { titulo: "Estudar JavaScript", concluida: true },
+    { titulo: "Ler documentação", concluida: false },
+    { titulo: "Fazer exercícios", concluida: true },
+    { titulo: "Revisar código", concluida: true }
+];
+
 // 1. Verifique se todas as tarefas foram concluídas
-const concluded = tarefas.every((task) => task.concluida === true)
-console.log(concluded)
+console.log(tarefas.every((tarefa) => tarefa.concluida === true))
 
 // 2. Encontre o índice da última tarefa não concluída
-const lasIndex = tarefas.findLastIndex((task) => task.concluida === true)
-console.log(lasIndex)
+console.log(tarefas.findLastIndex((tarefa)=> tarefa.concluida === false))
 
 // 3. Use reduceRight para criar uma string com os títulos das tarefas em ordem reversa
 const orderTitle = tarefas.reduceRight((string, titulo) => {
@@ -55,12 +61,11 @@ console.log(orderTitle)
 console.log(Array.isArray(tarefas))
 
 // 5. Crie uma nova lista de tamanho 5 e preencha com "Pendente"
-const slot = new Array(5);
-console.log(slot.fill('pendente'))
+console.log(Array(5).fill('pendente'))
 
 // 6. Remova a primeira tarefa e imprima
-const tarefaRemovida = tarefas.shift()
-console.log(tarefaRemovida)
+console.log(tarefas)
+console.log(tarefas.shift())
 console.log(tarefas)
 
 // 7. Use while para remover tarefas até que só sobrem 2
