@@ -89,3 +89,15 @@ const data = [
 // Obtenha apenas quem é da categoria titular
 const categoria = data.filter((pessoa) => pessoa.categoria.includes('TITULAR'))
 console.log(categoria)
+
+// var data_valid = new Date("2025-12-31T12:00:00");
+// var milissegundos = data_valid.getTime();
+
+// console.log(milissegundos);
+
+
+// obternha apenas data 
+// const data = data.filter((pessoa) => pessoa.data_validade === )
+
+// var agora = Date.now();
+// console.log(agora);

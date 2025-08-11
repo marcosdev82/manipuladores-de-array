@@ -78,31 +78,83 @@
 // }, '') 
 // console.log(strCode)
 
-//  6. Agrupar objetos por uma propriedade
-// const pessoas = [
-//    { nome: 'Ana', idade: 20 },
-//    { nome: 'João', idade: 20 },
-//    { nome: 'Maria', idade: 30 }
-// ];
 
-// const agrupados = pessoas.reduce((obj, pessoa) => {
-//    const idade = pessoa.idade 
-//    obj[idade] = obj[idade] || [] 
-//    obj[idade].push(pessoa) 
-//    return obj;
-// }, {})
-// console.log(agrupados)
+// -----------------------------------------
+
+// Exercício 1 – Soma de Números
+// Objetivo: Some todos os números do array.
+let numeros1 = [1, 2, 3, 4, 5];
+console.log(numeros1.reduce((total, num) => total + num, 0))
+
+// Exercício 2 – Contar ocorrências de uma palavra
+// Objetivo: Conte quantas vezes a palavra "sim" aparece no array.
+const respostas = ['sim', 'não', 'sim', 'sim', 'não', 'sim'];
+console.log(respostas.reduce((total, word) => (word === 'sim')? total + 1 : total, 0))
+
+// Exercício 3 – Transformar array em objeto
+// Objetivo: Transforme o array em um objeto onde a chave é o número e o valor é seu quadrado.
+const numeros2 = [1, 2, 3, 4];
+const objetoQuadrados = numeros2.reduce((obj, num) => {
+   obj[num] = num * num
+   return obj;
+}, {})
+console.log(objetoQuadrados)
+
+// Exercício 4 – Flatten de array
+// Objetivo: Transforme um array de arrays em um único array.
+const arrays = [[1, 2], [3, 4], [5]];
+const unicArray = arrays.reduce((arr, item)=> arr.concat(item))
+console.log(unicArray)
+console.log(arrays.flat())
+
+// Exercício 5 – Contar caracteres em uma string
+// Objetivo: Conte a quantidade de vezes que cada letra aparece.
+const palavra = 'banana';
+const totalChar = [...palavra].reduce((obj, char)=> {
+   obj[char] = (obj[char] || 0) + 1
+   return obj;
+}, {})
+console.log(totalChar)
+
+// 6. Agrupar objeto pela propriedade idade
+
+const pessoas = [
+   { nome: 'Ana', idade: 20 },
+   { nome: 'João', idade: 20 },
+   { nome: 'Maria', idade: 30 }
+];
+
+const agrupados = pessoas.reduce((grupo, pessoa) => {
+   const idade = pessoa.idade; 
+   grupo[idade] = grupo[idade] || [] 
+   grupo[idade].push(pessoa) 
+   return grupo
+}, {}) 
+console.log(agrupados)
 
 
 // 7. Remover duplicatas
 const comDuplicatas = [1, 2, 2, 3];
 
-const semDuplicatas = comDuplicatas.reduce((arr, num) => {
-   if(!arr.includes(num)) arr.push(num)
-   return arr
-},[])
-console.log(semDuplicatas) 
+const notDuplicate = comDuplicatas.reduce((arr, num) => { 
+   if (!arr.includes(num)) arr.push(num)
+   return arr;
+}, [])
+console.log(notDuplicate)
 
-// diferença de concat e push
 
-// não modifica o array original, ele retorna um novo array com o valor adicionado
+// 8. Esse script JavaScript tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
+// Cada caractere da string é convertido para letra minúscula.
+// Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
+// Se um caractere aparece mais de uma vez, ele é substituído por ")".
+
+const string = 'Success';
+
+
+const caracteres = [...string.toLowerCase()]
+
+const parseForChar = caracteres.reduce((str, char, index, arr) => {
+   const simbol = (arr.indexOf(char) !== arr.lastIndexOf(char))? '(' : ')'
+   return simbol + str
+}, '')
+console.log(parseForChar)
