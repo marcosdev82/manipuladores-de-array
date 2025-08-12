@@ -124,17 +124,20 @@
 // transforme em [[1, 2], [2, 4], [3, 6]] e depois em [1, 2, 2, 4, 3, 6]
 const numeros2 = [1, 2, 3];
 
-const transforme = numeros2.flatMap((arr) => [[arr, arr * 2]])
-console.log(transforme)
-console.log(transforme.flat())
+const transformar = numeros2.flatMap((num) => [[num, num * 2]])
+console.log(transformar)
+console.log(transformar.flat())
 
 // 2. Liste as entradas (chave e valor) do objeto abaixo.
 const produto = { nome: "Notebook", preco: 2500 };
-for (let key in produto) {
+
+for(let key in produto) {
     console.log(`${key}: ${produto[key]}`)
 }
+// console.log(Array.entries(produto))
 
 // 3. `flatMap` – Normalizar lista de pedidos com produtos**
+
 // Você tem uma lista de pedidos, e cada pedido tem múltiplos produtos. 
 // Crie um único array com todos os produtos de todos os pedidos, contendo também o ID do pedido.
 
@@ -144,13 +147,13 @@ const pedidos = [
     { id: 3, produtos: ["HD", "SSD"] }
 ];
 
-const produtosNormalizados = pedidos.flatMap((pedido) => {
+const produtos2 =  pedidos.flatMap((pedido) => {
     return pedido.produtos.map((produto) => ({
-        pedidoId: pedido.id,
-        produto   
+        pedido: pedido.id,
+        produto
     }))
-}, {})
-console.log(produtosNormalizados)
+}) 
+console.log(produtos2)
 
 // 4. filtrar um array bidimensional onde o id for diferente de 2
 const dados = [
@@ -159,12 +162,7 @@ const dados = [
     [3, 'Carlos']
 ];
 
-console.log(dados.filter(([index, value]) => index !== 2))
-console.log(dados.filter((value) => value[0] !== 2))
-
-// 5. Encontre a Maria usando o Array bidimencional
-console.log(dados.filter(([index, nome])=> nome === 'Maria'))
-
+console.log(dados.filter(([id, nome]) => id !== 2))
 
 // 6. Conectando arrays - produtos a seus usuários
 const usuarios = [
@@ -178,46 +176,24 @@ const produtos = [
     { nome: 'Fone', userId: 1 }
 ];
 
-const arrPedidos = produtos.map((produto) => {
+const carrinho = produtos.map((produto) => {
     const usuario = usuarios.find((usuario) => usuario.id === produto.userId)
-    return {...produto, 'usuario': usuario?.nome}
+    return { ...produto, usuario}
 })
-console.log(arrPedidos)
-
-// 7. Converter array em objeto
-const array = [['a', 1], ['b', 2], ['c', 3]];
-console.log(Object.fromEntries(array))
-
-const arrInObj = array.reduce((obj, itens) => {
-    obj[itens[0]] = itens[1]
-    return obj;
-}, {})
-console.log(arrInObj)
+console.log(carrinho)
 
 //  8. Agrupar objetos por uma propriedade
+
 const pessoas = [
     { nome: 'Ana', idade: 20 },
     { nome: 'João', idade: 20 },
     { nome: 'Maria', idade: 30 }
 ];
 
-const agrupados = pessoas.reduce((obj, pessoa) => {
-    
-        const idade = pessoa.idade
-        obj[idade] = obj[idade] || []
-        obj[idade].push(pessoa)
-        return obj;
-
+const agrupado = pessoas.reduce((obj, pessoa) => {
+    const idade = pessoa.idade
+    obj[idade] = obj[idade] || []
+    obj[idade].push(pessoa)
+    return obj
 }, {})
-
-console.log(agrupados)
-
-// 9. Ordenar os nomes em ordem alfabética e idade.
-const pessoas2 = [
-    { nome: "João", idade: 25 },
-    { nome: "Ana", idade: 19 },
-    { nome: "Carlos", idade: 32 },
-    { nome: "Beatriz", idade: 28 }
-];
-
-console.log(pessoas2.sort((a, b) => a.nome.localeCompare(b.nome)))
+console.log(agrupado)
