@@ -47,16 +47,12 @@ const tarefas = [
 
 // 1. Verifique se todas as tarefas foram concluídas
 console.log(tarefas.every((tarefa) => tarefa.concluida === true))
-
 // 2. Encontre o índice da última tarefa não concluída
-console.log(tarefas.findLastIndex((tarefa)=> tarefa.concluida === false))
-
+console.log(tarefas.findLastIndex((tarefa) => tarefa.concluida === false))
 // 3. Use reduceRight para criar uma string com os títulos das tarefas em ordem reversa
-const orderTitle = tarefas.reduceRight((string, titulo) => {
-    return  string + (string ? ' , ' : '') + titulo.titulo
-},  '')
-console.log(orderTitle)
-
+console.log(tarefas.reduceRight((str, tarefa)=> {
+    return (str)? str + ',' + tarefa.titulo : tarefa.titulo 
+},''))
 // 4. Verifique se 'tarefas' é um array
 console.log(Array.isArray(tarefas))
 
@@ -64,7 +60,6 @@ console.log(Array.isArray(tarefas))
 console.log(Array(5).fill('pendente'))
 
 // 6. Remova a primeira tarefa e imprima
-console.log(tarefas)
 console.log(tarefas.shift())
 console.log(tarefas)
 
