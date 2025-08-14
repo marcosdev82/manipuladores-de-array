@@ -80,3 +80,23 @@
 // ```
 
 // --------------------------------------------------------------------
+
+// ### 💻 Estrutura base (em todos os exercícios):
+
+
+const produtos = [
+    { id: 1, nome: 'Notebook', preco: 3500, estoque: 12 },
+    { id: 2, nome: 'Smartphone', preco: 2200, estoque: 0 },
+    { id: 3, nome: 'Monitor', preco: 1200, estoque: 7 },
+    { id: 4, nome: 'Teclado', preco: 150, estoque: 24 },
+    { id: 5, nome: 'Mouse', preco: 100, estoque: 30 },
+];
+
+
+// Exercício 1 — Usando `.some()`
+
+// Verifique se existe algum produto sem estoque e retorne uma mensagem apropriada.
+
+const semEstoque = produtos.some((produto) => produto.estoque === 0 )
+const mensagem = (semEstoque)? 'Pelo menos um produto não tem estoque' : 'Não há produtos sem estoque'
+console.log(mensagem)
