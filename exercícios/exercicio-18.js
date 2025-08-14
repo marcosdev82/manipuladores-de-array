@@ -100,3 +100,36 @@ const produtos = [
 const semEstoque = produtos.some((produto) => produto.estoque === 0 )
 const mensagem = (semEstoque)? 'Pelo menos um produto não tem estoque' : 'Não há produtos sem estoque'
 console.log(mensagem)
+
+// ## 🔄 Exercício 2 — Usando `.map()`
+
+// **Crie um novo array com os produtos, incluindo uma nova propriedade chamada `disponivel`, 
+// que será `true` se o estoque for maior que 0.**
+
+const produtosDisponiveis = produtos.map((produto) => ({
+    ...produto,
+    disponivel: produto.estoque > 0
+}))
+console.log(produtosDisponiveis)
+
+// ## ⛔ Exercício 3 — Usando `break`
+
+// **Percorra os produtos com um `for` e pare a execução quando encontrar o primeiro produto com estoque 0. 
+// Exiba seu nome.**
+
+for(let produto of produtosDisponiveis) {
+    if(produto.estoque === 0) {
+        console.log(produto.nome)
+        break
+    } 
+}
+
+// ## 🧮 Exercício 4 — Combinação avançada (`map` + lógica extra)
+
+// **Crie um array com os nomes dos produtos, mas se o preço for maior que 2000, adicione " (caro)" ao nome.**
+
+const novaListaProdutos = produtosDisponiveis.map((produto) => {
+    const eCaro = produto.preco > 2000
+    return eCaro ? `${produto.nome} (caro)` : produto.nome; 
+})
+console.log(novaListaProdutos)
