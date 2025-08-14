@@ -15,35 +15,38 @@ const grupo2 = [
   { nome: 'Marcos', idade: null  },
 ];
 
-// // - Combinar dois arrays usando `concat`
+// //1 - Combinar dois arrays usando `concat`
 // const allGupo = grupo1.concat(grupo2)
 // console.log(allGupo)
 
-// // - Filtrar elementos com `filter`
+// //2 - Filtrar idade que não seja null com `filter`
 // const obterIdade = allGupo.filter((pessoa) => pessoa.idade)
 // console.log(obterIdade)
 
-// // - Verificar uma condição com `every`
+// //3 - Verificar uma condição com `every`
 // const maioIdade = allGupo.every((pessoa) => pessoa.idade !== null)
 // console.log(maioIdade)
 
 
-// // - Adicionar novos elementos com `push`
+// //4 - Adicionar novos elementos com `push`
 // const newGrupo = allGupo.push({ nome: 'Marcos', idade: 42 })
 // console.log(allGupo)
 
-// - Combinar dois arrays usando `concat`
-const grupo3 = grupo1.concat(grupo2)
-console.log(grupo3)
+// ---------------------------------------------
 
-// - Filtrar elementos com `filter`
-const notNull = grupo3.filter((pessoa) => pessoa.idade !== null)
+//1 - Combinar dois arrays usando `concat`
+const newGrupo = grupo1.concat(grupo2)
+console.log(newGrupo)
+
+//2 - Filtrar idade que não seja null com `filter`
+const notNull = newGrupo.filter((pessoa) => pessoa.idade !== null)
 console.log(notNull)
 
-// - Verificar uma condição com `every`
-const menorTrinta = notNull.every((pessoa) => pessoa.idade < 30)
-console.log(menorTrinta)
+//3 - Verificar uma condição com `every`
+const isNull = newGrupo.every((pessoa) => pessoa.idade !== null)
+console.log(isNull)
 
-// - Adicionar novos elementos com `push`
-notNull.push({ nome: 'Thiago', idade: 39})
-console.log(notNull)
+//4 - Adicionar novos elementos com `push`
+const novoElemento = newGrupo.push({nome: "João", idade: 23})
+console.log(novoElemento)
+console.log(newGrupo)
