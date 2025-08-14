@@ -163,7 +163,7 @@ const semEstoque = produtos.some((produto) => produto.estoque === 0 )
 const mensagem = (semEstoque)? 'Pelo menos um produto não tem estoque' : 'Não há produtos sem estoque'
 console.log(mensagem)
 
-// ## 🔄 Exercício 2 — Usando `.map()`
+// ## Exercício 2 — Usando `.map()`
 
 // **Crie um novo array com os produtos, incluindo uma nova propriedade chamada `disponivel`, 
 // que será `true` se o estoque for maior que 0.**
@@ -174,7 +174,7 @@ const produtosDisponiveis = produtos.map((produto) => ({
 }))
 console.log(produtosDisponiveis)
 
-// ## ⛔ Exercício 3 — Usando `break`
+// ## Exercício 3 — Usando `break`
 
 // **Percorra os produtos com um `for` e pare a execução quando encontrar o primeiro produto com estoque 0. 
 // Exiba seu nome.**
@@ -186,7 +186,7 @@ for(let produto of produtosDisponiveis) {
     } 
 }
 
-// ## 🧮 Exercício 4 — Combinação avançada (`map` + lógica extra)
+// ## Exercício 4 — Combinação avançada (`map` + lógica extra)
 
 // **Crie um array com os nomes dos produtos, mas se o preço for maior que 2000, adicione " (caro)" ao nome.**
 
@@ -203,7 +203,7 @@ const limitEstoque = produtos.every((produto) => produto.estoque > 5)
 const result = (limitEstoque)? `Produtos acima de 5` : `Não é acima de 5`
 console.log(result)
 
-// ## 💰 Exercício 6 — Usando `.reduce()`
+// ## Exercício 6 — Usando `.reduce()`
 
 // **Calcule o valor total de todos os produtos no estoque (preço \* estoque).**
 const valorTotalEstoque = produtos.reduce((total, produto) => total + produto.preco, 0)
