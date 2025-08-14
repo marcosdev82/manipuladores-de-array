@@ -79,6 +79,68 @@
 // console.log(nomesComClassificacao);
 // ```
 
+// ---
+
+// ## 🧠 Exercício 5 — Usando `.every()`
+
+// **Verifique se todos os produtos têm estoque acima de 5 unidades.**
+
+// ```js
+// // Exercício 5
+// const todosComEstoqueSuficiente = produtos.every(produto => produto.estoque > 5);
+
+// console.log(
+//   todosComEstoqueSuficiente
+//     ? 'Todos os produtos têm estoque acima de 5.'
+//     : 'Algum produto tem estoque igual ou abaixo de 5.'
+// );
+// ```
+
+// ---
+
+// ## 💰 Exercício 6 — Usando `.reduce()`
+
+// **Calcule o valor total de todos os produtos no estoque (preço \* estoque).**
+
+// ```js
+// // Exercício 6
+// const valorTotalEstoque = produtos.reduce((total, produto) => {
+//   return total + (produto.preco * produto.estoque);
+// }, 0);
+
+// console.log(`Valor total em estoque: R$ ${valorTotalEstoque}`);
+// ```
+
+// ---
+
+// ## 🔍 Exercício 7 — Usando `.filter()`
+
+// **Crie um novo array com apenas os produtos que custam menos de R\$1000.**
+
+// ```js
+// // Exercício 7
+// const produtosBaratos = produtos.filter(produto => produto.preco < 1000);
+
+// console.log('Produtos com preço abaixo de R$1000:', produtosBaratos);
+// ```
+
+// ---
+
+// ## 🎯 Exercício 8 — Usando `.find()`
+
+// **Encontre o primeiro produto com mais de 20 unidades em estoque.**
+
+// ```js
+// // Exercício 8
+// const produtoComMuitoEstoque = produtos.find(produto => produto.estoque > 20);
+
+// if (produtoComMuitoEstoque) {
+//   console.log('Produto com estoque > 20 encontrado:', produtoComMuitoEstoque.nome);
+// } else {
+//   console.log('Nenhum produto com estoque acima de 20.');
+// }
+// ```
+
 // --------------------------------------------------------------------
 
 // ### 💻 Estrutura base (em todos os exercícios):
@@ -133,3 +195,29 @@ const novaListaProdutos = produtosDisponiveis.map((produto) => {
     return eCaro ? `${produto.nome} (caro)` : produto.nome; 
 })
 console.log(novaListaProdutos)
+
+// ## Exercício 5 — Usando `.every()`
+
+// **Verifique se todos os produtos têm estoque acima de 5 unidades.**
+const limitEstoque = produtos.every((produto) => produto.estoque > 5)
+const result = (limitEstoque)? `Produtos acima de 5` : `Não é acima de 5`
+console.log(result)
+
+// ## 💰 Exercício 6 — Usando `.reduce()`
+
+// **Calcule o valor total de todos os produtos no estoque (preço \* estoque).**
+const valorTotalEstoque = produtos.reduce((total, produto) => total + produto.preco, 0)
+console.log(`Soma total do estoque: R$ ${valorTotalEstoque.toFixed(2)}`)
+
+// ## Exercício 7 — Usando `.filter()`
+
+// **Crie um novo array com apenas os produtos que custam menos de R\$1000.**
+
+const menorValos = produtos.filter((produto) => produto.preco < 1000)
+console.log(menorValos)
+
+// ## Exercício 8 — Usando `.find()`
+
+// **Encontre o primeiro produto com mais de 20 unidades em estoque.**
+const primeiroProduto = produtos.find((produto) => produto.estoque > 20)
+console.log(primeiroProduto)
