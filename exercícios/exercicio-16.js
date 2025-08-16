@@ -124,21 +124,19 @@ console.log(estoque.shift())
 console.log(estoque)
 
 // 2. Pegar os 4 primeiros itens restantes
-console.log(estoque.slice(1))
+console.log(estoque.slice(0,4))
 
 // 3. Ordenar por quantidade (crescente)
-console.log(estoque.sort((a, b) => a.quantidade - b.quantidade))
-
-// 4. Remover o item com menor quantidade
-console.log(estoque.slice(0,1))
+console.log(estoque.sort((a,b) => a.quantidade - b.quantidade))
 console.log(estoque)
 
+// 4. Remover o item com menor quantidade
+console.log(estoque.splice(0, 1))
+console.log(estoque)
 // 5. Verificar se todos têm quantidade > 0
-console.log(estoque.every((pessoa) => pessoa.quantidade > 0))
+console.log(estoque.every((produto) => produto.quantidade > 0))
 
 // 6. Mostrar os produtos
-// console.log("Produtos no estoque:");
-
-for(let pedido of estoque) {
-    console.log(`Produto: ${pedido.nome}, qt ${pedido.quantidade}`)
+for (let produto of estoque) {
+    console.log(`${produto.nome}`)
 }
