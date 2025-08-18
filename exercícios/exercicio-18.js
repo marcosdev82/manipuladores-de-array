@@ -159,65 +159,63 @@ const produtos = [
 
 // Verifique se existe algum produto sem estoque e retorne uma mensagem apropriada.
 
-const semEstoque = produtos.some((produto) => produto.estoque === 0 )
-const mensagem = (semEstoque)? 'Pelo menos um produto não tem estoque' : 'Não há produtos sem estoque'
-console.log(mensagem)
+const hasStoque = produtos.some((produto) => produto.estoque === 0)
 
-// ## Exercício 2 — Usando `.map()`
+if (hasStoque) {
+    console.log(`Há produto sem estoque`)
+}
 
-// **Crie um novo array com os produtos, incluindo uma nova propriedade chamada `disponivel`, 
-// que será `true` se o estoque for maior que 0.**
 
-const produtosDisponiveis = produtos.map((produto) => ({
+// ## 🔄 Exercício 2 — Usando `.map()`
+
+// **Crie um novo array com os produtos, incluindo uma nova propriedade chamada `disponivel`, que será `true` se o estoque for maior que 0.**
+
+const novoArray = produtos.map((produto) => ({
     ...produto,
     disponivel: produto.estoque > 0
 }))
-console.log(produtosDisponiveis)
+console.log(novoArray)
 
-// ## Exercício 3 — Usando `break`
+// ## ⛔ Exercício 3 — Usando `break`
 
-// **Percorra os produtos com um `for` e pare a execução quando encontrar o primeiro produto com estoque 0. 
-// Exiba seu nome.**
+// **Percorra os produtos com um `for` e pare a execução quando encontrar o primeiro produto com estoque 0. Exiba seu nome.**
 
-for(let produto of produtosDisponiveis) {
-    if(produto.estoque === 0) {
+for(let produto of produtos) {
+    if (produto.estoque === 0){
         console.log(produto.nome)
         break
-    } 
+    }
 }
 
-// ## Exercício 4 — Combinação avançada (`map` + lógica extra)
+// ## 🧮 Exercício 4 — Combinação avançada (`map` + lógica extra)
 
 // **Crie um array com os nomes dos produtos, mas se o preço for maior que 2000, adicione " (caro)" ao nome.**
-
-const novaListaProdutos = produtosDisponiveis.map((produto) => {
-    const eCaro = produto.preco > 2000
-    return eCaro ? `${produto.nome} (caro)` : produto.nome; 
+const produtosBaratos = produtos.map((produto) => {
+    return `${produto.nome} ${(produto.preco > 2000)? '(caro)' : ''}`
 })
-console.log(novaListaProdutos)
+console.log(produtosBaratos)
 
-// ## Exercício 5 — Usando `.every()`
+// ## 🧠 Exercício 5 — Usando `.every()`
 
 // **Verifique se todos os produtos têm estoque acima de 5 unidades.**
-const limitEstoque = produtos.every((produto) => produto.estoque > 5)
-const result = (limitEstoque)? `Produtos acima de 5` : `Não é acima de 5`
-console.log(result)
+console.log(produtos.every((produto) => produto.estoque > 5))
 
-// ## Exercício 6 — Usando `.reduce()`
+// ## 💰 Exercício 6 — Usando `.reduce()`
 
 // **Calcule o valor total de todos os produtos no estoque (preço \* estoque).**
-const valorTotalEstoque = produtos.reduce((total, produto) => total + produto.preco, 0)
-console.log(`Soma total do estoque: R$ ${valorTotalEstoque.toFixed(2)}`)
 
-// ## Exercício 7 — Usando `.filter()`
+const total = produtos.reduce((total, produto) => total + produto.preco , 0).toFixed(2)
+console.log(`Valor total é R$ ${total}`)
+
+// ## 🔍 Exercício 7 — Usando `.filter()`
 
 // **Crie um novo array com apenas os produtos que custam menos de R\$1000.**
 
-const menorValos = produtos.filter((produto) => produto.preco < 1000)
-console.log(menorValos)
+const arrayAcima = produtos.filter((produto) => produto.preco > 1000)
+console.log(arrayAcima)
 
-// ## Exercício 8 — Usando `.find()`
+// ## 🎯 Exercício 8 — Usando `.find()`
 
 // **Encontre o primeiro produto com mais de 20 unidades em estoque.**
-const primeiroProduto = produtos.find((produto) => produto.estoque > 20)
-console.log(primeiroProduto)
+const unidade = produtos.find((produto)=> produto.estoque > 20)
+console.log(unidade)
