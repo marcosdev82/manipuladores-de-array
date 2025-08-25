@@ -103,8 +103,9 @@
 // **Verifique se existe algum produto com o nome contendo a palavra "Note" (case insensitive).**
 
 // ```js
-// const temNote = produtos.some(p => p.nome.toLowerCase().includes("note"));
-// console.log(temNote ? 'Existe produto com "Note".' : 'Nenhum produto com "Note".');
+// const temNote = produtos
+//   .map(produto => produto.nome.toLowerCase())
+//   .some(nome => nome.includes('note'));
 // ```
 
 // ---
@@ -142,37 +143,67 @@ const produtos = [
     { id: 5, nome: 'Mouse', preco: 100.1, estoque: 30 },
 ];
 
-
 // ### Exercício 1 — Usando `.some()`
-// **Verifique se existe algum produto com preço superior a R\$ 3000.**
+
+// ** Verifique se existe algum produto com preço superior a R\$ 3000. **
+
 console.log(produtos.some((produto) => produto.preco > 3000))
 
+
 // ### Exercício 2 — Usando `break`
+
 // **Percorra o array com `for` e pare ao encontrar um produto com estoque 0. Mostre o nome.**
 for (let produto of produtos) {
     if (produto.estoque === 0) {
-        console.log(produto.nome)
+        console.log(produto)
         break
     }
 }
 
-// ###  Exercício 3 — Usando `.map()`
+// ### Exercício 3 — Usando `.map()`
+
 // **Crie um novo array contendo apenas nome e preço formatado com `toFixed(2)` (em reais).**
-const valores = produtos.map((produto) => ({
-    nome: produto.nome,
-    preco: produto.preco.toFixed(2)
-}))
-console.log(valores)
+const prodPrice = produtos.map((produto) => ([
+    produto.nome,
+    produto.preco.toFixed(2)
+]))
+console.log(prodPrice)
 
 // ### Exercício 4 — Usando `.sort()` por nome
+
 // **Ordene os produtos alfabeticamente pelo nome.**
 console.log(produtos.sort((a,b) => a.nome.localeCompare(b.nome)))
 
 // ### Exercício 5 — Usando `.sort()` por valor
+
 // **Ordene os produtos do mais barato para o mais caro.**
 console.log(produtos.sort((a,b) => a.preco - b.preco))
 
 // ### Exercício 6 — Usando `.toReversed()`
 
 // **Crie uma cópia do array de produtos na ordem inversa (sem modificar o original).**
+console.log(produtos)
 console.log(produtos.toReversed())
+
+// ### Exercício 7 — Usando `.splice()`
+
+// ** Remova os dois últimos produtos do array original e exiba os removidos. **
+console.log(produtos.splice(-2), produtos)
+
+// ### Exercício 8 — Combinação: `map()` + `some()`
+
+// **Verifique se existe algum produto com o nome contendo a palavra "Note" (case insensitive).**
+
+const novaLista = produtos.map((produto) => produto.nome.toLowerCase()).some((produto) => produto.includes('none'))
+console.log(novaLista)
+
+// ### Exercício 9 — Combinação: `map()` + `toFixed()`
+
+// **Crie um array apenas com os preços formatados para 2 casas decimais.**
+const priceFormat = produtos.map((produto) => produto.preco.toFixed(2))
+console.log(priceFormat)
+
+// ### Exercício 10 — Combinação: `sort()` + `toReversed()`
+
+// **Ordene os produtos do mais caro para o mais barato, sem modificar o array original.**
+console.log(produtos.sort((a,b) => b.preco - a.preco))
