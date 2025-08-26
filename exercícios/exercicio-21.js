@@ -115,7 +115,7 @@
 
 // ---
 
-// ### ✅ 7. **Gerar relatório de produtos com ternário**
+// ### 7. **Gerar relatório de produtos com ternário**
 
 // ```js
 // for (const p of produtos) {
@@ -126,7 +126,7 @@
 
 // ---
 
-// ### ✅ 8. **Mostrar o primeiro número par da lista (curto-circuito + `break`)**
+// ### 8. **Mostrar o primeiro número par da lista (curto-circuito + `break`)**
 
 // ```js
 // const numeros = [1, 3, 5, 8, 10];
@@ -138,7 +138,7 @@
 
 // ---
 
-// ### ✅ 9. **Somar os números até atingir 100 (usando `while`)**
+// ### 9. **Somar os números até atingir 100 (usando `while`)**
 
 // ```js
 // const valores = [10, 20, 30, 25, 15, 5];
@@ -155,7 +155,7 @@
 
 // ---
 
-// ### ✅ 10. **Listar notas e classificar com ternário dentro do loop**
+// ### 10. **Listar notas e classificar com ternário dentro do loop**
 
 // ```js
 // const notas = [6, 8.5, 9.7, 4.3, 7];
@@ -166,4 +166,95 @@
 // }
 // ```
 
-// ---
+// --------------------------------------------------------------
+
+// ### ✅ 1. **Soma total de preços com verificação de estoque**
+
+// Some apenas os preços dos produtos que têm estoque > 0.
+
+// ```js
+const produtos = [
+    { nome: "Notebook", preco: 3500, estoque: 12 },
+    { nome: "Celular", preco: 2200, estoque: 0 },
+    { nome: "Teclado", preco: 150, estoque: 5 },
+];
+
+const produtos2 = produtos
+
+console.log('------ REDUCE ------')
+
+const total = produtos.reduce((acc, produto) => (produto.estoque > 0)? acc + produto.preco : acc, 0)
+console.log(total)
+console.log('------ FOR OF ------')
+let valorTotal = 0
+for (let produto of produtos) {
+    if (produto.estoque > 0) {
+        valorTotal+=produto.preco
+    }
+}
+console.log(valorTotal)
+console.log('------ WHILE ------')
+let valorTotal2 = 0
+let i = 0;
+while(i < produtos.length) {
+
+    if (produtos[i].estoque > 0) {
+        valorTotal2+=produtos[i].preco
+    }
+    i++
+}
+console.log(valorTotal2)
+console.log('------ REDUCE ------')
+
+// ### 2. **Contar quantos produtos estão em promoção**
+
+// Produtos com preço menor que R\$1000 estão em promoção.
+
+console.log(produtos.reduce((acc, produto) => (produto.preco < 1000)? acc + 1 : acc , 0))
+
+// ### 3. ** Parar o loop ao encontrar um produto caro (usando `break`) maio que que R\$1000 **
+for (let produto of produtos) {
+    if (produto.preco > 1000) {
+        console.log(produto.nome)
+        break
+    }
+}
+
+// ### 4. **Verificar se todos os produtos têm nome (loop + curto-circuito)**
+// let isName = true;
+// for (let produto of produtos) {
+//     if (!produto.nome) {
+//         isName = false
+//         break
+//     }
+// }
+
+const isName = produtos2.every((produto) => produto.nome !== null && produto.nome !== "")
+console.log(isName)
+
+const temNome = (isName)? "Todos os produtos tem nome" : "Há produtos sem nome"
+console.log(temNome)
+
+// ### 5. **Aplicar desconto com `for` e `if/else`**
+
+// Produtos acima de R\$2000 recebem 10% de desconto.
+
+for (let produto of produtos) {
+    if(produto.preco > 2000){
+        console.log(`${produto.nome}: R$ ${produto.preco.toFixed(2)} (${(produto.preco - (produto.preco * 10) / 100).toFixed(2)})`)
+    } else {
+        console.log(`${produto.nome}: R$ ${produto.preco.toFixed(2)}`)  
+    }
+}
+
+// ### 6. **Validar lista de senhas com `while` e ternário**
+
+// ```js
+const senhas = ["1234", "admin123", "secreta", "senhaFraca"];
+
+let $i = 0;
+while($i < senhas.length) {
+    let senha =  (senhas[$i].length >= 6) ? 'segura' : 'fraca'
+        console.log(`Senha ${senhas[$i]} ${senha} `)
+    $i++
+} 
