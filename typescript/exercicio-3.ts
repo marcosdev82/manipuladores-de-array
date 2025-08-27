@@ -128,6 +128,13 @@
 
 // ### ✅ **Exercício 5: Interface `Form` com validação**
 
+// nome, email, senha
+
+// saida
+// console.log("Formulário válido?", validarForm(formValido));
+
+// ------
+
 // ```ts
 // interface Form {
 //     nome: string;
@@ -312,3 +319,29 @@ const funcionario: Funcionario = {
     salario: 6000
 }
 console.log(`${funcionario.nome}, ${funcionario.idade}, ${funcionario.cargo}, Salário R$ ${funcionario.salario}`);
+
+// ### **Exercício 5: Interface `Form` com validação**
+
+// nome, email, senha
+
+// saida
+// console.log("Formulário válido?", validarForm(formValido));
+
+interface Form {
+    nome: string;
+    email: string;
+    senha: string;
+}
+
+function validarForm(form: Form): boolean {
+    return form.nome.length > 0 && form.email.includes('@') && form.senha.length >= 6
+}
+
+const form: Form = {
+    nome: 'Marcos Tavares',
+    email: 'marcos@teste.com',
+    senha: '123654',
+}
+console.log(form)
+
+console.log(`Formulário válido?`, validarForm(form))
