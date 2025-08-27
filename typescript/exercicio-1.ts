@@ -4,7 +4,7 @@
 
 // ### 🔹 **Exercício 1: Tipos Básicos**
 
-// Crie uma função que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
+// Crie uma função (calcularMedia) que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
 
 // ```ts
 // function calcularMedia(a: number, b: number): number {
@@ -97,13 +97,14 @@
 
 // ---
 
-// Se quiser, posso te ajudar a resolver algum deles. Deseja as soluções também?
+// ### 🔹 **Exercício 1: Tipos Básicos**
 
-function calcularMedia(a: number, b:number) {
-    return (a + b) / 2
-} 
-console.log(calcularMedia(10, 20))
+// Crie uma função que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
 
+function calcularMedia(num1: number, num2: number) {
+    return (num1 + num2) / 2
+}
+console.log(calcularMedia(10, 8))
 
 // ### 🔹 **Exercício 2: Interface de Objeto**
 
@@ -113,42 +114,47 @@ console.log(calcularMedia(10, 20))
 // * `idade` (number)
 // * `ativo` (boolean)
 
+// E depois, crie uma função que recebe um `Usuario` e retorna uma frase como:
+
+// > "Usuário Marcos tem 30 anos e está ativo."
+
 interface Usuario {
     nome: string;
     idade: number;
     ativo: boolean;
 }
 
-function mostraUsuario(nome: string, idade: number, ativo: boolean): Usuario {
-    return { nome, idade, ativo };
+function perfil(nome: string, idade: number, ativo: boolean): string {
+    return `Usuário ${nome} tem ${idade} anos e está ativo.`;
 }
-
-const {nome, idade, ativo} = mostraUsuario('Marcos', 43, true)
-
-console.log(console.log(`O usuário ${nome} tem ${idade} e está com status ${(ativo)? 'ativo' : 'inativo'}`))
+console.log(perfil('marcos tavares', 42, true))
 
 // ### 🔹 **Exercício 3: Tipos Literais e Union**
 
 // Crie uma função que recebe uma string representando a direção (`"cima"`, `"baixo"`, `"esquerda"`, `"direita"`) e retorne uma mensagem indicando o movimento.
 
-type Direcao = 'cima' | 'baixo' | 'esquerda' | 'direita';
+type direcao = "cima" | "baixo" | "esquerda" | "direita"
 
-function mover(direcao: Direcao): string {
-    return `Movendo para ${direcao}`;
+function movimento(direcao: direcao): string {
+    return `A posição atual é ${direcao}`
 }
 
-console.log(mover('baixo'));
+console.log(movimento('cima'))
 
 // ### 🔹 **Exercício 4: Generics**
 
 // Crie uma função `retornarPrimeiroElemento` que recebe um array de qualquer tipo e retorna o primeiro elemento.
 
+// ```ts
+
+
 function retornarPrimeiroElemento<T>(lista: T[]): T {
-    return lista[0];
+    return lista[0]
 }
 
-console.log(retornarPrimeiroElemento([1, 2, 3]));
-console.log(retornarPrimeiroElemento(['a', 'b', 'c']));
+const lista = ['Gato','Cachorro','Coelho']
+
+console.log(retornarPrimeiroElemento(lista))
 
 // ### 🔹 **Exercício 5: Classes e Modificadores**
 
@@ -160,38 +166,23 @@ console.log(retornarPrimeiroElemento(['a', 'b', 'c']));
 
 // E um método `descrever()` que imprime uma frase como:
 
+// > "Fiat Uno, ano 2010."
+
 class Carro {
-    private marca: string;
-    private modelo: string;
-    private ano: number;
+
+    private marca: string
+    private modelo: string
+    private ano: number
 
     constructor(marca: string, modelo: string, ano: number) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.setAno(ano); 
+        this.marca = marca
+        this.modelo = modelo
+        this.ano = ano
     }
 
-    public descrever(): string {
-        return `Carro da marca ${this.marca} de modelo ${this.modelo} do ano ${this.getAno()} está à venda`;
-    }
-
-    private setAno(num: number): void {
-        if (typeof num === 'number') {
-            this.ano = num;
-        } else {
-            throw new Error('Ano inválido');
-        }
-    }
-
-    private getAno(): number {
-        return this.ano;
+    descrever(): string {
+        return `${this.marca}, ${this.modelo}, ${this.ano}`
     }
 }
-
-const carro = new Carro('Fiat', 'UNO', 1998);
-console.log(carro.descrever());
-
-
-
-
-
+const carro = new Carro('Fiat', 'Uno', 2010)
+console.log(carro.descrever())

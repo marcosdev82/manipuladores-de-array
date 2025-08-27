@@ -342,6 +342,5 @@ const form: Form = {
     email: 'marcos@teste.com',
     senha: '123654',
 }
-console.log(form)
 
 console.log(`Formulário válido?`, validarForm(form))
