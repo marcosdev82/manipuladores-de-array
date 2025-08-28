@@ -28,30 +28,38 @@
 // // 5. Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par.
 // console.log(Object.entries(alunosAll))
 
+//----------------------------------------------------
+
+
+// 1. Concatenar as duas listas em uma única lista.
 
 // 1. Arrays iniciais de alunos
+console.log('---  Arrays iniciais de alunos ---')
 let alunosTurmaA = ["Ana", "Bruno", "Carlos"];
 let alunosTurmaB = ["Diana", "Eduardo", "Fernanda"];
-
-let alunosTurmaAB = alunosTurmaA.concat(alunosTurmaB)
-console.log(alunosTurmaAB)
+const alunosAB = alunosTurmaA.concat(alunosTurmaB) // Não modifica array original
+console.log(alunosAB)
 
 // 2. Adicionar um novo aluno ao final da lista.
-let novoAluno = alunosTurmaAB.push("Marcos")
-// console.log(novaListaAlunos)
-console.log(alunosTurmaAB)
+console.log('--- Adicionar um novo aluno ao final da lista ---')
+console.log(alunosTurmaA)
+console.log(alunosAB.push('Marcos')) // modifica o array original
+console.log(alunosAB)
 
 // 3. Exibir o primeiro e o último aluno da nova lista utilizando `at()`.
-console.log(alunosTurmaAB.at(0))
-console.log(alunosTurmaAB.at(-1))
-console.log(alunosTurmaAB[0])
-console.log(alunosTurmaAB[alunosTurmaAB.length - 1])
+console.log('--- Exibir o primeiro e o último aluno da nova lista utilizando ---')
+console.log(alunosAB.at(0), alunosAB.at(-1))
 
 // 4. Iterar sobre a lista usando `for..in`, exibindo o índice e o nome do aluno.
-for(let key in alunosTurmaAB) {
-    console.log(`${key}: ${alunosTurmaAB[key]}`)
+console.log('--- Iterar sobre a lista usando `for..in`, exibindo o índice e o nome do aluno. ---')
+for(let key in alunosAB) {
+    console.log(`chave: ${key}, valor: ${alunosAB[key]}`)
 }
 
 // 5. Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par.
-const arrAlunos = Object.entries(alunosTurmaAB)
-arrAlunos[0]
+console.log('-- Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par. --')
+const alunos = Object.entries(alunosAB)
+// console.log(Array.isArray(alunos))
+for(let aluno of alunos) {
+    console.log(aluno[1])
+}
