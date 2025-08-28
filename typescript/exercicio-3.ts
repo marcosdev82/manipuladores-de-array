@@ -158,7 +158,7 @@
 
 // ----------------------------------------------------------------------
 
-// ### **Exercício 1: Interface `Usuario` e função de boas-vindas**
+// ### ✅ **Exercício 1: Interface `Usuario` e função de boas-vindas**
 
 // saida `Bem-vindo(a), ${usuario.nome}! Seu email é ${usuario.email} e você tem ${usuario.idade} anos.`;
 
@@ -168,18 +168,17 @@ interface Usuario {
     idade: number;
 }
 
-function boasVindas(usuario: Usuario): string {
-    return `Bem-vindo(a), ${usuario.nome}! Seu email é ${usuario.email} e você tem ${usuario.idade} anos.`
+function bemVindo(usuario: Usuario): string {
+    return `Bem-vindo(a), ${usuario.nome}! Seu email é ${usuario.email} e você tem ${usuario.idade} anos.`;
 }
 
 const usuario: Usuario = {
-    nome: 'marcos',
-    email: 'marcos@teste.com.br',
-    idade: 42,
+    nome: 'Marcos',
+    email: 'marcos@tavares.com',
+    idade: 42
 }
 
-console.log(boasVindas(usuario))
-
+console.log(bemVindo(usuario))
 
 
 // ### ✅ **Exercício 2: Interface `Produto` e carrinho de compras**
@@ -197,17 +196,16 @@ interface Produto {
     preco: number;
 }
 
-function calcularTotal(produto: Produto[] ): number{
-    return produto.reduce((total, produto) => total + produto.preco, 0)
+function calcularTotal(carrinho: Produto[]): number {
+    return carrinho.reduce((total, produto) => total + produto.preco, 0 )
 }
 
-const produto: Produto[] = [
+const carrinho: Produto[] = [
     { nome: "Camisa", preco: 50 },
     { nome: "Tênis", preco: 200 },
-    { nome: "Boné", preco: 30 },  
+    { nome: "Boné", preco: 30 },
 ]
-
-console.log(`Total da compra: R$ ${calcularTotal(produto)}`)
+console.log("Total da compra: R$", calcularTotal(carrinho).toFixed(2));
 
 // ### **Exercício 3: Interface `Animal` com diferentes tipos**
 
@@ -220,29 +218,64 @@ console.log(`Total da compra: R$ ${calcularTotal(produto)}`)
 
 interface Animal {
     nome: string;
-    tipo:  "mamifero" | "ave" | "repitil";
-    emitirSom(): void; 
+    tipo: "mamífero" | "ave" | "réptil"
+    emitirSom(): void
 }
 
 const gato: Animal = {
     nome: 'Mingal',
-    tipo: 'mamifero', 
+    tipo: 'mamífero',
     emitirSom() {
         console.log('miau')
     }
 }
 
-const galo: Animal = {
-    nome: "Frangolino",
-    tipo: "ave",
-    emitirSom() {
-        console.log('Cocorico')
-    }
+console.log(gato.emitirSom())
+
+// ### **Exercício 4: Interface com herança (`Funcionario` estende `Pessoa`)**
+
+// nome, idade
+// saida:  console.log(`${funcionario.nome}, ${funcionario.cargo}, R$${funcionario.salario}`);
+
+interface Pessoa {
+    nome: string;
+    idade: number;
 }
 
-console.log(gato.emitirSom())
-console.log(galo.emitirSom())
+interface Funcionario extends Pessoa {
+    cargo: string;
+    salario: number;
+}
 
+const funcionario: Funcionario = {
+    nome: 'marcos',
+    idade: 42,
+    cargo: 'dev',
+    salario: 10000
+}
+console.log(funcionario)
 
-// export default 1
+// ### ✅ **Exercício 5: Interface `Form` com validação**
 
+// nome, email, senha
+
+// saida
+// console.log("Formulário válido?", validarForm(formValido));
+
+interface Form {
+    nome: string;
+    email: string;
+    senha: string;
+}
+
+function validarForm(form: Form): Boolean {
+    return form.nome.length > 0 && form.email.includes('@') && form.senha.length >= 6
+}
+
+const form: Form = {
+    nome: 'marcos',
+    email: 'marcos@teste.com',
+    senha: '32165497'
+}
+
+console.log(`Email válido: ${validarForm(form)}`)
