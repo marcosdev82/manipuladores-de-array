@@ -101,10 +101,11 @@
 
 // Crie uma função que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
 
-function calcularMedia(num1: number, num2: number) {
+function calcularMedia(num1: number, num2: number): number {
     return (num1 + num2) / 2
 }
-console.log(calcularMedia(10, 8))
+console.log(calcularMedia(9,10))
+
 
 // ### 🔹 **Exercício 2: Interface de Objeto**
 
@@ -124,37 +125,44 @@ interface Usuario {
     ativo: boolean;
 }
 
-function perfil(nome: string, idade: number, ativo: boolean): string {
-    return `Usuário ${nome} tem ${idade} anos e está ativo.`;
+function perfilUser(usuario: Usuario): string {
+    return `Usuário ${usuario.nome} tem ${usuario.idade} anos e está ${usuario.ativo}.`
 }
-console.log(perfil('marcos tavares', 42, true))
+
+const usuario: Usuario = {
+    nome: 'Marcos',
+    idade: 43,
+    ativo: true,
+}
+
+console.log(perfilUser(usuario))
+
 
 // ### 🔹 **Exercício 3: Tipos Literais e Union**
 
 // Crie uma função que recebe uma string representando a direção (`"cima"`, `"baixo"`, `"esquerda"`, `"direita"`) e retorne uma mensagem indicando o movimento.
 
-type direcao = "cima" | "baixo" | "esquerda" | "direita"
+type Direcao = "cima" | "baixo" | "esquerda" | "direita"
 
-function movimento(direcao: direcao): string {
-    return `A posição atual é ${direcao}`
+function direcao(direcao: Direcao): string {
+    return direcao;
 }
 
-console.log(movimento('cima'))
+console.log(direcao("baixo"))
+
 
 // ### 🔹 **Exercício 4: Generics**
 
 // Crie uma função `retornarPrimeiroElemento` que recebe um array de qualquer tipo e retorna o primeiro elemento.
 
-// ```ts
-
-
 function retornarPrimeiroElemento<T>(lista: T[]): T {
-    return lista[0]
-}
+    return lista[0];
+} 
 
-const lista = ['Gato','Cachorro','Coelho']
+const lista: Number[] = [1,2,3,4]
 
 console.log(retornarPrimeiroElemento(lista))
+
 
 // ### 🔹 **Exercício 5: Classes e Modificadores**
 
@@ -166,23 +174,20 @@ console.log(retornarPrimeiroElemento(lista))
 
 // E um método `descrever()` que imprime uma frase como:
 
-// > "Fiat Uno, ano 2010."
-
 class Carro {
-
-    private marca: string
-    private modelo: string
-    private ano: number
+    public marca: string;
+    public modelo: string;
+    public ano: number;
 
     constructor(marca: string, modelo: string, ano: number) {
-        this.marca = marca
-        this.modelo = modelo
-        this.ano = ano
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
     }
 
-    descrever(): string {
-        return `${this.marca}, ${this.modelo}, ${this.ano}`
+    public descrever(): string {
+        return `${this.marca} ${this.modelo}, ano ${this.ano}.`
     }
 }
-const carro = new Carro('Fiat', 'Uno', 2010)
-console.log(carro.descrever())
+
+console.log(new Carro('Fiat', 'Uno', 2010).descrever())
