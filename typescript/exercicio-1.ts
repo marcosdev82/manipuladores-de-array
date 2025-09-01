@@ -1,7 +1,3 @@
-// Claro! Aqui estão **5 exercícios de TypeScript** com níveis progressivos para praticar tipos, interfaces, generics, e funcionalidades modernas da linguagem:
-
-// ---
-
 // ### 🔹 **Exercício 1: Tipos Básicos**
 
 // Crie uma função (calcularMedia) que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
@@ -99,13 +95,12 @@
 
 // ### 🔹 **Exercício 1: Tipos Básicos**
 
-// Crie uma função que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
+// Crie uma função (calcularMedia) que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
 
 function calcularMedia(num1: number, num2: number): number {
     return (num1 + num2) / 2
 }
-console.log(calcularMedia(9,10))
-
+console.log(calcularMedia(5,7))
 
 // ### 🔹 **Exercício 2: Interface de Objeto**
 
@@ -117,30 +112,30 @@ console.log(calcularMedia(9,10))
 
 // E depois, crie uma função que recebe um `Usuario` e retorna uma frase como:
 
-// > "Usuário Marcos tem 30 anos e está ativo."
-
 interface Usuario {
     nome: string;
     idade: number;
     ativo: boolean;
 }
 
-function perfilUser(usuario: Usuario): string {
-    return `Usuário ${usuario.nome} tem ${usuario.idade} anos e está ${usuario.ativo}.`
+function profile(usuario: Usuario): string {
+    return `O usuario ${usuario.nome} tem ${usuario.idade} e está ${usuario.ativo}`
 }
 
 const usuario: Usuario = {
-    nome: 'Marcos',
-    idade: 43,
-    ativo: true,
+    nome: "Marcos",
+    idade: 42,
+    ativo: true
 }
 
-console.log(perfilUser(usuario))
+console.log('teste', profile(usuario));
 
 
 // ### 🔹 **Exercício 3: Tipos Literais e Union**
 
 // Crie uma função que recebe uma string representando a direção (`"cima"`, `"baixo"`, `"esquerda"`, `"direita"`) e retorne uma mensagem indicando o movimento.
+
+// ```ts
 
 type Direcao = "cima" | "baixo" | "esquerda" | "direita"
 
@@ -148,21 +143,18 @@ function direcao(direcao: Direcao): string {
     return direcao;
 }
 
-console.log(direcao("baixo"))
-
+console.log(direcao("cima"))
 
 // ### 🔹 **Exercício 4: Generics**
 
 // Crie uma função `retornarPrimeiroElemento` que recebe um array de qualquer tipo e retorna o primeiro elemento.
+function retornarPrimeiroElemento<T>(T: T[]): T {
+    return T[0]
+}
 
-function retornarPrimeiroElemento<T>(lista: T[]): T {
-    return lista[0];
-} 
+const arr = [1,2,3,4]
 
-const lista: Number[] = [1,2,3,4]
-
-console.log(retornarPrimeiroElemento(lista))
-
+console.log(retornarPrimeiroElemento(arr));
 
 // ### 🔹 **Exercício 5: Classes e Modificadores**
 
@@ -186,8 +178,20 @@ class Carro {
     }
 
     public descrever(): string {
-        return `${this.marca} ${this.modelo}, ano ${this.ano}.`
+        return `marca: ${this.marca}, modelo: ${this.modelo}, ano: ${this.ano}`
     }
 }
 
-console.log(new Carro('Fiat', 'Uno', 2010).descrever())
+// class Carro {
+//     constructor(
+//         public marca: string,
+//         public modelo: string,
+//         public ano: number
+//     ) {}
+
+//     public descrever(): string {
+//         return `Marca: ${this.marca}, Modelo: ${this.modelo}, Ano: ${this.ano}`;
+//     }
+// }
+
+console.log(new Carro('Fiat', 'Uno', 1990).descrever())
