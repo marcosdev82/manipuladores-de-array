@@ -30,36 +30,28 @@
 
 //----------------------------------------------------
 
-
 // 1. Concatenar as duas listas em uma única lista.
 
 // 1. Arrays iniciais de alunos
 console.log('---  Arrays iniciais de alunos ---')
 let alunosTurmaA = ["Ana", "Bruno", "Carlos"];
 let alunosTurmaB = ["Diana", "Eduardo", "Fernanda"];
-const alunosAB = alunosTurmaA.concat(alunosTurmaB) // Não modifica array original
-console.log(alunosAB)
+
+let listTurmas = alunosTurmaA.concat(alunosTurmaB)
+console.log(listTurmas)
 
 // 2. Adicionar um novo aluno ao final da lista.
-console.log('--- Adicionar um novo aluno ao final da lista ---')
-console.log(alunosTurmaA)
-console.log(alunosAB.push('Marcos')) // modifica o array original
-console.log(alunosAB)
+console.log(listTurmas.push("Marcos"))
+console.log(listTurmas)
 
 // 3. Exibir o primeiro e o último aluno da nova lista utilizando `at()`.
-console.log('--- Exibir o primeiro e o último aluno da nova lista utilizando ---')
-console.log(alunosAB.at(0), alunosAB.at(-1))
+console.log(listTurmas.at(0), listTurmas.at(-1))
+console.log(listTurmas[0], listTurmas[listTurmas.length - 1])
 
 // 4. Iterar sobre a lista usando `for..in`, exibindo o índice e o nome do aluno.
-console.log('--- Iterar sobre a lista usando `for..in`, exibindo o índice e o nome do aluno. ---')
-for(let key in alunosAB) {
-    console.log(`chave: ${key}, valor: ${alunosAB[key]}`)
+for (let k in listTurmas) {
+    console.log(`${k}: ${listTurmas[k]}`)
 }
 
 // 5. Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par.
-console.log('-- Utilizar `Object.entries()` para transformar o array em pares `[índice, nome]` e imprimir cada par. --')
-const alunos = Object.entries(alunosAB)
-// console.log(Array.isArray(alunos))
-for(let aluno of alunos) {
-    console.log(aluno[1])
-}
+console.log(Object.entries(listTurmas))

@@ -57,9 +57,30 @@
 // 1. Exibir cada nome com seu índice usando forEach.
 const nomes = ["Carlos", "Ana", "Beatriz", "Daniel", "Eduardo"];
 
-nomes.forEach((nome, index) => {
-    console.log(`${index}:${nome}`)
+nomes.forEach((pessoa, index) => {
+    console.log(`${index}: ${pessoa}`)
 })
 
 // 2. Verificar se todos os nomes possuem mais de 3 letras usando `every()` . 
-console.log(nomes.every((nome) => nome.length > 3))
+console.log(nomes.every((nomes) => nomes.length > 3))
+
+// 3. Ordenar os nomes em ordem alfabética.
+console.log(nomes.sort())
+
+// 4. Exibir o primeiro e o último nome da lista usando `.at()`.
+console.log(nomes.at(0), nomes.at(-1))
+
+// 5. Mostrar uma substring com os 3 primeiros caracteres de cada nome.
+const subStrNomes =nomes.map((nome) => {
+    return nome.substr(0,3)
+})
+console.log(subStrNomes)
+
+// console.log(subString)
+// 6. Reverter a lista e exibi-la.
+console.log(nomes.reverse())
+
+// 7. Exibir cada nome usando `for...of`.
+for(let value of nomes) {
+    console.log(value)
+}

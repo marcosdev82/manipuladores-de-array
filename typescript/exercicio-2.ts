@@ -171,100 +171,43 @@
 // ### **Exercício 1: Classe `Pessoa` com apresentação**
 
 class Pessoa {
+    public nome: string;
+    public idade: number;
+    public profissao: string;
 
-    private nome: string
-    private idade: number
-    private email: string
-    private cargo: string
-    private status: boolean
-    private cursos: Array<string>
-
-    constructor(nome: string, idade: number, email: string, cargo: string, status: boolean, cursos: Array<string>) {
-        this.setNome(nome);
-        this.setIdade(idade);
-        this.setEmail(email);
-        this.setCargo(cargo);
-        this.setStatus(status);
-        this.setCursos(cursos);
+    constructor(nome: string, idade: number, profissao: string){
+        this.nome = nome;
+        this.idade = idade;
+        this.profissao = profissao;
     }
 
-    private setNome(nome: string): void {
-        if (typeof nome === 'string') {
-            this.nome = nome
-        } else {
-            throw new Error('Nome inválido');
-        }
+    public apresetacao() {
+        return `Meu nome ${this.nome}, tenho ${this.idade} anos e trabalho com ${this.profissao}.`;
     }
-
-    private setIdade(idade: number): void {
-        if (typeof idade === 'number') {
-            this.idade = idade;
-        } else {
-            throw new Error('Idade inválida');
-        }
-    }
-
-    private setEmail(email: string): void {  
-        if (typeof email === 'string' && email.includes('@')) {
-            this.email = email;
-        } else {
-            throw new Error('Email inválido');
-        }
-    }
-
-    private setCargo(cargo: string): void {
-        if (typeof cargo === 'string') {
-            this.cargo = cargo;
-        } else {
-            throw new Error('Cargo inválido');
-        }
-    }
-
-    private setStatus(status: boolean): void {   
-        if (typeof status === 'boolean') {
-            this.status = status;
-        } else {
-            throw new Error('Status inválido');
-        }
-    }
-
-    private setCursos(status: Array<string>): void {   
-        if (Array.isArray(status) && status.every(curso => typeof curso === 'string')) {
-            this.cursos = status;
-        } else {
-            throw new Error('Cursos inválidos');
-        }
-    }
-
-    public getNome(): string {
-        return this.nome;
-    }
-
-    public getIdade(): number {
-        return this.idade;
-    }
-
-    public getEmail(): string {
-        return this.email;
-    }
-
-    public getCargo(): string {
-        return this.cargo;
-    }
-
-    public getStatus(): boolean {
-        return this.status;
-    }
-
-    public getCursos(): Array<string> {
-        return this.cursos;
-    }       
-
-    public getApresentacao(): string {
-        return `Olá, meu nome é ${this.getNome()}, tenho ${this.getIdade()} anos, meu email é ${this.getEmail()}, trabalho como ${this.getCargo()} e estou ${this.getStatus() ? 'ativo' : 'inativo'}. Estou matriculado nos seguintes cursos: ${this.getCursos().join(', ')}.`;
-    }
-
 }
 
-const pessoa = new Pessoa('Marcos', 42, 'marcos@teste.com.br', 'desenvolvedor', true, ['JavaScript', 'TypeScript', 'React'])
-console.log(pessoa)
+console.log(new Pessoa('Marcos', 43, 'Programador').apresetacao())
+
+// ### ✅ **Exercício 2: Conta bancária com encapsulamento**
+
+class ContaBancaria {
+    private saldo: number = 0;
+
+    constructor(private numeroConta: string) {}
+
+    depositar(valor: number): void {
+        if (valor > 0) this.saldo += valor;
+    }
+
+    sacar(valor: number): void {
+        if (valor > this.saldo) {
+            console.log("Saldo insuficiente");
+        } else {
+            this.saldo -= valor;
+        }
+    }
+
+    verSaldo(): string {
+        return `Saldo da conta ${this.numeroConta}: R$ ${this.saldo.toFixed(2)}`;
+    }
+}
