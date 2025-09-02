@@ -32,3 +32,25 @@
 
 // 1. Crie uma string com os seguintes itens separados por vírgula:
 const foods = "arroz,feijão,carne,leite,carne,pão"
+// 2. Converta essa string para um array usando `split()`.
+const arrFoods = foods.split(',')
+console.log(arrFoods)
+// 3. Use `map()` para colocar todos os itens em letras maiúsculas.
+const arrFoodsUpperCase = arrFoods.map((food) => {
+    return food.toLocaleUpperCase()
+})
+console.log(arrFoodsUpperCase)
+// 4. Use `indexOf()` e `lastIndexOf()` para descobrir a posição do primeiro e do último item "CARNE".
+console.log(arrFoods.indexOf('carne'), ',', arrFoods.lastIndexOf('carne'))
+
+// 5. Use `some()` para verificar se existe algum item chamado "ARROZ".
+const isItem = arrFoods.some((item) => item === 'arroz')
+console.log(isItem)
+// 6. Use `pop()` para remover o último item da lista.
+console.log(arrFoods.pop())
+console.log(arrFoods)
+
+// 7. Use `copyWithin()` para copiar os dois primeiros itens para as últimas duas posições do array.
+console.log(arrFoods.copyWithin(3, 0,2))
+// 8. Por fim, use `join()` para transformar o array novamente em uma string, separando os itens com `" | "`.
+console.log(arrFoods.join(','))
