@@ -14,7 +14,7 @@ const data = [
         "situacao_financeira": "DEBITO",
         "categoria": "MEMBRO TITULAR",
         "capitulo": "PIAUÍ",
-        "data_validade": "31/12/2025"
+        "data_validade": "31/12/2024"
     },
     {
         "nome": "ADILON CARDOSO FILHO",
@@ -48,7 +48,7 @@ const data = [
         "situacao_financeira": "NAO SOCIO",
         "categoria": "MEMBRO COESAS MULTIDISCIPLINAR",
         "capitulo": "RIO DE JANEIRO",
-        "data_validade": "31/12/2025"
+        "data_validade": "31/12/2024"
     },
     {
         "nome": "ANA FLAVIA AMORIM SCHOLZE",
@@ -87,17 +87,10 @@ const data = [
 ];
 
 // Obtenha apenas quem é da categoria titular
-const categoria = data.filter((pessoa) => pessoa.categoria.includes('TITULAR'))
-console.log(categoria)
 
-// var data_valid = new Date("2025-12-31T12:00:00");
-// var milissegundos = data_valid.getTime();
+const usuariosTitulares = data.filter((pessoa) => pessoa.categoria.includes('TITULAR'))
+console.log(usuariosTitulares)
 
-// console.log(milissegundos);
-
-
-// obternha apenas data 
-// const data = data.filter((pessoa) => pessoa.data_validade === )
-
-// var agora = Date.now();
-// console.log(agora);
+// Obtenha apenas quem tem validade maior e igual titular
+const usuariosValidos = data.filter((pessoa)=> pessoa.data_validade.includes('2025'))
+console.log(usuariosValidos)
