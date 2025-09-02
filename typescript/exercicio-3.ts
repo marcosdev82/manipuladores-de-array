@@ -168,17 +168,17 @@ interface Usuario {
     idade: number;
 }
 
-function bemVindo(usuario: Usuario): string {
+function boasVindas(usuario: Usuario): string {
     return `Bem-vindo(a), ${usuario.nome}! Seu email é ${usuario.email} e você tem ${usuario.idade} anos.`;
 }
 
-const usuario: Usuario = {
-    nome: 'Marcos',
-    email: 'marcos@tavares.com',
-    idade: 42
+const user: Usuario = {
+    nome: "marcos tavares",
+    email: "marcos@teste.com",
+    idade: 42,
 }
 
-console.log(bemVindo(usuario))
+console.log(boasVindas(user));
 
 
 // ### ✅ **Exercício 2: Interface `Produto` e carrinho de compras**
@@ -197,15 +197,22 @@ interface Produto {
 }
 
 function calcularTotal(carrinho: Produto[]): number {
-    return carrinho.reduce((total, produto) => total + produto.preco, 0 )
+    return carrinho.reduce((total, produto) => total + produto.preco, 0)
 }
 
-const carrinho: Produto[] = [
+const carrinho: Produto[] = [   
     { nome: "Camisa", preco: 50 },
     { nome: "Tênis", preco: 200 },
     { nome: "Boné", preco: 30 },
 ]
+
 console.log("Total da compra: R$", calcularTotal(carrinho).toFixed(2));
+
+
+// console.log("Total da compra: R$", calcularTotal(carrinho));
+// ```
+
+// ---
 
 // ### **Exercício 3: Interface `Animal` com diferentes tipos**
 
@@ -218,19 +225,30 @@ console.log("Total da compra: R$", calcularTotal(carrinho).toFixed(2));
 
 interface Animal {
     nome: string;
-    tipo: "mamífero" | "ave" | "réptil"
+    tipo: 'mamifero' | 'ave' | 'réptil';
     emitirSom(): void
 }
 
-const gato: Animal = {
-    nome: 'Mingal',
-    tipo: 'mamífero',
+const cachorro: Animal = {
+    nome: "toto",
+    tipo: "mamifero",
     emitirSom() {
-        console.log('miau')
+        console.log('Au au!')
     }
 }
 
-console.log(gato.emitirSom())
+
+const papagaio: Animal = {
+    nome: "loro",
+    tipo: "ave",
+    emitirSom() {
+        console.log('Currrupaco!')
+    }
+}
+
+cachorro.emitirSom();
+papagaio.emitirSom();
+
 
 // ### **Exercício 4: Interface com herança (`Funcionario` estende `Pessoa`)**
 
@@ -248,12 +266,14 @@ interface Funcionario extends Pessoa {
 }
 
 const funcionario: Funcionario = {
-    nome: 'marcos',
+    nome: "Marcos",
     idade: 42,
-    cargo: 'dev',
-    salario: 10000
+    cargo: "Programador",
+    salario: 10000,
 }
-console.log(funcionario)
+
+console.log(`${funcionario.nome}, ${funcionario.cargo}, R$${funcionario.salario}`);
+
 
 // ### ✅ **Exercício 5: Interface `Form` com validação**
 
@@ -268,14 +288,14 @@ interface Form {
     senha: string;
 }
 
-function validarForm(form: Form): Boolean {
-    return form.nome.length > 0 && form.email.includes('@') && form.senha.length >= 6
+const formValido: Form = {
+    nome: "marcos tavares",
+    email: "marcos@teste.com",
+    senha: "12364",
 }
 
-const form: Form = {
-    nome: 'marcos',
-    email: 'marcos@teste.com',
-    senha: '32165497'
+function validarForm(formValido: Form): boolean {
+    return formValido.nome.length > 0 && formValido.email.includes('@') && formValido.senha.length >= 6
 }
 
-console.log(`Email válido: ${validarForm(form)}`)
+console.log("Formulário válido?", validarForm(formValido));
