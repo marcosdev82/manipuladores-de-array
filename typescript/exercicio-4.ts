@@ -181,8 +181,8 @@ const rules = {
     age: (val: number) => val >= 18,
 };
 
-const result = validateForm<typeof formData>(formData, rules);
-console.log(result)
+// const result = validateForm<typeof formData>(formData, rules);
+// console.log(result)
 
 // result: { name: true, age: false }
 
@@ -196,7 +196,7 @@ function validateForm(formData: object, rules: object) {
 
 // result: { name: true, age: false }
 
-// ## 4. Tipagem para componentes React ⚛️
+// ## 4. Tipagem para componentes React 
 
 // **Enunciado:**
 // Crie um componente genérico `Select<T>` que receba uma lista de opções tipadas e um callback `onSelect`.
@@ -214,3 +214,32 @@ function validateForm(formData: object, rules: object) {
 //   onSelect={(item) => console.log(item.id)}
 // />
 // ```
+
+interface Option {
+    id: number;
+    label: string;
+}
+
+// <Select<Option>
+//     options={[{id: 1, label: "Opção A"}]}
+//     onselect={(item)> console.log(item.id)}
+// />
+
+// ## 5. Merge de objetos configuráveis 
+
+// **Enunciado:**
+// Crie uma função `mergeObjects<T, U>` que combine dois objetos e preserve os tipos de ambos.
+
+console.log('----------------------')
+
+// **Exemplo de uso:**
+
+const a = { host: "localhost", port: 3000 };
+const b = { secure: true };
+
+function mergeObjects<T, U>(a: T, b: U): T & U {
+    return { ...a, ...b }
+}
+console.log(mergeObjects(a, b))
+
+export default 4
