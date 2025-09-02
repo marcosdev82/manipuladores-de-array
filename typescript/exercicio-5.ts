@@ -5,6 +5,14 @@
 // **Enunciado:**
 // Crie um `type ApiResponse<T>` que represente a resposta padrão de uma API, contendo `data`, `status` e `message`.
 
+// **Saída**
+
+// {
+//   data: [ { nome: 'marcos tavares', email: 'marcos@teste.com.br' } ],
+//   status: 200,
+//   message: 'atualizado com sucesso'
+// }
+
 // **Exemplo de uso:**
 
 // ```ts
@@ -33,16 +41,26 @@
 // **Exemplo de uso:**
 
 // ```ts
-// type UserId = number;
-// type ProductId = number;
+// type UserId = number
+// type ProductId = number
 
-// type User = { id: UserId; name: string };
-// type Product = { id: ProductId; title: string };
+// type User = {
+//     id: UserId;
+//     nome: string
+// }
+
+// type Product = {
+//     id: ProductId;
+//     nome: string;
+// }
+
+// const user: User = { id: 31323, nome: "Alice" };
+// const product: Product = { id: 98798798, nome: "Notebook" };
 // ```
 
 // ---
 
-// ## 3. União de estados de requisição 🔄
+// ## 3. União de estados de requisição 
 
 // **Enunciado:**
 // Crie um `type RequestState` que pode ser `"idle" | "loading" | "success" | "error"`. Use-o em um objeto que represente o estado de um fetch.
@@ -82,7 +100,7 @@
 
 // ---
 
-// ## 5. Tipagem para configurações opcionais ⚙️
+// ## 5. Tipagem para configurações opcionais 
 
 // **Enunciado:**
 // Crie um `type Config` com propriedades opcionais (`theme`, `language`, `debug`) e use-o em uma função `setupApp`.
@@ -102,4 +120,54 @@
 
 // setupApp({ theme: "dark", debug: true });
 // ```
+
+//---------------------------------------------------
+
+// **Enunciado:**
+// Crie um `type ApiResponse<T>` que represente a resposta padrão de uma API, 
+// contendo `data`, `status` e `message`.
+
+// 
+
+type ApiResponse<T> = {
+    data: object;
+    status: number;
+    message: string;
+}
+
+type UserInfo = {
+    nome: string;
+    email: string;
+}
+
+const response: ApiResponse<UserInfo[]> = {
+    data: [{nome: "marcos tavares", email: "marcos@teste.com.br"}],
+    status: 200,
+    message: 'atualizado com sucesso'
+}
+console.log(response)
+
+// ## 2. Tipando IDs de forma semântica
+
+// **Enunciado:**
+// Defina `type UserId`, `type ProductId` e use-os em objetos para evitar confusão entre 
+// diferentes tipos de ID.
+
+type UserId = number
+type ProductId = number
+
+type User = {
+    id: UserId;
+    nome: string
+}
+
+type Product = {
+    id: ProductId;
+    nome: string;
+}
+
+const user: User = { id: 31323, nome: "Alice" };
+const product: Product = { id: 98798798, nome: "Notebook" };
+
+// **Exemplo de uso:**
 
