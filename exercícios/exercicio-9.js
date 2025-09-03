@@ -16,7 +16,7 @@
 // const objetoQuadrados = numeros2.reduce((obj, num) => {
 //    obj[num] = num * num;
 //    return obj;
-// }, {});
+// }, {}); 
 // console.log('Objeto com quadrados:', objetoQuadrados); // Resultado esperado: {1: 1, 2: 4, 3: 9, 4: 16}
 
 // // Exercício 4 – Flatten de array
@@ -84,57 +84,95 @@
 // Exercício 1 – Soma de Números
 // Objetivo: Some todos os números do array.
 let numeros1 = [1, 2, 3, 4, 5];
-console.log(numeros1.reduce((total, num) => total + num, 0))
 
+// forma simples
+console.log(numeros1.reduce((soma, num) => soma + num, 0))
+
+// forma verbosa
+let soma = 0;
+for(let num of numeros1) {
+   soma+=num
+}
+console.log(soma)
 
 // Exercício 2 – Contar ocorrências de uma palavra
 // Objetivo: Conte quantas vezes a palavra "sim" aparece no array.
 const respostas = ['sim', 'não', 'sim', 'sim', 'não', 'sim'];
-const ocorrencias = respostas.reduce((occ, word) => (word === 'sim')? occ + 1 : occ, 0)
+const ocorrencias = respostas.reduce((ocorrencia, palavra) => palavra === 'sim'? ocorrencia + 1 : ocorrencia, 0);
 console.log(ocorrencias)
+
+let totalSim = 0;
+for (let palavra of respostas) {
+   totalSim = palavra === 'sim' ? totalSim + 1 : totalSim
+}
+console.log(totalSim)
 
 // Exercício 3 – Transformar array em objeto
 // Objetivo: Transforme o array em um objeto onde a chave é o número e o valor é seu quadrado.
 const numeros2 = [1, 2, 3, 4];
-const arrQuadrado = numeros2.reduce((obj, num) => {
-   obj[num] = num * num
-   return obj
-}, {})
-console.log(arrQuadrado)
+numeros2.reduce((obj, num) => obj[num] = num * num, {})
 
 // Exercício 4 – Flatten de array
 // Objetivo: Transforme um array de arrays em um único array.
-const arrays = [[1, 2], [3, 4], [5]]
+const arrays = [[1, 2], [3, 4], [5]];
 
-const ArrToArray = arrays.reduce((arr, item) => {
-   return  arr.concat(item)
-}, [])
-
-console.log(ArrToArray)
+console.log(arrays.flat())
+const arrFromArr = arrays.reduce((arr, item) => arr.concat(item), [])
+console.log(arrFromArr)
 
 // Exercício 5 – Contar caracteres em uma string
 // Objetivo: Conte a quantidade de vezes que cada letra aparece.
 const palavra = 'banana';
 
-const totalChar = [...palavra].reduce((obj, char) => {
-   obj[char] = (obj[char] || 0) + 1
-   return obj;
+const totalChar = [...palavra].reduce((total, char) => {
+   total[char] = (total[char] || 0) + 1
+   return total;
 }, {})
 console.log(totalChar)
 
-// 8. Esse script JavaScript tem como objetivo transformar uma string em um "código de parênteses", seguindo esta lógica:
+console.log('---')
+let totalChar2 = {}
+for(let char of palavra) {
+   totalChar2[char] = (totalChar2[char] || 0) + 1
+}
+console.log(totalChar2)
 
-// Cada caractere da string é convertido para letra minúscula.
 
-// Se um caractere aparece apenas uma vez na string, ele é substituído por "(".
+// 6. Agrupar objetos por uma propriedade
 
-// Se um caractere aparece mais de uma vez, ele é substituído por ")".
+const pessoas = [
+   { nome: 'Ana', idade: 20 },
+   { nome: 'João', idade: 20 },
+   { nome: 'Maria', idade: 30 }
+]
 
-const string = 'Success';
-console.log([...string.toLowerCase()])
+const objGroup = pessoas.reduce((obj, pessoa) => {
+   // const idade = pessoa.idade
+   obj[pessoa.idade] = obj[pessoa.idade] || []
+   obj[pessoa.idade].push(pessoa)
+   return obj
+}, {})
+console.log(objGroup)
 
-const char = [...string.toLowerCase()].reduce((str, char, i, arr) => {
-   char = arr.indexOf(char) === arr.lastIndexOf(char) ? '(' : ')'
-   return str + char
-}, '')
-console.log(char)
+const objg = {}
+
+for(let pessoa of pessoas) {
+   objg[pessoa.idade] = objg[pessoa.idade] || []
+   objg[pessoa.idade].push(pessoa)
+}
+console.log(objg)
+
+
+// 7. Remover duplicatas
+const comDuplicatas = [1, 2, 2, 3];
+const notDuplicate = comDuplicatas.reduce((arr, num) => {
+   if(!arr.includes(num)) arr.push(num)
+   return arr
+}, [])
+console.log(notDuplicate)
+
+let nDuplicate = []
+for(let num of comDuplicatas) {
+   if(!nDuplicate.includes(num)) nDuplicate.push(num)
+}
+console.log(nDuplicate)
