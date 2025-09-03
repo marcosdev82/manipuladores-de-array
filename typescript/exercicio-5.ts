@@ -169,5 +169,53 @@ type Product = {
 const user: User = { id: 31323, nome: "Alice" };
 const product: Product = { id: 98798798, nome: "Notebook" };
 
+// ## 3. União de estados de requisição 
+
+// **Enunciado:**
+// Crie um `type RequestState` que pode ser `"idle" | "loading" | "success" | "error"`. Use-o em um objeto que represente o estado de um fetch.
+
+type RequestState = "idle" | "loading" | "success" | "error"
+
+interface FetchStatus {
+    status: RequestState;
+    error?: string;
+}
+
+const FetchStatus: FetchStatus = { 
+    status: "success",
+    error: "Seu cadastro foi realizado"
+}
+
+console.log(FetchStatus)
+
+// ## 4. Mapear rotas de um app web
+
+// **Enunciado:**
+// Defina um `type Route` que só pode ser uma das rotas válidas (`"/" | "/login" | "/dashboard"`). Depois crie uma função que receba apenas essas rotas.
+
+type Route =  "/" | "/login" | "/dashboard"
+
+function rota(rota: Route): string {
+    return `http://meusite.com.br${rota}`;
+}
+
+console.log(rota("/dashboard"))
+
+// ## 5. Tipagem para configurações opcionais 
+
+// **Enunciado:**
+// Crie um `type Config` com propriedades opcionais (`theme`, `language`, `debug`) e use-o em uma função `setupApp`.
+
 // **Exemplo de uso:**
 
+type Config = {
+    theme?: string;
+    language?: string;
+    debug?: boolean;
+}
+
+function setupApp(config: Config): string {
+    return JSON.stringify(config);
+} 
+
+console.log(setupApp({debug: true}))
