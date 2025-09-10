@@ -95,12 +95,13 @@
 
 // ### 🔹 **Exercício 1: Tipos Básicos**
 
-// Crie uma função (calcularMedia) que receba dois números e retorne a média entre eles. Tipos devem ser explicitamente definidos.
+// Crie uma função (calcularMedia) que receba dois números e retorne a média entre eles. 
+// Tipos devem ser explicitamente definidos.
 
 function calcularMedia(num1: number, num2: number): number {
     return (num1 + num2) / 2
 }
-console.log(calcularMedia(5,7))
+console.log(calcularMedia(7.5, 9))
 
 // ### 🔹 **Exercício 2: Interface de Objeto**
 
@@ -112,23 +113,29 @@ console.log(calcularMedia(5,7))
 
 // E depois, crie uma função que recebe um `Usuario` e retorna uma frase como:
 
+// > "Usuário Marcos tem 30 anos e está ativo."
+
+console.log('---')
+
 interface Usuario {
     nome: string;
     idade: number;
     ativo: boolean;
 }
 
-function profile(usuario: Usuario): string {
-    return `O usuario ${usuario.nome} tem ${usuario.idade} e está ${usuario.ativo}`
+function descrever (usuario: Usuario): string {
+    return `Usuário ${usuario.nome} tem ${usuario.idade} anos e está ${usuario.ativo ? ' ativo' : 'inativo' }.`
 }
 
-const usuario: Usuario = {
-    nome: "Marcos",
-    idade: 42,
-    ativo: true
+const usuario = {
+    nome: 'Marcos',
+    idade: 43,
+    ativo: false,
 }
 
-console.log('teste', profile(usuario));
+console.log(descrever(usuario))
+
+console.log('---')
 
 
 // ### 🔹 **Exercício 3: Tipos Literais e Union**
@@ -137,24 +144,28 @@ console.log('teste', profile(usuario));
 
 // ```ts
 
-type Direcao = "cima" | "baixo" | "esquerda" | "direita"
+type Direcao = 'cima' | 'baixo' | 'esquerda' | 'direita'
 
 function direcao(direcao: Direcao): string {
     return direcao;
 }
 
-console.log(direcao("cima"))
+console.log(direcao('direita'))
+console.log(direcao('cima'))
+
+console.log('---')
 
 // ### 🔹 **Exercício 4: Generics**
 
 // Crie uma função `retornarPrimeiroElemento` que recebe um array de qualquer tipo e retorna o primeiro elemento.
-function retornarPrimeiroElemento<T>(T: T[]): T {
-    return T[0]
+
+// ```ts
+
+function retornarPrimeiroElemento<T>(num: T[]): T {
+    return num[0]
 }
-
-const arr = [1,2,3,4]
-
-console.log(retornarPrimeiroElemento(arr));
+const arr = [1, 2, 3]
+console.log(retornarPrimeiroElemento(arr))
 
 // ### 🔹 **Exercício 5: Classes e Modificadores**
 
@@ -167,9 +178,10 @@ console.log(retornarPrimeiroElemento(arr));
 // E um método `descrever()` que imprime uma frase como:
 
 class Carro {
-    public marca: string;
-    public modelo: string;
-    public ano: number;
+
+    private marca: string;
+    private modelo: string;
+    private ano: number; 
 
     constructor(marca: string, modelo: string, ano: number) {
         this.marca = marca;
@@ -177,21 +189,9 @@ class Carro {
         this.ano = ano;
     }
 
-    public descrever(): string {
-        return `marca: ${this.marca}, modelo: ${this.modelo}, ano: ${this.ano}`
+    descreve(): string {
+        return `marca: ${this.marca}, modelo: ${this.modelo}, ano: ${this.ano}`;
     }
 }
 
-// class Carro {
-//     constructor(
-//         public marca: string,
-//         public modelo: string,
-//         public ano: number
-//     ) {}
-
-//     public descrever(): string {
-//         return `Marca: ${this.marca}, Modelo: ${this.modelo}, Ano: ${this.ano}`;
-//     }
-// }
-
-console.log(new Carro('Fiat', 'Uno', 1990).descrever())
+console.log(new Carro('Fiat', 'UNO', 1992).descreve());
