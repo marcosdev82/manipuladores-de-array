@@ -55,10 +55,10 @@ const dados = [
   [2, 'Maria', '002'],
   [3, 'Carlos', '003']
 ];
+console.log(dados.filter(([id, pessoa]) => id !== 2))
 
-console.log(dados.filter(([id, nome, codigo]) => codigo !== '002'))
 // 2. Encontre a Maria usando o Array bidimencional
-console.log(dados.filter(([id, nome, codigo]) => nome == 'Maria'))
+console.log(dados.filter(([id, nome]) => nome === 'Maria'))
 
 // 3. Conectando arrays - produtos a seus usuários
 const usuarios = [
@@ -72,27 +72,22 @@ const produtos = [
   { nome: 'Fone', userId: 1 }
 ];
 
-const pedidos = produtos.map((produto) => {
-    const user = usuarios.find((user) => produto.userId === user.id)
-    return {...produto, 'usuario': user?.nome }
+const carrinho = produtos.map((produto) => {
+    const usuario = usuarios.find((user) => produto.userId === user.id)
+    return {'usuario': usuario?.nome, ...produto}
 })
-console.log(pedidos)
+console.log(carrinho)
 
 // 4. Converter objeto em array
-let obj = { a: 1, b: 2, c: 3 };
-
-const arr = Object.entries(obj)
+const obj = { a: 1, b: 2, c: 3 };
+const arr = Object.entries(obj).reduce((arr, item) => {
+  arr[item[0]] = item[1]
+  return arr
+}, [])
 console.log(arr)
-obj = Object.fromEntries(arr)
-console.log(obj)
+console.log(Array.isArray(arr))
 
-// 5. Converter array em objeto
+// // 5. Converter array em objeto
 const array = [['a', 1], ['b', 2], ['c', 3]];
-console.log(Object.fromEntries(array))
-console.log('--------- usando reduce --------')
-
-const arrFlat = array.reduce((obj, item)=> {
-  obj[item[0]] = item[1]
-  return obj
-}, {})
-console.log(arrFlat)
+const arrToObj = Object.fromEntries(array);
+console.log(arrToObj)
