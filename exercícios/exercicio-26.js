@@ -83,3 +83,85 @@
 // let invertida = novaStack.toReversed();
 // console.log(invertida.join(" + "));
 // ```
+
+console.log('-------------')
+
+// ## 🔹 Exercício 1 – Adicionando e exibindo
+
+// 1. Crie um array com `[2, 3, 4]`.
+// 2. Use `unshift()` para adicionar `1` no início.
+// 3. Use `toString()` para exibir o array como string.
+
+// 👉 Resultado esperado: `"1,2,3,4"`
+
+const arrNum = [2, 3, 4]
+console.log(arrNum.unshift(1))
+console.log(arrNum.toString())
+console.log(arrNum)
+
+// ## 🔹 Exercício 2 – Trabalhando com valores
+
+// 1. Crie um array `["maçã", "banana", "uva"]`.
+// 2. Use `values()` para iterar pelos valores.
+// 3. Transforme todos em maiúsculo e junte em uma string usando `join("-")`.
+
+// 👉 Resultado esperado: `"MAÇÃ-BANANA-UVA"`
+
+const fruits = ["maçã", "banana", "uva"]
+let fruitsUppercase = []
+for(let fruit of fruits.values()){
+    fruitsUppercase.push(fruit.toUpperCase())
+}
+console.log(fruitsUppercase.join('-'));
+
+fruitsUppercase = [...fruits.values()].map((f) => f.toUpperCase()).join('-')
+console.log(fruitsUppercase)
+
+
+// ## 🔹 Exercício 3 – Atualizando com `with()`
+
+// 1. Crie um array `[10, 20, 30]`.
+// 2. Use `with()` para trocar o valor da posição 1 para `99`.
+// 3. Converta o array resultante em string usando `join("|")`.
+
+// 👉 Resultado esperado: `"10|99|30"`
+
+const arr = [10, 20, 30]
+const arrLaterado = arr.with(1,99).join("|")
+console.log(arrLaterado)
+
+// ## 🔹 Exercício 4 – Revertendo sem alterar original
+
+// 1. Crie um array `[5, 6, 7]`.
+// 2. Use `toReversed()` para criar uma cópia invertida.
+// 3. Converta os dois arrays (`original` e `invertido`) em string usando `toString()`.
+
+// 👉 Resultado esperado:
+
+// * Original: `"5,6,7"`
+// * Invertido: `"7,6,5"`
+
+// ```javascript
+let numeros = [5, 6, 7];
+
+console.log(numeros.toString())
+console.log(numeros.toReversed().toString())
+
+// ## 🔹 Exercício 5 – Desafio combinando tudo 🚀
+
+// 1. Crie um array `["html", "css"]`.
+// 2. Use `unshift()` para adicionar `"js"` no início.
+// 3. Use `with()` para substituir o último valor por `"react"`.
+// 4. Use `toReversed()` para inverter a ordem.
+// 5. Use `join(" + ")` para formar uma string final.
+
+// 👉 Resultado esperado: `"react + css + js"`
+
+// ```javascript
+let stack = ["html", "css"];
+stack.unshift("JavaScript")
+console.log(stack)
+console.log(stack.with(2, "React"))
+console.log(stack.toReversed())
+console.log(stack.join(" + "))
+
