@@ -96,8 +96,8 @@ console.log('-------------')
 
 const arrNum = [2, 3, 4]
 console.log(arrNum.unshift(1))
-console.log(arrNum.toString())
 console.log(arrNum)
+console.log(arrNum.toString())
 
 // ## 🔹 Exercício 2 – Trabalhando com valores
 
@@ -107,16 +107,12 @@ console.log(arrNum)
 
 // 👉 Resultado esperado: `"MAÇÃ-BANANA-UVA"`
 
-const fruits = ["maçã", "banana", "uva"]
-let fruitsUppercase = []
-for(let fruit of fruits.values()){
-    fruitsUppercase.push(fruit.toUpperCase())
-}
-console.log(fruitsUppercase.join('-'));
-
-fruitsUppercase = [...fruits.values()].map((f) => f.toUpperCase()).join('-')
-console.log(fruitsUppercase)
-
+// ```javascript
+const frutas = ["maçã", "banana", "uva"];
+const interatorFruit = Object.values(frutas)
+console.log(interatorFruit)
+const fruitUppercase = interatorFruit.map((fruta) => fruta.toUpperCase())
+console.log(fruitUppercase.join("-"))
 
 // ## 🔹 Exercício 3 – Atualizando com `with()`
 
@@ -126,9 +122,10 @@ console.log(fruitsUppercase)
 
 // 👉 Resultado esperado: `"10|99|30"`
 
-const arr = [10, 20, 30]
-const arrLaterado = arr.with(1,99).join("|")
-console.log(arrLaterado)
+// ```javascript
+let numeros = [10, 20, 30];
+console.log(numeros.with(1,99).join("|"))
+
 
 // ## 🔹 Exercício 4 – Revertendo sem alterar original
 
@@ -137,15 +134,8 @@ console.log(arrLaterado)
 // 3. Converta os dois arrays (`original` e `invertido`) em string usando `toString()`.
 
 // 👉 Resultado esperado:
-
-// * Original: `"5,6,7"`
-// * Invertido: `"7,6,5"`
-
-// ```javascript
-let numeros = [5, 6, 7];
-
-console.log(numeros.toString())
-console.log(numeros.toReversed().toString())
+const arrNum2 = [5, 6, 7]
+console.log(arrNum2.toReversed().toString())
 
 // ## 🔹 Exercício 5 – Desafio combinando tudo 🚀
 
@@ -159,9 +149,9 @@ console.log(numeros.toReversed().toString())
 
 // ```javascript
 let stack = ["html", "css"];
-stack.unshift("JavaScript")
+console.log(stack.unshift("js"))
 console.log(stack)
-console.log(stack.with(2, "React"))
-console.log(stack.toReversed())
-console.log(stack.join(" + "))
+console.log(stack.with(2, 'React').toReversed().join(" + "))
+
+
 
