@@ -57,4 +57,40 @@
 // * Se `user.active` for falsy, imprima `"Usuário inativo"`.
 // * Se `user.age < 18`, imprima `"Usuário menor de idade"`.
 // * Caso contrário, imprima `"Usuário ativo e maior de idade"`.
- 
+
+console.log('--------')
+
+
+// Crie uma função `checkBalance(saldo)` que:
+
+// * Se o saldo for **falsy** (`0`, `null`, `undefined`), imprima `"Saldo zerado ou inválido"`.
+// * Se o saldo for **positivo**, imprima `"Saldo positivo"`.
+// * Se o saldo for **negativo**, imprima `"Saldo negativo"`.
+
+// **Teste com:** `0`, `150`, `-20`, `null`.
+
+function checkBalance(saldo) {
+    if (saldo === 0 || saldo === null || saldo === undefined) {
+        return "Saldo zerado ou inválido";
+    } else if (saldo > 0) {
+        return "Saldo positivo";
+    } else if (saldo < 0) {
+        return "Saldo negativo";
+    }
+}
+console.log(checkBalance(0))
+console.log(checkBalance(150))
+console.log(checkBalance(-20))
+console.log(checkBalance(null))
+
+// código simplificado
+
+// function checkBalance(saldo) {
+//   if (!saldo) {
+//     return "Saldo zerado ou inválido";
+//   } else if (saldo > 0) {
+//     return "Saldo positivo";
+//   } else {
+//     return "Saldo negativo";
+//   }
+// }

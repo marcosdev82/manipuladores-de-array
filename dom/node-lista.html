@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="parent"></ul>
+    <ul id="parent2"></ul>
+    <script>
+      // live
+      const parent = document?.getElementById("parent");
+      console.log(parent);
+      parent.appendChild(document.createElement("li"));
+      parent.appendChild(document.createElement("li"));
+      console.log(parent.children);
+
+      // static
+      const parent2 = document.querySelector("#parent2");
+      console.log(parent2);
+      parent2.appendChild(document.createElement("li"));
+      console.log(parent2.children); // outputs "3"
+    </script>
+  </body>
+</html>

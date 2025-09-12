@@ -104,3 +104,31 @@
 // numberStorage.addItem(20);
 // console.log(numberStorage.getItems());
 // ```
+
+console.log('---------------- Exercício 1 -----------------');
+
+// ### **1. Função de Identidade Genérica**
+
+// Crie uma função genérica `identity` que receba um valor de qualquer tipo e retorne esse mesmo valor.
+
+function identity<T>(valor: T): T {
+    return valor;
+}
+
+console.log(identity<string>('teste'))
+console.log(identity<number>(13313))
+console.log(identity<number[]>([1,2]))
+console.log(identity<Object>({'1':'2'}))
+
+// ### **2. Array Genérico**
+
+// Crie uma função `mergeArrays` que receba dois arrays de qualquer tipo e retorne um único array contendo os elementos de ambos.
+
+function mergeArrays<T>(arr1: T[], arr2: T[]): T[] {
+    return arr1.concat(arr2);
+}
+
+const arr1 = [1,2]
+const arr2 = [3,4]
+
+console.log(mergeArrays(arr1, arr2))
