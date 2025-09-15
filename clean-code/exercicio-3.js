@@ -125,4 +125,45 @@
 
 // ---
 
- 
+// ### **Exercício 12 – Evitar aninhamento profundo**
+
+// Você tem o seguinte código:
+
+// ```js
+// if (user) {
+//   if (user.active) {
+//     if (user.role === "admin") {
+//       console.log("Acesso permitido");
+//     }
+//   }
+// }
+// ```
+
+// **Tarefa:** Reescreva para **reduzir o aninhamento** e melhorar a legibilidade.
+
+if (user && user.active && user.role === 'admin') {
+    console.log("Acesso permitido")
+}
+
+// melhorias de clareza:
+const isValidUser = user && user.active;
+const isAdmin = isValidUser && user.role === 'admin';
+
+if (isAdmin) {
+    console.log("Acesso permitido");
+}
+
+// ---
+
+// ### **Exercício 13 – Função com responsabilidade única**
+
+// Dada a função:
+
+// ```js
+// function process(data) {
+//   console.log("Iniciando");
+//   data.forEach(d => console.log(d));
+//   console.log("Finalizado");
+// }
+//
+// ```

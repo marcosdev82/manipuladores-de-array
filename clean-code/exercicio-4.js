@@ -1,6 +1,11 @@
 // ### **Exercício 22 – Funções puras**
 
+
 // Reescreva a função abaixo para que seja **pura** (não altere variáveis externas):
+
+// O problema da função original é que ela modifica uma variável externa (total), então não é pura.
+
+// Uma função pura não deve ter efeitos colaterais e sempre retorna o mesmo valor para os mesmos argumentos.
 
 // ```js
 // let total = 0;
@@ -132,3 +137,47 @@
 
 // **Tarefa:** Reescreva usando **nomes descritivos** para `a` e `b`.
  
+
+console.log('-----')
+
+// ### **Exercício 22 – Funções puras**
+
+// Reescreva a função abaixo para que seja **pura** (não altere variáveis externas):
+
+// O problema da função original é que ela modifica uma variável externa (total), então não é pura.
+
+// Uma função pura não deve ter efeitos colaterais e sempre retorna o mesmo valor para os mesmos argumentos.
+
+// ```js
+// let total = 0;
+// function addValue(x) {
+//   total += x;
+//   return total;
+// }
+// ```
+
+let total = 0
+
+function addValue(total, x) {
+    return  total + x
+}
+
+// function addValue(x) {
+//   total += x;
+//   return total;
+// }
+
+console.log(addValue(10, 1));
+console.log(total)
+
+// ### **Exercício 23 – Evitar funções anônimas excessivas**
+
+// Transforme o código usando **funções nomeadas** em vez de anônimas para melhorar a legibilidade:
+
+// ```js
+// [1,2,3].forEach(function(n){ console.log(n); });
+// ```
+
+function showNumber(n) {console.log(n)}
+
+[1,2,3].forEach(showNumber);

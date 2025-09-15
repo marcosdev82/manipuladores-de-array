@@ -137,13 +137,12 @@ console.log('-------------------------------')
 // 👉 Verifica se um valor existe dentro de um array ou string.
 
 // **Exercício:**
-// Crie um array com nomes de frutas.  verificar se ela a fruta especificada está no array.
+// Crie um array com nomes de frutas.  verificar se a fruta especificada está no array.
 
 // ```javascript
 const frutas = ["maçã", "banana", "uva", "laranja"];
-const strFrutas = frutas.toString()
-console.log(strFrutas.includes('maçã'))
-console.log(frutas.includes("banana"))
+console.log(frutas.includes("maçã"))
+
 
 // ## 🔹 2. `fromEntries()`
 
@@ -154,7 +153,7 @@ console.log(frutas.includes("banana"))
 
 // ```javascript
 const pares = [["nome", "Ana"], ["idade", 22], ["cidade", "Fortaleza"]];
-console.log(Object.entries(pares))
+console.log(Object.fromEntries(pares))
 
 // ## 🔹 3. `unshift()`
 
@@ -163,9 +162,9 @@ console.log(Object.entries(pares))
 // **Exercício:**
 // Crie um array de números `[2, 3, 4]` e adicione o número `1` no início usando `unshift()`.
 
-const arrNumber = [2, 3, 4];
-console.log(arrNumber.unshift(1))
-console.log(arrNumber)
+const numbers = [2, 3, 4]
+console.log(numbers.unshift(1))
+console.log(numbers)
 
 // ## 🔹 5. `keys()`
 
@@ -174,43 +173,5 @@ console.log(arrNumber)
 // **Exercício:**
 // Crie um array com três cores e percorra os índices usando `keys()`.
 
-const cores = ['red', 'green', 'blue']
-console.log()
-for(let indice of Object.keys(cores)) {
-    console.log(cores[indice])
-}
-
-// ## 🔹 6. `values()`
-
-// 👉 Retorna um iterador com os valores de um array.
-
-// **Exercício:**
-// Usando o mesmo array `cores`, percorra apenas os valores.
-for(let v of cores.values()) {
-    console.log(v)
-}
-
-// ## 🔹 7. `map()`
-
-// 👉 Cria um novo array a partir de uma transformação.
-
-// **Exercício:**
-// Dado um array `[1, 2, 3, 4]`, crie um novo array com cada número ao quadrado.
-
-const quadrado = [1, 2, 3, 4];
-console.log(quadrado.map((num) => num ** 2));
-console.log(quadrado.map((num) => num  * num));
-
-
-// ## 🔹 8. `forEach()`
-
-// 👉 Executa uma função para cada item do array (não retorna novo array).
-
-// **Exercício:**
-// Percorra um array de nomes e exiba cada um em maiúsculas.
-
 // ```javascript
-const nomes = ["ana", "joão", "maria"];
-nomes.forEach((nome) => {
-    console.log(nome.toUpperCase())
-})
+const cores = ["vermelho", "azul", "verde"];

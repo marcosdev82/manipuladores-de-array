@@ -94,10 +94,10 @@ console.log('-------------')
 
 // 👉 Resultado esperado: `"1,2,3,4"`
 
-const arrNum = [2, 3, 4]
-console.log(arrNum.unshift(1))
-console.log(arrNum)
-console.log(arrNum.toString())
+const arrFruit = [2, 3, 4]
+console.log(arrFruit.unshift(1))
+console.log(arrFruit)
+
 
 // ## 🔹 Exercício 2 – Trabalhando com valores
 
@@ -109,10 +109,9 @@ console.log(arrNum.toString())
 
 // ```javascript
 const frutas = ["maçã", "banana", "uva"];
-const interatorFruit = Object.values(frutas)
-console.log(interatorFruit)
-const fruitUppercase = interatorFruit.map((fruta) => fruta.toUpperCase())
-console.log(fruitUppercase.join("-"))
+const iterator = frutas.values()
+console.log(iterator)
+console.log([...iterator].map((fruit) => fruit.toUpperCase()).join('-'))
 
 // ## 🔹 Exercício 3 – Atualizando com `with()`
 
@@ -126,7 +125,6 @@ console.log(fruitUppercase.join("-"))
 let numeros = [10, 20, 30];
 console.log(numeros.with(1,99).join("|"))
 
-
 // ## 🔹 Exercício 4 – Revertendo sem alterar original
 
 // 1. Crie um array `[5, 6, 7]`.
@@ -134,8 +132,15 @@ console.log(numeros.with(1,99).join("|"))
 // 3. Converta os dois arrays (`original` e `invertido`) em string usando `toString()`.
 
 // 👉 Resultado esperado:
-const arrNum2 = [5, 6, 7]
-console.log(arrNum2.toReversed().toString())
+
+// * Original: `"5,6,7"`
+// * Invertido: `"7,6,5"`
+
+// ```javascript
+let numeros2 = [5, 6, 7];
+let newArr = numeros2.toReversed()
+console.log(newArr.toString())
+console.log(numeros2.toString())
 
 // ## 🔹 Exercício 5 – Desafio combinando tudo 🚀
 
@@ -149,9 +154,8 @@ console.log(arrNum2.toReversed().toString())
 
 // ```javascript
 let stack = ["html", "css"];
-console.log(stack.unshift("js"))
+stack.unshift("js")
 console.log(stack)
-console.log(stack.with(2, 'React').toReversed().join(" + "))
-
-
+let newArr2 = stack.with(2,'REACT')
+console.log(newArr2.toReversed().join(" + "))
 
