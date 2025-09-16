@@ -125,18 +125,9 @@ console.log('-----------------------------')
 
 // ```js
 const frutas = ["maçã", "banana", "laranja"];
+console.log(Object.fromEntries(frutas.map((fruta, index) => [index, fruta])))
 
-const arrFrutas = frutas.map((fruta, indice) => [indice, fruta])
-
-const arrFrutas2 = Object.entries(frutas)
-
-console.log(arrFrutas)
-console.log(arrFrutas2)
-
-console.log('----------')
-
-console.log(Object.fromEntries(arrFrutas))
-console.log(Object.fromEntries(arrFrutas2))
+// ---
 
 // ### 2. Objeto → Array
 
@@ -145,15 +136,8 @@ console.log(Object.fromEntries(arrFrutas2))
 
 // ```js
 const cores = { 0: "vermelho", 1: "azul", 2: "verde" };
-// ```
-
-// 👉 Converta-o para um array simples.
-
-const arrCores = Object.entries(cores)
-console.log(arrCores)
-console.log(Object.values(cores))
-
-console.log('----------')
+console.log(Object.entries(cores))
+console.log(Array.isArray(Object.entries(cores)))
 
 // ### 3. Array Bidimensional → Objeto
 
@@ -162,9 +146,6 @@ console.log('----------')
 
 // ```js
 const pares = [["nome", "João"], ["idade", 25], ["cidade", "São Paulo"]];
-
-// 👉 Converta em um objeto com chave/valor.
-
 console.log(Object.fromEntries(pares))
 
 // ### 4. Objeto com Objetos → Array
@@ -174,31 +155,20 @@ console.log(Object.fromEntries(pares))
 
 // ```js
 const usuarios = {
-    user1: { nome: "Ana", idade: 20 },
-    user2: { nome: "Carlos", idade: 30 },
-    user3: { nome: "Maria", idade: 25 }
+  user1: { nome: "Ana", idade: 20 },
+  user2: { nome: "Carlos", idade: 30 },
+  user3: { nome: "Maria", idade: 25 }
 };
 // ```
-
-// 👉 Converta em um array apenas com os valores.
-
-console.log(Object.values(usuarios))
-
+const arrUser = Object.values(usuarios)
+console.log(arrUser)
 
 // ### 5. Desafio Extra 🚀
 
 // **Enunciado:**
 // Pegue o objeto do exercício 4 e converta em um array de strings no formato:
 
+// ```js
 // ["Ana - 20 anos", "Carlos - 30 anos", "Maria - 25 anos"]
-
-// const arrUser = Object.values(usuarios).reduce((arr, obj) => {
-//     return arr.concat(obj.nome + ' - ' + obj.idade + ' anos');
-//     // return arr;
-// }, [])
-// console.log(arrUser)
-
-const usuariosStrings = Object.values(usuarios).map(
-  (u) => `${u.nome} - ${u.idade} anos`
-);
-console.log(Object.values(usuarios), usuariosStrings)
+//
+console.log(arrUser.map((user) => user.nome + ' - ' + user.idade))
