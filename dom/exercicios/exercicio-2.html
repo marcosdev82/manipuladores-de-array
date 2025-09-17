@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 2</title>
+  </head>
+  <body>
+    <strong
+      >1. Criar um elemento div html com um id e adicionar um parágrafo com
+      javascript</strong
+    ><br />
+    <div id="container"></div>
+
+    <script src="exercicio-2.js"></script>
+    <script>
+      (function () {
+        "use strict";
+
+        const container = document.getElementById("container");
+        // console.log(container);
+        const paragrafo = document.createElement("p");
+        // console.log(paragrafo);
+        paragrafo.textContent = "Elemento criado";
+        container.appendChild(paragrafo);
+        // console.log(container);
+      })();
+    </script>
+
+    <!----------------------------------------------------------->
+
+    <strong
+      >2. Alterar o texto de todos os elementos por Item atualizado</strong
+    >
+    <ul>
+      <li>Item antigo 1</li>
+      <li>Item antigo 2</li>
+      <li>Item antigo 3</li>
+    </ul>
+    <script>
+      (function () {
+        "use strict";
+        const lista = document.querySelectorAll("ul li");
+        // console.log(lista);
+        lista.forEach((item) => {
+          item.textContent = "Item atualizado";
+        });
+        // console.log(lista);
+      })();
+    </script>
+
+    <!----------------------------------------------------------->
+
+    <strong>3. Selecionar e estilizar o texto</strong>
+
+    <h1 id="titulo">Título original</h1>
+
+    <script>
+      (function () {
+        "use strict";
+        const titulo = document.getElementById("titulo");
+        console.log(titulo);
+        titulo.classList.add("estizado");
+      })();
+    </script>
+
+    <style>
+      .estizado {
+        color: blue;
+        font-weight: bold;
+      }
+    </style>
+
+    <!----------------------------------------------------------->
+
+    <strong>4. Criar botão com atributo type submit</strong>
+    <form class="form"></form>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const btn = document.createElement("button");
+        console.log(btn);
+        btn.setAttribute("type", "submit");
+        btn.textContent = "Enviar";
+        document.querySelector(".form").appendChild(btn);
+      })();
+    </script>
+
+    <!----------------------------------------------------------->
+
+    <strong>5. Criar lista dinamicamente com nome item e o numro da key</strong>
+    <div id="lista"></div>
+
+    <script>
+      (function () {
+        "use strict";
+        const lista = document.querySelector("#lista");
+        // console.log(lista);
+        const ul = document.createElement("ul");
+
+        for (let i = 1; i <= 5; i++) {
+          let li = document.createElement("li");
+          li.textContent = `Item ${i}`;
+          ul.appendChild(li);
+        }
+        lista.appendChild(ul);
+        console.log(lista);
+      })();
+    </script>
+
+    <!----------------------------------------------------------->
+
+    <strong>6. Adicionar classe em vários elementos</strong>
+
+    <p>Primeiro parágrafo</p>
+    <p>Segundo parágrafo</p>
+    <p>Terceiro parágrafo</p>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const paragrafo = document.querySelectorAll("p");
+
+        // paragrafo.forEach((p) => p.setAttribute("class", "text"));
+        paragrafo.forEach((p) => p.classList.add("text"));
+      })();
+    </script>
+    <style>
+      .text {
+        color: red;
+      }
+    </style>
+
+    <!----------------------------------------------------------->
+
+    <strong>7. Criar imagem dinamicamente dentro de um tag figure</strong>
+
+    <figure id="thumb"></figure>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const figure = document.getElementById("thumb");
+        console.log(figure);
+        const image = document.createElement("img");
+        image.setAttribute(
+          "src",
+          "https://images.vexels.com/media/users/3/144131/isolated/preview/29576a7e0442960346703d3ecd6bac04-icone-de-doodle-de-imagem.png"
+        );
+        image.setAttribute("width", 100);
+        image.setAttribute("height", 100);
+        console.log(image);
+        figure.appendChild(image);
+      })();
+    </script>
+
+    <!----------------------------------------------------------->
+
+    <strong>8. Criar link externo</strong>
+
+    <div id="link"></div>
+
+    <script>
+      (function () {
+        "use strict";
+        const link = document.querySelector("#link");
+        console.log(link);
+        const a = document.createElement("a");
+        console.log(a);
+        a.setAttribute("href", "https://github.com/");
+        a.setAttribute("alt", "GitHub");
+        a.setAttribute("target", "_blank");
+        a.textContent = "Github";
+        link.appendChild(a);
+        console.log(link);
+      })();
+    </script>
+
+    <!----------------------------------------------------------->
+
+    <strong>9. Criar card com título e descrição</strong>
+
+    <main id="main"></main>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const main = document.getElementById("main");
+        const card = document.createElement("div");
+        const h1 = document.createElement("h1");
+        const p = document.createElement("p");
+        h1.textContent = "Meu card 1";
+        p.textContent = "descrição do card";
+        card.classList.add("card");
+
+        card.appendChild(h1);
+        card.appendChild(p);
+        main.appendChild(card);
+      })();
+    </script>
+    <style>
+      .card {
+        border: 1px solid #f2f2f2;
+        padding: 15px;
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+      }
+    </style>
+
+    <!----------------------------------------------------------->
+
+    <strong> 10. Criar tabela simples</strong>
+
+    <main id="wrap-tabela"></main>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const wrapTabela = document.getElementById("wrap-tabela");
+        console.log(wrapTabela);
+        const tabela = document.createElement("table");
+        console.log(tabela);
+        const tr1 = document.createElement("tr");
+        const td1 = document.createElement("td");
+        const td2 = document.createElement("td");
+
+        const tr2 = document.createElement("tr");
+        const td3 = document.createElement("td");
+        const td4 = document.createElement("td");
+
+        td1.textContent = "nome";
+        td2.textContent = "email";
+        td3.textContent = "marcos tavares";
+        td4.textContent = "marcos@teste.com";
+
+        tr1.appendChild(td1);
+        tr1.appendChild(td2);
+        tr2.appendChild(td3);
+        tr2.appendChild(td4);
+        tabela.appendChild(tr1);
+        tabela.appendChild(tr2);
+
+        wrapTabela.appendChild(tabela);
+      })();
+    </script>
+    <style>
+      table,
+      tr,
+      td {
+        border: 1px solid #f2f2f2;
+        padding: 5px;
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>
