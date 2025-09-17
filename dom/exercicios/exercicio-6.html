@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 6</title>
+  </head>
+  <body>
+    <div class="todolist">
+      <input id="task" type="text" name="task" />
+      <button id="add">add +</button>
+      <ul id="listTask"></ul>
+    </div>
+    <script>
+      //    * O texto da tarefa
+      //    * Um botão "✔️ Concluir" (que adiciona a classe `done` na `<li>`)
+      //    * Um botão "❌ Remover" (que deleta a `<li>`).
+      // 4. Use **`classList.add()`** para estilizar os itens concluídos (ex.: texto riscado).
+      // 5. Use **`appendChild()`** para inserir os elementos dinamicamente.
+      // 6. Use **`querySelectorAll()`** para manipular os botões criados.
+
+      (function () {
+        "use strict";
+
+        const input = document.getElementById("task");
+        const btn = document.getElementById("add");
+        const list = document.getElementById("listTask");
+
+        const arrList = [];
+
+        function createElementTask() {
+          return document.createElement("li");
+        }
+
+        function add(value) {
+          arrList.push(value);
+          render();
+        }
+
+        document.querySelector("ul").addEventListener("click", (e) => {
+          if (e.target.getAttribute("data-index")) {
+            console.log(arrList.splice(e.target.dataset.index, 1));
+            render();
+          }
+        });
+
+        function render() {
+          list.innerHTML = "";
+          let i = 0;
+          for (let value of arrList) {
+            const li = createElementTask();
+            li.innerHTML = `${value} <button data-index="${i++}" class="remove">-</button>`;
+            list.appendChild(li);
+          }
+        }
+
+        btn.addEventListener("click", (e) => {
+          const value = input.value;
+          input.value = "";
+          if (value === "") {
+            alert("Digite um tarefa");
+            return;
+          }
+          //   console.log(value);
+          add(value);
+        });
+        render();
+      })();
+
+      // script melhorado:
+
+      //   (function () {
+      //     "use strict";
+
+      //     const input = document.getElementById("task");
+      //     const btn = document.getElementById("add");
+      //     const list = document.getElementById("listTask");
+      //     const arrList = [];
+
+      //     function createElementTask() {
+      //       return document.createElement("li");
+      //     }
+
+      //     function add(value) {
+      //       if (!arrList.includes(value)) {
+      //         // Verifica se a tarefa já existe
+      //         arrList.push(value);
+      //         render();
+      //         alert("Tarefa adicionada com sucesso!");
+      //       } else {
+      //         alert("Tarefa já existe!");
+      //       }
+      //     }
+
+      //     list.addEventListener("click", (e) => {
+      //       const index = e.target.dataset.index;
+      //       if (index !== undefined) {
+      //         arrList.splice(index, 1);
+      //         render();
+      //       }
+      //     });
+
+      //     function render() {
+      //       list.innerHTML = "";
+      //       arrList.forEach((value, i) => {
+      //         const li = createElementTask();
+      //         li.innerHTML = `${value} <button data-index="${i}" class="remove">-</button>`;
+      //         list.appendChild(li);
+      //       });
+      //     }
+
+      //     btn.addEventListener("click", () => {
+      //       const value = input.value.trim();
+      //       input.value = "";
+      //       if (value === "") {
+      //         alert("Digite uma tarefa");
+      //         return;
+      //       }
+      //       add(value);
+      //     });
+
+      //     render();
+      //   })();
+    </script>
+  </body>
+</html>

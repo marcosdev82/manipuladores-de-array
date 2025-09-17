@@ -1,6 +1,3 @@
-// Beleza 🚀 Vou montar um **desafio de JavaScript manipulando o DOM** bem completo, que envolva várias funções clássicas (`createElement`, `getElementById`, `querySelectorAll`, `classList`, `appendChild`, `setAttribute`, etc).
-
-// ---
 
 // ## 🔥 Desafio: Lista de Tarefas Interativa
 
@@ -107,6 +104,12 @@
 // * `appendChild`
 // * `querySelectorAll` (se quiser manipular todos os botões depois)
 
-// ---
+console.log('-----------------------------')
 
-// Quer que eu monte **mais 2 variações** de desafios (ex.: um com **modal** e outro com **filtro de pesquisa**) para ficar como uma trilha de treino em DOM?
+// ### Regras do desafio:
+
+// 1. O HTML deve começar apenas com um **input**, um **botão** e uma `<ul>` vazia.
+// 2. Cada vez que o usuário clicar em "Adicionar", o valor do input deve virar uma `<li>` dentro da lista.
+// 3. Cada `<li>` deve ter:
+
+
