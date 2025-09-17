@@ -113,3 +113,119 @@
 // 3. Use `map` para criar um array de strings no formato `"chave - valor"`.
 // 4. Converta o array de pares de volta em objeto usando `Object.fromEntries`.
 // 5. Acrescente manualmente a chave `editora: "TechBooks"` usando `reduce` ou `Object.assign`.
+
+console.log('------------------------')
+
+// ## 📝 Exercícios
+
+// ### 1. `Object.keys`
+
+// Dado:
+
+// ```js
+const user = { nome: "Carlos", idade: 30, cidade: "Recife" };
+// ```
+
+// 👉 Use `Object.keys` para obter todas as chaves.
+// Resultado esperado:
+
+// ```
+// ["nome", "idade", "cidade"]
+// ```
+
+console.log(Object.keys(user))
+
+// ---
+
+// ### 2. `Object.values`
+
+// Dado:
+
+// ```js
+const produto = { nome: "Camiseta", preco: 59.9, estoque: 20 };
+// ```
+
+// 👉 Use `Object.values` para pegar os valores.
+// Resultado esperado:
+
+// ```
+// ["Camiseta", 59.9, 20]
+// ```
+
+console.log(Object.values(produto))
+
+// ### 3. `Object.entries`
+
+// Dado:
+
+// ```js
+const config = { darkMode: true, version: "1.2.0" };
+// ```
+
+// 👉 Transforme o objeto em array de pares e percorra imprimindo:
+
+// ```
+// darkMode → true
+// version → 1.2.0
+// ```
+
+for(let [k,v] of Object.entries(config)){
+    console.log(`${k}: ${v}`)
+}
+
+// ### 4. `Object.entries` + `map`
+
+// Dado:
+
+// ```js
+const aluno = { nome: "Maria", nota: 9, turma: "3A" };
+// ```
+
+// 👉 Crie um array de strings no formato:
+
+// ```
+// ["nome: Maria", "nota: 9", "turma: 3A"]
+// ```
+
+const arr = Object.entries(aluno)
+
+console.log(arr.map(([key, value]) => key + ': ' + value))
+
+// ### 5. `Object.fromEntries`
+
+// Dado:
+
+// ```js
+const arr2 = [["marca", "Dell"], ["cpu", "i7"], ["ram", "16GB"]];
+// ```
+
+// 👉 Converta para objeto.
+// Resultado esperado:
+
+// ```
+// { marca: "Dell", cpu: "i7", ram: "16GB" }
+// ```
+
+console.log(Object.fromEntries(arr2))
+
+// ---
+
+// ### 7. Desafio Final
+
+// 1. Pegue este objeto:
+
+// ```js
+const livro = { titulo: "JS para Iniciantes", paginas: 250, autor: "João" };
+// ```
+
+// 2. Transforme em array de pares (`Object.entries`).
+// 3. Use `map` para criar um array de strings no formato `"chave - valor"`.
+// 4. Converta o array de pares de volta em objeto usando `Object.fromEntries`.
+// 5. Acrescente manualmente a chave `editora: "TechBooks"` usando `reduce` ou `Object.assign`.
+
+let arrLivros = Object.entries(livro)
+let arrStr = arrLivros.map(([key, value]) => [key, value])
+console.log(arrStr)
+let obj = Object.fromEntries(arrStr)
+console.log(obj)
+console.log(Object.assign(obj, {'editora': 'TechBooks'}))
